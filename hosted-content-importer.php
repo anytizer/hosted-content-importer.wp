@@ -10,7 +10,7 @@
  */
 
 /**
- * [third source="database" id="0" section="0"]
+ * [third source="none|file|database|url|wikipedia" id="0" section="0"]
  */
 class Hosted_Content_Shortcode
 {
@@ -84,27 +84,40 @@ class Hosted_Content_Importer
 	}
 
 	/**
-	 * Parse when content importer is not defined.
+	 * Response when content importer is not defined.
 	 *
 	 * @param int $content_id
 	 * @param int $section_id
 	 *
 	 * @return string
 	 */
-	public function hci_none($content_id = 0, $section_id = 0)
+	private function hci_none($content_id = 0, $section_id = 0)
 	{
 		return "Content importer not defined. Using default: <strong>none({$content_id}, {$section_id})</strong>.";
 	}
 
 	/**
-	 * @todo Read the real URL
+	 * Import content from local file
 	 *
 	 * @param int $content_id
 	 * @param int $section_id
 	 *
 	 * @return string
 	 */
-	public function hci_url($content_id = 0, $section_id = 0)
+	private function hci_file($content_id = 0, $section_id = 0)
+	{
+		return "Content importer local file not defined. <strong>file({$content_id}, {$section_id})</strong>.";
+	}
+
+	/**
+	 * @todo Import content from an URL (remote file)
+	 *
+	 * @param int $content_id
+	 * @param int $section_id
+	 *
+	 * @return string
+	 */
+	private function hci_url($content_id = 0, $section_id = 0)
 	{
 		$url = "http://server/serve?import={$content_id}&section={$section_id}";
 
@@ -112,21 +125,21 @@ class Hosted_Content_Importer
 	}
 
 	/**
-	 * @todo Implement fetching from the database, possibly reuse WordPress connection
+	 * Fetch content from the database, (possibly) reusing WordPress's existing connection
 	 *
 	 * @param int $content_id
 	 * @param int $section_id
 	 *
 	 * @return string
 	 */
-	public function hci_database($content_id = 0, $section_id = 0)
+	private function hci_database($content_id = 0, $section_id = 0)
 	{
 		global $wpdb;
 
 		switch ($section_id) {
 			case 'latest':
 			case 'recent':
-				$rows = $wpdb->get_results("SELECT post_title, guid FROM wp_posts WHERE post_status='publish' ORDER BY ID DESC LIMIT 5;");
+				$rows = $wpdb->get_results("SELECT post_title, guid FROM {$wpdb->prefix}posts WHERE post_type='post' AND post_status='publish' ORDER BY ID DESC LIMIT 5;");
 				$html = array();
 				foreach ($rows as $row) {
 					$html[] = "<li><a href='{$row->guid}'>{$row->post_title}</a></li>";
@@ -149,7 +162,7 @@ class Hosted_Content_Importer
 	 *
 	 * @return mixed|string
 	 */
-	public function hci_wikipedia($content_id = 0, $section_id = 0)
+	private function hci_wikipedia($content_id = 0, $section_id = 0)
 	{
 		$parameters = array(
 			'format' => 'json',
@@ -172,10 +185,9 @@ class Hosted_Content_Importer
 		$json = json_decode($content_extracted);
 
 		/**
-		 * @todo Parse the necessary content
+		 * @todo Extract the necessary content
 		 */
 		$content = print_r($json, true);
-
 		return $content;
 
 		return "Extracting contents from Wikipedia.";
