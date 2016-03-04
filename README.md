@@ -5,11 +5,11 @@ WordPress plugin to fetch programmed (dynamic) contents from third party resourc
 
 ## Usage examples
 
-Third: [third id="0"]
-Third full: [third id="0" self="0"]
-Third Sourced: [third source="database" id="0" self="0"]
-Third Sourced: [third source="url" id="0" self="0"]
-Third Sourced: [third source="wikipedia" id="PHP" section="Security"]
+[third id="0"]
+[third id="0" self="0"]
+[third source="database" id="0" self="0"]
+[third source="url" id="0" self="0"]
+[third source="wikipedia" id="PHP" section="Security"]
 
 
 ## todo (support multiple fetchers)
