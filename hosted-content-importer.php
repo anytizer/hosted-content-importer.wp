@@ -10,8 +10,7 @@
  */
 
 /**
- * [third import="0"]
- * [third section="0"] - auto calculate: Slug, Post ID, Post Title
+ * [third source="database" id="0" section="0"]
  */
 class Hosted_Content_Shortcode
 {
