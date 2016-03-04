@@ -1,8 +1,10 @@
-# hosted-content-importer
+# HCI: Hosted Content Importer
 
 WordPress plugin to fetch programmed (dynamic) contents from third party resources.
 
-This plugin is NOT for common purpose. WordPress developers should expand the *hci_* interface to make it suitable for their usage. It just guidelines how to.
+This plugin is NOT really for common purpose.
+WordPress developers should expand the *hci_* interface to make it suitable for their usage.
+It just shows some guidelines on how to do so.
 
 
 ## Usage examples
