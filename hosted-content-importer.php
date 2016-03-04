@@ -11,7 +11,7 @@
 
 /**
  * [third import="0"]
- * [third self="0"] - auto calculate: Slug, Post ID, Post Title
+ * [third section="0"] - auto calculate: Slug, Post ID, Post Title
  */
 class Hosted_Content_Shortcode
 {
@@ -26,22 +26,22 @@ class Hosted_Content_Shortcode
 		extract(shortcode_atts(array(
 			'source' => 'none',
 			'id' => '0',
-			'self' => '0',
+			'section' => '0',
 		), $attributes));
 
 		$source = esc_attr($source);
 		$id = esc_attr($id);
-		$self = esc_attr($self);
+		$section = esc_attr($section);
 
 		$hci = new Hosted_Content_Importer();
-		$remote_content = $hci->process($source, $id, $self);
+		$remote_content = $hci->process($source, $id, $section);
 
 		$content = sprintf(
 			'<div class="third">
-				<div class="meta">Source: %s, Import: %s, Self: %s</div>
+				<div class="meta">Source: %s, Import: %s, section: %s</div>
 				<div class="remote-content">%s</div>
 			</div>',
-			$source, $id, $self,
+			$source, $id, $section,
 			$remote_content
 		);
 
@@ -58,12 +58,12 @@ class Hosted_Content_Shortcode
 
 class Hosted_Content_Importer
 {
-	public function process($source = '', $import_id = 0, $self_id = 0)
+	public function process($source = '', $import_id = 0, $section_id = 0)
 	{
 		$method = "hci_" . strtolower($source);
 		if (!method_exists($this, $method)) $method = 'hci_none';
 
-		$content = $this->$method($import_id, $self_id);
+		$content = $this->$method($import_id, $section_id);
 
 		return $content;
 	}
@@ -85,26 +85,26 @@ class Hosted_Content_Importer
 	 * Parse when content importer is not defined.
 	 *
 	 * @param int $import_id
-	 * @param int $self_id
+	 * @param int $section_id
 	 *
 	 * @return string
 	 */
-	public function hci_none($import_id = 0, $self_id = 0)
+	public function hci_none($import_id = 0, $section_id = 0)
 	{
-		return "Content importer not defined. Using default: <strong>none({$import_id}, {$self_id})</strong>.";
+		return "Content importer not defined. Using default: <strong>none({$import_id}, {$section_id})</strong>.";
 	}
 
 	/**
 	 * @todo Read the real URL
 	 *
 	 * @param int $import_id
-	 * @param int $self_id
+	 * @param int $section_id
 	 *
 	 * @return string
 	 */
-	public function hci_url($import_id = 0, $self_id = 0)
+	public function hci_url($import_id = 0, $section_id = 0)
 	{
-		$url = "http://server/serve?import={$import_id}&self={$self_id}";
+		$url = "http://server/serve?import={$import_id}&section={$section_id}";
 
 		return "Reading from URL: {$url}";
 	}
@@ -113,11 +113,11 @@ class Hosted_Content_Importer
 	 * @todo Implement fetching from the database, possibly reuse WordPress connection
 	 *
 	 * @param int $import_id
-	 * @param int $self_id
+	 * @param int $section_id
 	 *
 	 * @return string
 	 */
-	public function hci_database($import_id = 0, $self_id = 0)
+	public function hci_database($import_id = 0, $section_id = 0)
 	{
 		return "Reading contents from local DATABASE.";
 		# eg. SELECT post_title, guid FROM wp_posts WHERE post_status='publish' ORDER BY ID DESC LIMIT 5;
@@ -127,11 +127,11 @@ class Hosted_Content_Importer
 	 * @todo Read the Wikipedia sections in JSON format and parse
 	 *
 	 * @param int $import_id
-	 * @param int $self_id
+	 * @param int $section_id
 	 *
 	 * @return mixed|string
 	 */
-	public function hci_wikipedia($import_id = 0, $self_id = 0)
+	public function hci_wikipedia($import_id = 0, $section_id = 0)
 	{
 		$parameters = array(
 			'format' => 'json',
