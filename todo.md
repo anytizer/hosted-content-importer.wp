@@ -2,6 +2,7 @@
 
  * support multiple fetchers)
  * Make each fetcher as independent class files.
+ * The editor wraps our <div> output in <p> tags.
 
 
 ## @todo
