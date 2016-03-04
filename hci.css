@@ -1,8 +1,8 @@
-.third {
+.hci-third {
     background-color: #FFC;
 }
 
-.third .meta {
+.hci-third .hci-meta {
     display: block;
     background-color: #6CF;
     color: #FFF;
@@ -10,7 +10,7 @@
     padding: 5px;
 }
 
-.third .remote-content {
+.hci-third .hci-remote-content {
     border: 1px solid #CCC;
     padding: 5px;
     min-height: 80px;

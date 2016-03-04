@@ -20,25 +20,23 @@ class Hosted_Content_Shortcode
 		add_action('wp_enqueue_scripts', array($this, 'register_hci_scripts'));
 	}
 
-	function shortcode($attributes = array())
+	public function shortcode($attributes = array())
 	{
-		extract(shortcode_atts(array(
+		$attributes = array_map('esc_attr', $attributes);
+		$standard_attributes = array(
 			'source' => 'none',
-			'id' => '',
-			'section' => '',
-		), $attributes));
-
-		$source = esc_attr($source);
-		$id = esc_attr($id);
-		$section = esc_attr($section);
+			'id' => '0',
+			'section' => '0',
+		);
+		extract(shortcode_atts($standard_attributes, $attributes), EXTR_OVERWRITE);
 
 		$hci = new Hosted_Content_Importer();
 		$remote_content = $hci->process($source, $id, $section);
 
 		$content = sprintf(
-			'<div class="third">
-				<div class="meta">Source: %s, Import: %s, section: %s</div>
-				<div class="remote-content">%s</div>
+			'<div class="hci-third">
+				<div class="hci-meta">Source: %s, Import: %s, Section: %s</div>
+				<div class="hci-remote-content">%s</div>
 			</div>',
 			$source, $id, $section,
 			$remote_content
@@ -47,7 +45,7 @@ class Hosted_Content_Shortcode
 		return $content;
 	}
 
-	function register_hci_scripts()
+	public function register_hci_scripts()
 	{
 		wp_register_style('hci', plugins_url('hci.css', __FILE__));
 		wp_enqueue_style('hci');
@@ -60,15 +58,7 @@ class Hosted_Content_Shortcode
  */
 class Hosted_Content_Importer
 {
-	public function process($source = '', $content_id = 0, $section_id = 0)
-	{
-		$method = "hci_" . strtolower($source);
-		if (!method_exists($this, $method)) $method = 'hci_none';
-
-		$content = $this->$method($content_id, $section_id);
-
-		return $content;
-	}
+	private $method = null;
 
 	/**
 	 * @todo Make use of callable functions
@@ -83,6 +73,16 @@ class Hosted_Content_Importer
 		return "Calling object method '$name'(" . implode(', ', $arguments) . ").\n";
 	}
 
+	public function process($source = '', $content_id = 0, $section_id = 0)
+	{
+		$this->method = "hci_" . strtolower($source);
+		if (!method_exists($this, $this->method)) $this->method = 'hci_none';
+
+		$content = $this->{$this->method}($content_id, $section_id);
+
+		return $content;
+	}
+
 	/**
 	 * Response when content importer is not defined.
 	 *
@@ -93,7 +93,7 @@ class Hosted_Content_Importer
 	 */
 	private function hci_none($content_id = 0, $section_id = 0)
 	{
-		return "Content importer not defined. Using default: <strong>none({$content_id}, {$section_id})</strong>.";
+		return "Content importer not defined. Using default: <strong>{$this->method}({$content_id}, {$section_id})</strong>.";
 	}
 
 	/**
@@ -106,7 +106,7 @@ class Hosted_Content_Importer
 	 */
 	private function hci_file($content_id = 0, $section_id = 0)
 	{
-		return "Content importer local file not defined. <strong>file({$content_id}, {$section_id})</strong>.";
+		return "Content importer local file not defined. <strong>{$this->method}({$content_id}, {$section_id})</strong>.";
 	}
 
 	/**
@@ -175,8 +175,11 @@ class Hosted_Content_Importer
 		$wikipedia_url = 'https://en.wikipedia.org/w/api.php?' . http_build_query($parameters);
 
 		#return file_get_contents($wikipedia_url);
-		return $wikipedia_url;
+		return "Processing URL: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";
 
+		/**
+		 * @todo Correctly parse Wikipedia section
+		 */
 		$ch = curl_init($wikipedia_url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_USERAGENT, "WordPress HCI Plugin - Hosted Content Importer");
@@ -188,6 +191,7 @@ class Hosted_Content_Importer
 		 * @todo Extract the necessary content
 		 */
 		$content = print_r($json, true);
+
 		return $content;
 
 		return "Extracting contents from Wikipedia.";
