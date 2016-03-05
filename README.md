@@ -2,7 +2,7 @@
 
 WordPress plugin to fetch programmed (dynamic) contents from third party resources.
 
-This plugin is NOT really for common purpose.
+This plugin is a solution to specific problem and it is NOT really for common purpose.
 WordPress developers should expand the *hci_* interface to make it suitable for their usage.
 It just shows some guidelines on how to do so.
 
@@ -15,3 +15,13 @@ It just shows some guidelines on how to do so.
  * [third source="url" id="0" section="0"]
  * [third source="wikipedia" id="PHP" section="Security"]
  * [third source="file" id="dynamic.php"]
+
+
+## Settings
+
+In wp-settings.php file, add and configure the below lines.
+
+```
+define('HCI_WIKIPEDIA_API_CURL', 'https://en.wikipedia.org/w/api.php');
+define('HCI_CUSTOM_API_URL', 'http://SERVER/PATH/URL.php');
+```
