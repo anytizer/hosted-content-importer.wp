@@ -35,7 +35,7 @@ class Hosted_Content_Shortcode
 
 		$content = sprintf(
 			'<div class="hci-third">
-				<div class="hci-meta">Source: %s, Import: %s, Section: %s</div>
+				<div class="hci-meta">HCI Data Source: %s, Import: %s, Section: %s</div>
 				<div class="hci-remote-content">%s</div>
 			</div>',
 			$source, $id, $section,
@@ -89,6 +89,27 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 	}
 
 	/**
+	 * PHP Array to Basic HTML Table
+	 *
+	 * @param array $data
+	 *
+	 * @return string
+	 */
+	private function html_table($data = array(), $heads = array())
+	{
+		$rows = array();
+		foreach ($data as $row) {
+			$cells = array();
+			foreach ($row as $cell) {
+				$cells[] = "<td>{$cell}</td>";
+			}
+			$rows[] = "<tr>" . implode('', $cells) . "</tr>";
+		}
+
+		return "<table class='hci-table'>" . implode('', $rows) . "</table>";
+	}
+
+	/**
 	 * Response when content importer is not defined.
 	 *
 	 * @param int $content_id
@@ -124,9 +145,19 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 	 */
 	private function hci_url($content_id = 0, $section_id = 0)
 	{
-		$url = "http://server/serve?import={$content_id}&section={$section_id}";
+		$parameters = array(
+			'id' => $content_id,
+			'section' => $section_id,
+		);
+		/**
+		 * @todo Remove hard coded URLs
+		 */
+		$api_url = HCI_CUSTOM_API_URL . '?' . http_build_query($parameters);
+		$json = file_get_contents($api_url);
+		$data = json_decode($json, true);
+		$html_table = $this->html_table($data);
 
-		return "Reading from URL: {$url}";
+		return $html_table;
 	}
 
 	/**
@@ -177,7 +208,7 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 			'explaintext' => '',
 			'titles' => $content_id,
 		);
-		$wikipedia_url = 'https://en.wikipedia.org/w/api.php?' . http_build_query($parameters);
+		$wikipedia_url = HCI_WIKIPEDIA_API_CURL . '?' . http_build_query($parameters);
 
 		#return file_get_contents($wikipedia_url);
 		return "Processing URL: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";
