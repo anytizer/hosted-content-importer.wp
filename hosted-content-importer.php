@@ -52,11 +52,16 @@ class Hosted_Content_Shortcode
 	}
 } // close Hosted_Content_Shortcode class.
 
+interface Hosted_Content_Interface
+{
+	public function process($source = '', $content_id = 0, $section_id = 0);
+}
+
 /**
  * Class Hosted_Content_Importer
  * @todo Variables will content mixed data input
  */
-class Hosted_Content_Importer
+class Hosted_Content_Importer implements Hosted_Content_Interface
 {
 	private $method = null;
 
