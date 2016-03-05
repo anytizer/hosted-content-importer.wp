@@ -208,7 +208,7 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 			'explaintext' => '',
 			'titles' => $content_id,
 		);
-		$wikipedia_url = HCI_WIKIPEDIA_API_CURL . '?' . http_build_query($parameters);
+		$wikipedia_url = HCI_WIKIPEDIA_API_URL . '?' . http_build_query($parameters);
 
 		#return file_get_contents($wikipedia_url);
 		return "Processing URL: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";

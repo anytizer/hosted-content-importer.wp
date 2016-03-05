@@ -22,6 +22,6 @@ It just shows some guidelines on how to do so.
 In wp-settings.php file, add and configure the below lines.
 
 ```
-define('HCI_WIKIPEDIA_API_CURL', 'https://en.wikipedia.org/w/api.php');
+define('HCI_WIKIPEDIA_API_URL', 'https://en.wikipedia.org/w/api.php');
 define('HCI_CUSTOM_API_URL', 'http://SERVER/PATH/URL.php');
 ```
