@@ -172,22 +172,23 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 	{
 		global $wpdb;
 
+		$html='Reading contents from local DATABASE.';
 		switch ($section_id) {
 			case 'latest':
 			case 'recent':
 				$rows = $wpdb->get_results("SELECT post_title, guid FROM {$wpdb->prefix}posts WHERE post_type='post' AND post_status='publish' ORDER BY ID DESC LIMIT 5;");
-				$html = array();
+				$li = array();
 				foreach ($rows as $row) {
-					$html[] = "<li><a href='{$row->guid}'>{$row->post_title}</a></li>";
+					$li[] = "<li><a href='{$row->guid}'>{$row->post_title}</a></li>";
 				}
 
-				return '<ul>' . implode('', $html) . '</ul>';
+				$html = '<ul>' . implode('', $li) . '</ul>';
+				break;
 			default:
-				return "Database fetcher not handled for this section: #{$section_id}";
+				$html = "Database fetcher not handled for this section: #{$section_id}";
 		}
-
-		return "Reading contents from local DATABASE.";
-		# eg. SELECT post_title, guid FROM wp_posts WHERE post_status='publish' ORDER BY ID DESC LIMIT 5;
+		
+		return $html;
 	}
 
 	/**
@@ -209,12 +210,10 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 			'titles' => $content_id,
 		);
 		$wikipedia_url = HCI_WIKIPEDIA_API_URL . '?' . http_build_query($parameters);
-
-		#return file_get_contents($wikipedia_url);
-		return "Processing URL: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";
+		return "View Source: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";
 
 		/**
-		 * @todo Correctly parse Wikipedia section
+		 * @todo Correctly parse Wikipedia section and extract the necessary conent
 		 */
 		$ch = curl_init($wikipedia_url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -222,15 +221,8 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 		$content_extracted = curl_exec($ch);
 		curl_close($ch);
 		$json = json_decode($content_extracted);
-
-		/**
-		 * @todo Extract the necessary content
-		 */
 		$content = print_r($json, true);
-
 		return $content;
-
-		return "Extracting contents from Wikipedia.";
 	}
 }
 

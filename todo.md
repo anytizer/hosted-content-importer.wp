@@ -10,5 +10,5 @@
  * Import contents from URL Calls
  * Import contents from local files
  * Check if HCI constants are pre-defined and configured
-   * HCI_WIKIPEDIA_API_CURL
+   * HCI_WIKIPEDIA_API_URL
    * HCI_CUSTOM_API_URL
