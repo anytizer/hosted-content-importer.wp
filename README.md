@@ -1,12 +1,10 @@
 # HCI: Hosted Content Importer
 
-WordPress plugin to fetch programmed (dynamic) contents from third party resources.
+WordPress plugin to fetch and insert dynamically programmed contents from third party sources.
 
-This plugin is a for a solution to specific problem.
-WordPress developers should expand the *hci_* interface to make work for their application.
+This plugin is a for a solution to specific problem and it is NOT for common purpose.
+WordPress developers should expand the *hci_* interface to make it work for their application.
 It just shows some guidelines on how to implement.
-
-It is NOT for common purpose.
 
 
 ## Usage examples
@@ -17,6 +15,7 @@ It is NOT for common purpose.
  * [third source="url" id="0" section="0"]
  * [third source="wikipedia" id="PHP" section="Security"]
  * [third source="file" id="dynamic.php"]
+ * [third source="markdown" id="https://raw.githubusercontent.com/WordPress/WordPress/master/readme.html" section=""]
 
 
 ### Meanings
@@ -34,3 +33,16 @@ In wp-settings.php file, add and configure the below lines.
 define('HCI_WIKIPEDIA_API_URL', 'https://en.wikipedia.org/w/api.php');
 define('HCI_CUSTOM_API_URL', 'http://SERVER/PATH/URL.php');
 ```
+
+## Inspirations
+
+The following application(s) inspired the birth of this Plugin:
+
+Gist GitHub Shortcode by Claudio Sanches.
+ * http://claudiosmweb.com/
+ * https://wordpress.org/plugins/gist-github-shortcode/
+* https://github.com/claudiosmweb/gist-github-shortcode
+
+Adds GitHub Gists in your posts via shortcode.
+	[gist id="0000000"]
+	[gist id="0000000" file="index.php"]
