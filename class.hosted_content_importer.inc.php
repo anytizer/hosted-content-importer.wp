@@ -8,7 +8,7 @@ class hosted_content_importer implements hosted_content_interface
 	private $method = null;
 
 	/**
-	 * @todo Make use of callable functions
+	 * @todo Make use of callable functions to handle more HCI snippets
 	 *
 	 * @param $name
 	 * @param $arguments
@@ -17,7 +17,8 @@ class hosted_content_importer implements hosted_content_interface
 	 */
 	public function __call($name, $arguments)
 	{
-		return "Calling object method '$name'(" . implode(', ', $arguments) . ").\n";
+
+		return "Calling object method '{$name}'(" . implode(', ', $arguments) . ").";
 	}
 
 	public function process($source = '', $content_id = 0, $section_id = 0)
@@ -61,11 +62,11 @@ class hosted_content_importer implements hosted_content_interface
 	 */
 	private function hci_none($content_id = 0, $section_id = 0)
 	{
-		return "Content importer not defined. Using default: <strong>{$this->method}({$content_id}, {$section_id})</strong>.";
+		return "Content importer not defined. Using default: <strong>{$this->method}('{$content_id}', '{$section_id}');</strong>.";
 	}
 
 	/**
-	 * Import content from local file
+	 * Import content from local file (eg. PHP include())
 	 *
 	 * @param int $content_id
 	 * @param int $section_id
@@ -148,15 +149,15 @@ class hosted_content_importer implements hosted_content_interface
 			'http' => array(
 				'method' => 'GET',
 				'header' => array(
-					'Accept-language: en',
+					'Accept-Language: en',
 				),
 			));
 		$context = stream_context_create($options);
 		$markdown = file_get_contents($content_id, false, $context);
 
 		/**
-		 * @todo Render markup
-		 * $markdown = markup($markdown);
+		 * @todo Render markdown
+		 * $markdown = markdown($markdown);
 		 */
 
 		return $markdown;
