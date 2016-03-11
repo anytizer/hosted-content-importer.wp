@@ -3,7 +3,7 @@
 }
 
 .hci-third .hci-meta {
-    display: block;
+    display: block; /** @todo Fix this */
     background-color: #6CF;
     color: #FFF;
     font-weight: bold;

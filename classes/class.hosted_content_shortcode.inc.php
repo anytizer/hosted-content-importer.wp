@@ -35,7 +35,7 @@ class hosted_content_shortcode
 
 	public function register_hci_scripts()
 	{
-		wp_register_style('hci', plugins_url('hci.css', __FILE__));
+		wp_register_style('hci', plugins_url('hci.css', dirname(__FILE__)));
 		wp_enqueue_style('hci');
 	}
 }

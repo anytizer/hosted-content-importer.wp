@@ -11,8 +11,8 @@ class hosted_content_importer implements hosted_content_interface
 	/**
 	 * @todo Make use of callable functions to handle more HCI snippets
 	 *
-	 * @param $name
-	 * @param $arguments
+	 * @param string $name
+	 * @param mixed $arguments
 	 *
 	 * @return string
 	 */
@@ -22,6 +22,13 @@ class hosted_content_importer implements hosted_content_interface
 		return "Calling object method '{$name}'(" . implode(', ', $arguments) . ").";
 	}
 
+	/**
+	 * @param string $source
+	 * @param int $content_id
+	 * @param int $section_id
+	 *
+	 * @return mixed
+	 */
 	public function process($source = '', $content_id = 0, $section_id = 0)
 	{
 		$this->method = "hci_" . strtolower($source);
@@ -33,7 +40,7 @@ class hosted_content_importer implements hosted_content_interface
 	}
 
 	/**
-	 * PHP Array to Basic HTML Table
+	 * Convert uniformed PHP array data to Basic HTML Table
 	 *
 	 * @param array $data
 	 *
@@ -138,6 +145,7 @@ class hosted_content_importer implements hosted_content_interface
 	/**
 	 * Reads the .md file file and process
 	 * @url https://en.support.wordpress.com/markdown/
+	 * @url https://wordpress.org/plugins/jetpack-markdown/
 	 *
 	 * @param int $content_id
 	 * @param int $section_id
