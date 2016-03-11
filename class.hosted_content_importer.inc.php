@@ -1,67 +1,9 @@
 <?php
-/*
- * Plugin Name: Hosted Content Importer
- * Plugin URI: https://github.com/bimalpoudel/hosted-content-importer
- * Description: Dynamically fetches programmed contents from third party resource
- * Version: 1.0.0
- * Author: Bimal Poudel
- * Author URI: http://bimal.org.np/
- * License: GPLv2 or later
- */
-
 /**
- * [third source="none|file|database|url|wikipedia" id="0" section="0"]
- */
-class Hosted_Content_Shortcode
-{
-	public function __construct()
-	{
-		add_shortcode('third', array($this, 'shortcode'));
-		add_action('wp_enqueue_scripts', array($this, 'register_hci_scripts'));
-	}
-
-	public function shortcode($attributes = array())
-	{
-		$attributes = array_map('esc_attr', $attributes);
-		$standard_attributes = array(
-			'source' => 'none',
-			'id' => '0',
-			'section' => '0',
-		);
-		extract(shortcode_atts($standard_attributes, $attributes), EXTR_OVERWRITE);
-
-		$hci = new Hosted_Content_Importer();
-		$remote_content = $hci->process($source, $id, $section);
-
-		$content = sprintf(
-			'<div class="hci-third">
-				<div class="hci-meta">HCI Data Source: %s, Import: %s, Section: %s</div>
-				<div class="hci-remote-content">%s</div>
-			</div>',
-			$source, $id, $section,
-			$remote_content
-		);
-
-		return $content;
-	}
-
-	public function register_hci_scripts()
-	{
-		wp_register_style('hci', plugins_url('hci.css', __FILE__));
-		wp_enqueue_style('hci');
-	}
-} // close Hosted_Content_Shortcode class.
-
-interface Hosted_Content_Interface
-{
-	public function process($source = '', $content_id = 0, $section_id = 0);
-}
-
-/**
- * Class Hosted_Content_Importer
+ * Class hosted_content_importer
  * @todo Variables will content mixed data input
  */
-class Hosted_Content_Importer implements Hosted_Content_Interface
+class hosted_content_importer implements hosted_content_interface
 {
 	private $method = null;
 
@@ -172,7 +114,7 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 	{
 		global $wpdb;
 
-		$html='Reading contents from local DATABASE.';
+		$html = 'Reading contents from local DATABASE.';
 		switch ($section_id) {
 			case 'latest':
 			case 'recent':
@@ -187,8 +129,37 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 			default:
 				$html = "Database fetcher not handled for this section: #{$section_id}";
 		}
-		
+
 		return $html;
+	}
+
+	/**
+	 * Reads the .md file file and process
+	 * @url https://en.support.wordpress.com/markdown/
+	 *
+	 * @param int $content_id
+	 * @param int $section_id
+	 *
+	 * @return mixed|string
+	 */
+	private function hci_markdown($content_id = 0, $section_id = 0)
+	{
+		$options = array(
+			'http' => array(
+				'method' => 'GET',
+				'header' => array(
+					'Accept-language: en',
+				),
+			));
+		$context = stream_context_create($options);
+		$markdown = file_get_contents($content_id, false, $context);
+
+		/**
+		 * @todo Render markup
+		 * $markdown = markup($markdown);
+		 */
+
+		return $markdown;
 	}
 
 	/**
@@ -199,6 +170,7 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 	 *
 	 * @return mixed|string
 	 */
+
 	private function hci_wikipedia($content_id = 0, $section_id = 0)
 	{
 		$parameters = array(
@@ -210,20 +182,20 @@ class Hosted_Content_Importer implements Hosted_Content_Interface
 			'titles' => $content_id,
 		);
 		$wikipedia_url = HCI_WIKIPEDIA_API_URL . '?' . http_build_query($parameters);
+
 		return "View Source: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";
 
 		/**
-		 * @todo Correctly parse Wikipedia section and extract the necessary conent
+		 * @todo Correctly parse and render particular Wikipedia section
 		 */
 		$ch = curl_init($wikipedia_url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_USERAGENT, "WordPress HCI Plugin - Hosted Content Importer");
+		curl_setopt($ch, CURLOPT_USERAGENT, 'WordPress HCI Plugin - Hosted Content Importer');
 		$content_extracted = curl_exec($ch);
 		curl_close($ch);
 		$json = json_decode($content_extracted);
 		$content = print_r($json, true);
+
 		return $content;
 	}
 }
-
-new Hosted_Content_Shortcode;
