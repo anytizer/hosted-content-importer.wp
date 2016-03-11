@@ -1,4 +1,5 @@
 <?php
+
 class hosted_content_shortcode
 {
 	public function __construct()
