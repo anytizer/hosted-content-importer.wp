@@ -1,5 +1,6 @@
 # @todo
 
+ * Make installable via composer
  * Support multiple sources of contents and their fetchers.
  * Support tailored parameters per fetcher.
  * Make each fetcher as an independent class file.

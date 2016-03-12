@@ -1,18 +1,30 @@
 {
-  "name": "wp-plugins/hosted-content-importer",
-  "description": "WordPress HCI Plugin",
   "repositories": [
     {
-      "type": "vcs",
-      "url": "https://github.com/bimalpoudel/hosted-content-importer"
+      "type": "composer",
+      "url": "http://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "bimalpoudel/hosted-content-importer",
+        "version": "0.0.0",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/bimalpoudel/hosted-content-importer/archive/master.zip"
+        },
+        "require" : {
+          "composer/installers": "v1.0.6"
+        }
+      }
     }
   ],
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Bimal Poudel",
-      "email": "bimalpoudel@users.noreply.github.com"
-    }
-  ]
+  "require": {
+    "php": ">=5.3.0",
+    "bimalpoudel/hosted-content-importer": "0.0.0"
+  },
+    "config": {
+	"secure-http": false
+   }
 }
