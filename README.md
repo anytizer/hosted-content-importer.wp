@@ -7,11 +7,19 @@ WordPress developers should expand the *hci_* interface to make it work for thei
 It just shows some guidelines on how to implement.
 
 
+## Experimental Work
+
+This work cannot suit your purpose, by its nature.
+It is an experimental and proof of concept work.
+Please do NOT use it in your production environment.
+
+
 ## Usage examples
 
  * [third id="0"]
  * [third id="0" section="0"]
  * [third source="database" id="0" section="0"]
+ * [third source="api" id="0" section="0"]
  * [third source="url" id="0" section="0"]
  * [third source="wikipedia" id="PHP" section="Security"]
  * [third source="file" id="dynamic.php"]
