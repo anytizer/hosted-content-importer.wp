@@ -1,4 +1,2 @@
-<IfModule mod_rewrite.c>
-	RewriteEngine on
-	RewriteRule (.*) index.php?file=$1 [QSA,L]
-</IfModule>
+Options -Indexes
+IndexIgnore *
