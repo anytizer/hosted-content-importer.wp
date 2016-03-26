@@ -23,7 +23,7 @@ Please do NOT use it in your production environment.
  * [third source="url" id="0" section="0"]
  * [third source="wikipedia" id="PHP" section="Security"]
  * [third source="file" id="dynamic.php"]
- * [third source="markdown" id="https://raw.githubusercontent.com/WordPress/WordPress/master/readme.html" section=""]
+ * [third source="markdown" id="https://raw.githubusercontent.com/bimalpoudel/hosted-content-importer/master/README.md" section=""]
 
 
 ### Meanings

@@ -162,7 +162,11 @@ class hosted_content_importer implements hosted_content_interface
 				),
 			));
 		$context = stream_context_create($options);
-		$markdown = file_get_contents($content_id, false, $context);
+		#$markdown = file_get_contents($content_id, false, $context);
+		$markdown = $this->fetch_url($content_id);
+
+		$parsedown = new Parsedown();
+		$markdown = $parsedown->text($markdown);
 
 		/**
 		 * @todo Render markdown
@@ -198,14 +202,26 @@ class hosted_content_importer implements hosted_content_interface
 		/**
 		 * @todo Correctly parse and render particular Wikipedia section
 		 */
-		$ch = curl_init($wikipedia_url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'WordPress HCI Plugin - Hosted Content Importer');
-		$content_extracted = curl_exec($ch);
-		curl_close($ch);
+		$content_extracted = $this->fetch_url($wikipedia_url);
 		$json = json_decode($content_extracted);
 		$content = print_r($json, true);
 
 		return $content;
+	}
+	
+	private function fetch_url($url)
+	{
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 2);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'WordPress HCI Plugin - Hosted Content Importer');
+		$content_extracted = curl_exec($ch);
+		curl_close($ch);
+
+		return $content_extracted;
 	}
 }
