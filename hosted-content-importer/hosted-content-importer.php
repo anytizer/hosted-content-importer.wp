@@ -16,7 +16,7 @@ define('HCI_PLUGIN_DIR', dirname(__FILE__));
  * http://parsedown.org/
  * https://github.com/erusev/parsedown
  */
-require_once( HCI_PLUGIN_DIR . '/classes/parsedown/class.parsedown.inc.php' );
+require_once(HCI_PLUGIN_DIR . '/classes/parsedown/class.parsedown.inc.php' );
 
 require_once(HCI_PLUGIN_DIR . '/classes/hci/interface.hosted_content_interface.inc.php');
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_importer.inc.php');

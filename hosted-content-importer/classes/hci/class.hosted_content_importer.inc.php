@@ -103,7 +103,7 @@ class hosted_content_importer implements hosted_content_interface
 		/**
 		 * @todo Remove hard coded URLs
 		 */
-		$api_url = HCI_CUSTOM_API_URL . '?' . http_build_query($parameters);
+		$api_url = constant('HCI_CUSTOM_API_URL') . '?' . http_build_query($parameters);
 		$json = file_get_contents($api_url);
 		$data = json_decode($json, true);
 		$html_table = $this->html_table($data);
@@ -162,16 +162,16 @@ class hosted_content_importer implements hosted_content_interface
 				),
 			));
 		$context = stream_context_create($options);
-		#$markdown = file_get_contents($content_id, false, $context);
-		$markdown = $this->fetch_url($content_id);
-
-		$parsedown = new Parsedown();
-		$markdown = $parsedown->text($markdown);
+		#$text = file_get_contents($content_id, false, $context);
+		$text = $this->fetch_url($content_id);
 
 		/**
-		 * @todo Render markdown
+		 * HTML conversion with Markdown
 		 * $markdown = markdown($markdown);
+		 * $markdown = $parsedown->text($text);
 		 */
+		$parsedown = new Parsedown();
+		$markdown = $parsedown->text($text);
 
 		return $markdown;
 	}
@@ -195,7 +195,7 @@ class hosted_content_importer implements hosted_content_interface
 			'explaintext' => '',
 			'titles' => $content_id,
 		);
-		$wikipedia_url = HCI_WIKIPEDIA_API_URL . '?' . http_build_query($parameters);
+		$wikipedia_url = constant('HCI_WIKIPEDIA_API_URL') . '?' . http_build_query($parameters);
 
 		return "View Source: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";
 
