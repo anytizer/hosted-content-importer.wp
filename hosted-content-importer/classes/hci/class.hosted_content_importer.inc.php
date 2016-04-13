@@ -104,7 +104,7 @@ class hosted_content_importer implements hosted_content_interface
 		 * @todo Remove hard coded URLs
 		 */
 		$api_url = constant('HCI_CUSTOM_API_URL') . '?' . http_build_query($parameters);
-		$json = file_get_contents($api_url);
+		$json = $this->fetch_url($api_url);
 		$data = json_decode($json, true);
 		$html_table = $this->html_table($data);
 
@@ -154,15 +154,6 @@ class hosted_content_importer implements hosted_content_interface
 	 */
 	private function hci_markdown($content_id = 0, $section_id = 0)
 	{
-		$options = array(
-			'http' => array(
-				'method' => 'GET',
-				'header' => array(
-					'Accept-Language: en',
-				),
-			));
-		$context = stream_context_create($options);
-		#$text = file_get_contents($content_id, false, $context);
 		$text = $this->fetch_url($content_id);
 
 		/**
@@ -209,8 +200,20 @@ class hosted_content_importer implements hosted_content_interface
 		return $content;
 	}
 	
-	private function fetch_url($url)
+	private function fetch_url($url='')
 	{
+		/**
+		$options = array(
+			'http' => array(
+				'method' => 'GET',
+				'header' => array(
+					'Accept-Language: en',
+				),
+			));
+		$context = stream_context_create($options);
+		#$text = file_get_contents($content_id, false, $context);
+		*/
+
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HEADER, 0);
