@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Setup the shortcodes
+ */
 class hosted_content_shortcode
 {
 	public function __construct()

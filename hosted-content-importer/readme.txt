@@ -2,7 +2,7 @@
 
 Contributors: pbimal
 Donate link: http://bimal.org.np/
-Tags: embed, hci, hosted, remote, third
+Tags: embed, hci, hosted, remote, third, content, markdown
 Requires at least: 4.5
 Tested up to: 4.5
 Stable tag: 4.5

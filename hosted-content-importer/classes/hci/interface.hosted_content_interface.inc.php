@@ -2,5 +2,5 @@
 
 interface hosted_content_interface
 {
-	public function process($source = '', $content_id = 0, $section_id = 0);
+	public function process($source = '', $content_id = null, $section_id = null);
 }

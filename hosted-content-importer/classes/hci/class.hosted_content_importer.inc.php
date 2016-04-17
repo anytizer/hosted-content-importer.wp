@@ -20,7 +20,7 @@ class hosted_content_importer implements hosted_content_interface
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); # To allow shortened URLs
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WordPress Plugin');
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WP Plugin');
 		$content_extracted = curl_exec($ch);
 		curl_close($ch);
 
@@ -64,15 +64,18 @@ class hosted_content_importer implements hosted_content_interface
 
 	/**
 	 * @param string $source
-	 * @param int $content_id
-	 * @param int $section_id
+	 * @param mixed $content_id
+	 * @param mixed $section_id
 	 *
-	 * @return mixed
+	 * @return string
 	 */
-	public function process($source = '', $content_id = 0, $section_id = 0)
+	public function process($source = '', $content_id = null, $section_id = null)
 	{
 		$this->method = "hci_" . strtolower($source);
-		if (!method_exists($this, $this->method)) $this->method = 'hci_none';
+		if (!method_exists($this, $this->method))
+		{
+			$this->method = 'hci_none';
+		}
 
 		$content = $this->{$this->method}($content_id, $section_id);
 
@@ -106,7 +109,7 @@ class hosted_content_importer implements hosted_content_interface
 	}
 
 	/**
-	 * @todo Import content from an URL (remote file)
+	 * @todo Import content from a URL (remote file)
 	 *
 	 * @param mixed $content_id
 	 * @param mixed $section_id
@@ -120,7 +123,7 @@ class hosted_content_importer implements hosted_content_interface
 			'section' => $section_id,
 		);
 		/**
-		 * @todo Remove hard coded URLs
+		 * @todo Remove hard coded custom URLs
 		 */
 		$api_url = constant('HCI_CUSTOM_API_URL') . '?' . http_build_query($parameters);
 		$json = $this->fetch_url($api_url);
@@ -167,7 +170,7 @@ class hosted_content_importer implements hosted_content_interface
 	 * @param mixed $content_id
 	 * @param mixed $section_id
 	 *
-	 * @return mixed|string
+	 * @return string
 	 */
 	private function hci_wikipedia($content_id = null, $section_id = null)
 	{
@@ -194,14 +197,13 @@ class hosted_content_importer implements hosted_content_interface
 	}
 
 	/**
-	 * HTML conversion with Markdown: Reads the .md file file and process
-	 * @url https://en.support.wordpress.com/markdown/
-	 * @url https://wordpress.org/plugins/jetpack-markdown/
+	 * HTML conversion with Parsedown - reads the .md file and process
+	 * @url http://parsedown.org/ | https://github.com/erusev/parsedown
 	 *
 	 * @param mixed $content_id
 	 * @param mixed $section_id
 	 *
-	 * @return mixed|string
+	 * @return string
 	 */
 	private function hci_markdown($content_id = null, $section_id = null)
 	{
