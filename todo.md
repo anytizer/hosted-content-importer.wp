@@ -1,6 +1,8 @@
 # @todo
 
- * Make installable via composer
+ * Publish the plugin
+ * Write article around it
+ * Make it installable via composer
  * Support multiple sources of contents and their fetchers.
  * Support tailored parameters per fetcher.
  * Make each fetcher as an independent class file.
@@ -14,3 +16,5 @@
  * Check if HCI constants are pre-defined and configured:
    - HCI_WIKIPEDIA_API_URL
    - HCI_CUSTOM_API_URL
+
+ * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)

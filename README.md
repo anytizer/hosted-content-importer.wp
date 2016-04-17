@@ -26,9 +26,14 @@ WordPress developers should expand the **hosted_content_importer::*hci_SOURCE*()
 
 ### Parameters
 
- * **Source**: Where to seek the data.
- * **ID**: Content ID (unique identifier) of the data you want.
- * **Section**: Additional parameter to identify the particular part of the content being fetched
+ * **Source**: Where to seek the data (eg. Content Hosting Server). Examples:
+    - markdown
+    - wikipedia
+    - database
+    - url/api
+    - file
+ * **ID**: Content ID (unique identifier) of the data you want. Often, full URL as well.
+ * **Section**: Additional parameter to identify the particular section (piece) of the content.
 
 
 ## Dependency
