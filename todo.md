@@ -1,6 +1,7 @@
 # @todo
 
- * Publish the plugin
+ * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
+ * Merge the class files for optimization purpose.
  * Write article around it
  * Make it installable via composer
  * Support multiple sources of contents and their fetchers.
@@ -8,7 +9,6 @@
  * Make each fetcher as an independent class file.
  * Free the HTML output (`<div>`) from being wrapped inside `<p>` tags.
  * Auto calculate and use: Slug, Post ID, Post Title
- * Standardize the parameters across multiple sources
  * Import contents from Wikipedia section
  * Import contents from local (mysql) database
  * Import contents from URL Calls, API Calls
@@ -17,4 +17,12 @@
    - HCI_WIKIPEDIA_API_URL
    - HCI_CUSTOM_API_URL
 
- * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
+
+# Important changes
+
+ * Allows shortened URLs
+ * Standardized the parameters across multiple sources
+   - source
+   - id
+   - section
+  * Published the plugin (4/17/2016): https://wordpress.org/plugins/hosted-content-importer/
