@@ -19,24 +19,24 @@ After installation, it allows you to use tag, [third] with few parameters.
 
 Example:
 
-[third source="markdown" id="https://goo.gl/UpclKH" section=""]
+`[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
 It will then embed remote markdown content inside your blog.
 Additionally, it will convert to HTML using Parsedown.
 
-= Parameters: [third source="" id="" section=""] =
+= Parameters: `[third source="" id="" section=""]` =
 
-*source*: Where to seek the data (eg. Content Hosting Server). Examples:
+**source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
  - markdown
- - wikipedia (work in progress)
- - database (work in progress)
- - url/api (work in progress)
- - file (work in progress)
+ - wikipedia (work in progress); [Join development](https://goo.gl/89KgSC)
+ - database (work in progress); [Join development](https://goo.gl/89KgSC)
+ - url/api (work in progress); [Join development](https://goo.gl/89KgSC)
+ - file (work in progress); [Join development](https://goo.gl/89KgSC)
 
-*id*: Content ID (unique identifier) of the data you want. Often, full URL as well.
+**id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
 
-*section*: Additional parameter to identify the particular section (piece) of the content.
+**section**: Additional parameter to identify the particular section (piece) of the content.
 
 
 == Installation ==
@@ -50,7 +50,9 @@ Method #1
 
 Method #2
 
- * Within your Admin > Plugins > Add New page, search for "hosted content importer" and install it. 
+ * Go to your Admin > Plugins > Add New page.
+ * Search for "hosted content importer".
+ * Click install. 
 
 
 == Frequently Asked Questions ==
@@ -61,7 +63,7 @@ Define a WordPress shortcode with a full URL to your .md file on remote server.
 
 Example:
 
-[third source="markdown" id="FULLURL/README.md" section=""]
+`[third source="markdown" id="FULLURL/README.md" section=""]`
 
 
 = Does it work for everyone? =
@@ -76,15 +78,15 @@ Not necessarily. The usage is very tricky. You can remotely host your .md files 
 2. Output inside your blog.
 
 
-== Upgrade Notice ==
-
-When this plugin is disabled, your blogs will show your [third] shortcodes as is which may reveal your parameters.
-
-
 == Changelog ==
 
-Please view the original development at: https://github.com/bimalpoudel/hosted-content-importer for details, further plans and todos.
+Please view the original development at: https://goo.gl/89KgSC for details, further plans and todos.
 
 = 1.0 =
-* cURL follow redirections - now can use shortend URLs.
+* cURL follow redirects - now can use shortened URLs.
 * Added usage examples in readme.md.
+
+
+== Upgrade Notice ==
+
+When this plugin is disabled, your blogs will show your [third] shortcode as it is, which may reveal your associated parameters.
