@@ -19,8 +19,15 @@ class hosted_content_shortcode
 		$attributes = shortcode_atts($standard_attributes, $attributes);
 
 		$hci = new hosted_content_importer();
-		$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section']);
+		$remote_content = $hci->process(
+			$attributes['source'], 
+			$attributes['id'], 
+			$attributes['section']
+		);
 
+		/**
+		 * @todo The output is likely to be wrapped in <p>...</p> tags.
+		 */
 		$content = sprintf(
 			'<div class="hci-third">
 				<div class="hci-meta">HCI Data Source: %s, Import: %s, Section: %s</div>

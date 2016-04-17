@@ -15,16 +15,16 @@ Dynamically embeds a remotely hosted content.
 == Description ==
 
 Brings third party hosted contents within WordPress blog texts.
-After installation, it allows you to use tag, [third] with few parameters.
+After installation, it allows you to use shortcode tag [third] with few parameters.
 
 Example:
 
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
 It will then embed remote markdown content inside your blog.
-Additionally, it will convert to HTML using Parsedown.
+Additionally, it will convert to HTML using <a href="https://github.com/erusev/parsedown">Parsedown</a>.
 
-= Parameters: `[third source="" id="" section=""]` =
+= Parameters explained =
 
 **source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
@@ -41,16 +41,16 @@ Additionally, it will convert to HTML using Parsedown.
 
 == Installation ==
 
-Method #1
+= Method #1 =
 
- * Download the plugin as a .zip file.
- * Go to Plugins > Add new > Upload Plugin.
+ * Download this plugin as a .zip file.
+ * Go to WP Admin > Plugins > Add new > Upload Plugin.
  * Upload the .zip file and activate the plugin.
 
 
-Method #2
+= Method #2 =
 
- * Go to your Admin > Plugins > Add New page.
+ * Go to your WP Admin > Plugins > Add New page.
  * Search for "hosted content importer".
  * Click install. 
 
@@ -59,21 +59,26 @@ Method #2
 
 = How can I use it? =
 
-Define a WordPress shortcode with a full URL to your .md file on remote server.
+Write a WordPress shortcode with a full URL to your .md file on remote server.
 
 Example:
 
 `[third source="markdown" id="FULLURL/README.md" section=""]`
 
 
+= How does it work =
+
+The plugin brings your content using the defined Source with ID and Section. The parameters is a stable list of names proposed for *future development* in order to include more sources like WikiPedia, File, API, URL and Database.
+
+
 = Does it work for everyone? =
 
-Not necessarily. The usage is very tricky. You can remotely host your .md files and embed them in your blogs. In some cases, you may consider editing this plugin and adding your own methods.
+Yes, but not necessarily. The usage is very tricky. You can remotely host your .md files and embed them in your blogs. In some cases, you may consider editing this plugin and adding your own methods.
 
 
 == Screenshots ==
 
-1. Usage Example for "seo.md" file on a remote server with full URL.
+1. Usage Example for "seo.md" file on a remote server with full URL. View raw [seo.md](https://goo.gl/GFgqwp) file.
 
 2. Output inside your blog.
 

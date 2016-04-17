@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class hosted_content_importer
  * @todo Variables will content mixed data input
@@ -7,6 +6,47 @@
 class hosted_content_importer implements hosted_content_interface
 {
 	private $method = null;
+
+	/**
+	 * Fetch contents from third party server
+	 */
+	private function fetch_url($url='')
+	{
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); # To allow shortened URLs
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WordPress Plugin');
+		$content_extracted = curl_exec($ch);
+		curl_close($ch);
+
+		return $content_extracted;
+	}
+
+	/**
+	 * Helper to convert uniformed PHP array data into Basic HTML Table
+	 *
+	 * @param array $data
+	 *
+	 * @return string
+	 */
+	private function html_table($data = array(), $heads = array())
+	{
+		$rows = array();
+		foreach ($data as $row) {
+			$cells = array();
+			foreach ($row as $cell) {
+				$cells[] = "<td>{$cell}</td>";
+			}
+			$rows[] = "<tr>" . implode('', $cells) . "</tr>";
+		}
+
+		return "<table class='hci-table'>" . implode('', $rows) . "</table>";
+	}
 
 	/**
 	 * @todo Make use of callable functions to handle more HCI snippets
@@ -40,35 +80,14 @@ class hosted_content_importer implements hosted_content_interface
 	}
 
 	/**
-	 * Convert uniformed PHP array data to Basic HTML Table
-	 *
-	 * @param array $data
-	 *
-	 * @return string
-	 */
-	private function html_table($data = array(), $heads = array())
-	{
-		$rows = array();
-		foreach ($data as $row) {
-			$cells = array();
-			foreach ($row as $cell) {
-				$cells[] = "<td>{$cell}</td>";
-			}
-			$rows[] = "<tr>" . implode('', $cells) . "</tr>";
-		}
-
-		return "<table class='hci-table'>" . implode('', $rows) . "</table>";
-	}
-
-	/**
 	 * Response when content importer is not defined.
 	 *
-	 * @param int $content_id
-	 * @param int $section_id
+	 * @param mixed $content_id
+	 * @param mixed $section_id
 	 *
 	 * @return string
 	 */
-	private function hci_none($content_id = 0, $section_id = 0)
+	private function hci_none($content_id = null, $section_id = null)
 	{
 		return "Content importer not defined. Using default: <strong>{$this->method}('{$content_id}', '{$section_id}');</strong>.";
 	}
@@ -76,8 +95,8 @@ class hosted_content_importer implements hosted_content_interface
 	/**
 	 * Import content from local file (eg. PHP include())
 	 *
-	 * @param int $content_id
-	 * @param int $section_id
+	 * @param mixed $content_id
+	 * @param mixed $section_id
 	 *
 	 * @return string
 	 */
@@ -89,12 +108,12 @@ class hosted_content_importer implements hosted_content_interface
 	/**
 	 * @todo Import content from an URL (remote file)
 	 *
-	 * @param int $content_id
-	 * @param int $section_id
+	 * @param mixed $content_id
+	 * @param mixed $section_id
 	 *
 	 * @return string
 	 */
-	private function hci_url($content_id = 0, $section_id = 0)
+	private function hci_url($content_id = null, $section_id = null)
 	{
 		$parameters = array(
 			'id' => $content_id,
@@ -114,12 +133,12 @@ class hosted_content_importer implements hosted_content_interface
 	/**
 	 * Fetch content from the database, (possibly) reusing WordPress's existing connection
 	 *
-	 * @param int $content_id
-	 * @param int $section_id
+	 * @param mixed $content_id
+	 * @param mixed $section_id
 	 *
 	 * @return string
 	 */
-	private function hci_database($content_id = 0, $section_id = 0)
+	private function hci_database($content_id = null, $section_id = null)
 	{
 		global $wpdb;
 
@@ -143,40 +162,14 @@ class hosted_content_importer implements hosted_content_interface
 	}
 
 	/**
-	 * Reads the .md file file and process
-	 * @url https://en.support.wordpress.com/markdown/
-	 * @url https://wordpress.org/plugins/jetpack-markdown/
+	 * @todo Read the Wikipedia sections in JSON format and parse | Unfinished work
 	 *
-	 * @param int $content_id
-	 * @param int $section_id
+	 * @param mixed $content_id
+	 * @param mixed $section_id
 	 *
 	 * @return mixed|string
 	 */
-	private function hci_markdown($content_id = 0, $section_id = 0)
-	{
-		$text = $this->fetch_url($content_id);
-
-		/**
-		 * HTML conversion with Markdown
-		 * $markdown = markdown($markdown);
-		 * $markdown = $parsedown->text($text);
-		 */
-		$parsedown = new Parsedown();
-		$markdown = $parsedown->text($text);
-
-		return $markdown;
-	}
-
-	/**
-	 * @todo Read the Wikipedia sections in JSON format and parse
-	 *
-	 * @param int $content_id
-	 * @param int $section_id
-	 *
-	 * @return mixed|string
-	 */
-
-	private function hci_wikipedia($content_id = 0, $section_id = 0)
+	private function hci_wikipedia($content_id = null, $section_id = null)
 	{
 		$parameters = array(
 			'format' => 'json',
@@ -199,33 +192,24 @@ class hosted_content_importer implements hosted_content_interface
 
 		return $content;
 	}
-	
-	private function fetch_url($url='')
+
+	/**
+	 * HTML conversion with Markdown: Reads the .md file file and process
+	 * @url https://en.support.wordpress.com/markdown/
+	 * @url https://wordpress.org/plugins/jetpack-markdown/
+	 *
+	 * @param mixed $content_id
+	 * @param mixed $section_id
+	 *
+	 * @return mixed|string
+	 */
+	private function hci_markdown($content_id = null, $section_id = null)
 	{
-		/**
-		$options = array(
-			'http' => array(
-				'method' => 'GET',
-				'header' => array(
-					'Accept-Language: en',
-				),
-			));
-		$context = stream_context_create($options);
-		#$text = file_get_contents($content_id, false, $context);
-		*/
+		$text = $this->fetch_url($content_id);
 
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); # To allow shortened URLs
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WordPress Plugin');
-		$content_extracted = curl_exec($ch);
-		curl_close($ch);
+		$parsedown = new Parsedown();
+		$markdown = $parsedown->text($text);
 
-		return $content_extracted;
+		return $markdown;
 	}
 }
