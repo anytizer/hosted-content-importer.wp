@@ -40,6 +40,9 @@ For every usage, you will need to define a WordPress shortcode with a full URL t
 2. Output in a page.
 
 
+== Upgrade Notice ==
+
+
 == Changelog ==
 
 = 1.0 =
