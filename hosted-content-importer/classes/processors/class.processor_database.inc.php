@@ -1,6 +1,7 @@
 <?php
 /**
  * Implementation left for developers
+ * Cases: You may implement it yourself with your own logic
  */
 class processor_database extends hosted_content_interface
 {

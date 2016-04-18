@@ -1,6 +1,7 @@
 <?php
 /**
  * Implementation left for developers
+ * Cases: To draw one small section of a huge article on Wikipedia like servers.
  */
 class processor_wikipedia extends hosted_content_interface
 {

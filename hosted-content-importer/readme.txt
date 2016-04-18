@@ -5,16 +5,17 @@ Donate link: http://bimal.org.np/
 Tags: content, embed, external, hci, hosted, markdown, remote, third
 Requires at least: 4.5
 Tested up to: 4.5
-Stable tag: 4.5
+Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Dynamically embeds a remotely hosted content.
+
+Embeds a remotely hosted content. Maintainers can edit a portion of your blog externally, without having any access to your website.
 
 
 == Description ==
 
-Brings third party hosted contents within WordPress blog texts. Logically, it empowers you to allow other users externally edit a particular section of your blogs, without giving them any access to WordPress system.
+Brings third party hosted contents within WordPress blog texts. It logically empowers you to allow other users to externally edit a particular section of your blogs, without giving them any access to your WordPress system.
 
 After installation, it allows you to use shortcode tag [third] with few parameters.
 
@@ -23,7 +24,7 @@ Example:
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
 It will then embed remote markdown content inside your blog.
-Additionally, it will convert to HTML using <a href="https://github.com/erusev/parsedown">Parsedown</a>.
+Additionally, it will convert the text into HTML using <a href="https://github.com/erusev/parsedown">Parsedown</a>.
 
 = Parameters explained =
 
@@ -31,9 +32,9 @@ Additionally, it will convert to HTML using <a href="https://github.com/erusev/p
 
  - markdown: implemented
  - file: implemented
- - database (implemented left for developers); [Join development](https://goo.gl/89KgSC)
- - wikipedia (work in progress); [Join development](https://goo.gl/89KgSC)
- - url/api (work in progress); [Join development](https://goo.gl/89KgSC)
+ - database (implemented, and left for developers) - [Join development](https://goo.gl/89KgSC)
+ - wikipedia (work in progress) - [Join development](https://goo.gl/89KgSC)
+ - url/api (work in progress) - [Join development](https://goo.gl/89KgSC)
 
 **id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
 
@@ -54,7 +55,7 @@ Additionally, it will convert to HTML using <a href="https://github.com/erusev/p
 
 `[third source="database" id="0" section="recent"]`
 
-Some implementations are left for developers. This plugin should act as proof of concept. Please feel free to modify it.
+Some implementations are left for developers because of the nature. This plugin should act as proof of concept in such cases. Please feel free to modify it.
 
 
 == Installation ==
@@ -105,11 +106,10 @@ Yes, but not necessarily. The usage is very tricky. You can remotely host your .
 
 Please view the original development at: https://goo.gl/89KgSC for details, further plans and todos.
 
-= 1.0 =
-* Mentioned logical concepts of allowing other users edit portion of your blog externally, without giving them any access to your WordPress system.
-* Splitted the fetcher files into individual class files.
-* cURL follow redirects - now can use shortened URLs.
-* Added usage examples (markdown, file, database) in readme.md.
+
+= 1.0.0 =
+* Cases explained for developers: when to use which content source.
+* Initial release.
 
 
 == Upgrade Notice ==

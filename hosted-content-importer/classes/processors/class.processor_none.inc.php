@@ -1,7 +1,8 @@
 <?php
 /**
  * Implementation left for developers
- * A dummy processor - that does nothing.
+ * A dummy processor - that does nothing at all.
+ * Cases: Fail-over on reading processors from source="" parameter.
  */
 class processor_none extends hosted_content_interface
 {

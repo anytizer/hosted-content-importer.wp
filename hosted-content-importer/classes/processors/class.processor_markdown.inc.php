@@ -1,4 +1,10 @@
 <?php
+/**
+ * Reads and parses a remote .md markdown file.
+ *
+ * Cases: A file may be edited externally on:
+ *  - GitHub like servers
+ */
 class processor_markdown extends hosted_content_interface
 {
 	/**

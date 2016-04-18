@@ -1,4 +1,11 @@
 <?php
+/**
+ * Reads a local file on the system.
+ * Cases: a file may be:
+ *  - Edited over FTP
+ *  - Replaced via Dropbox
+ *  - symlinked from another user
+ */
 class processor_file extends hosted_content_interface
 {
 	/**
@@ -12,7 +19,7 @@ class processor_file extends hosted_content_interface
 	public function fetch($file_name = '/tmp/readme.txt', $section_id = 0)
 	{
 		/**
-		 * Do NOT use include/require for safety reasons
+		 * Do NOT use include/require methods for safety reasons; serve the file as is.
 		 */
 		
 		$content = '';
