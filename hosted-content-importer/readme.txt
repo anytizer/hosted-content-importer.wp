@@ -106,8 +106,10 @@ Yes, but not necessarily. The usage is very tricky. You can remotely host your .
 Please view the original development at: https://goo.gl/89KgSC for details, further plans and todos.
 
 = 1.0 =
+* Mentioned logical concepts of allowing other users edit portion of your blog externally, without giving them any access to your WordPress system.
+* Splitted the fetcher files into individual class files.
 * cURL follow redirects - now can use shortened URLs.
-* Added usage examples in readme.md.
+* Added usage examples (markdown, file, database) in readme.md.
 
 
 == Upgrade Notice ==
