@@ -2,7 +2,7 @@
 
 Contributors: pbimal
 Donate link: http://bimal.org.np/
-Tags: embed, hci, hosted, remote, third, content, markdown
+Tags: content, embed, external, hci, hosted, markdown, remote, third
 Requires at least: 4.5
 Tested up to: 4.5
 Stable tag: 4.5
@@ -14,7 +14,8 @@ Dynamically embeds a remotely hosted content.
 
 == Description ==
 
-Brings third party hosted contents within WordPress blog texts.
+Brings third party hosted contents within WordPress blog texts. Logically, it empowers you to allow other users externally edit a particular section of your blogs, without giving them any access to WordPress system.
+
 After installation, it allows you to use shortcode tag [third] with few parameters.
 
 Example:
@@ -28,30 +29,32 @@ Additionally, it will convert to HTML using <a href="https://github.com/erusev/p
 
 **source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
- - markdown
+ - markdown: implemented
+ - file: implemented
+ - database (implemented left for developers); [Join development](https://goo.gl/89KgSC)
  - wikipedia (work in progress); [Join development](https://goo.gl/89KgSC)
- - database (work in progress); [Join development](https://goo.gl/89KgSC)
  - url/api (work in progress); [Join development](https://goo.gl/89KgSC)
- - file (work in progress); [Join development](https://goo.gl/89KgSC)
 
 **id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
 
 **section**: Additional parameter to identify the particular section (piece) of the content.
 
 
-= Example: Reading remote .md file =
+= Example: Reading from a remote .md file =
 
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
 
-= Example: Reading a local File =
+= Example: Reading from a local file =
 
 `[third source="file" id="/tmp/readme.txt" section=""]`
 
 
-= Example: Database =
+= Example: Accessing database =
 
 `[third source="database" id="0" section="recent"]`
+
+Some implementations are left for developers. This plugin should act as proof of concept. Please feel free to modify it.
 
 
 == Installation ==
