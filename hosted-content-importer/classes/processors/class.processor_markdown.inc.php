@@ -1,0 +1,22 @@
+<?php
+class processor_markdown extends hosted_content_interface
+{
+	/**
+	 * HTML conversion with Parsedown - reads the .md file and process
+	 * @url http://parsedown.org/ | https://github.com/erusev/parsedown
+	 *
+	 * @param mixed $content_id
+	 * @param mixed $section_id
+	 *
+	 * @return string
+	 */
+	public function fetch($content_id = null, $section_id = null)
+	{
+		$text = $this->fetch_url($content_id);
+
+		$parsedown = new Parsedown();
+		$markdown = $parsedown->text($text);
+
+		return $markdown;
+	}
+}

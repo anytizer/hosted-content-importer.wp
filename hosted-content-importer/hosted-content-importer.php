@@ -21,8 +21,27 @@ if(!class_exists('Parsedown'))
 {
 	require_once(HCI_PLUGIN_DIR . '/classes/parsedown/class.parsedown.inc.php' );
 }
+
+/**
+ * Main binder
+ */
 require_once(HCI_PLUGIN_DIR . '/classes/hci/interface.hosted_content_interface.inc.php');
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_importer.inc.php');
+
+/**
+ * List of processors
+ */
+require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_database.inc.php');
+require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_file.inc.php');
+require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_markdown.inc.php');
+require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_none.inc.php');
+require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_url.inc.php');
+require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_wikipedia.inc.php');
+
+
+/**
+ * Install WordPress Shortcodes
+ */
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_shortcode.inc.php');
 
 new hosted_content_shortcode;

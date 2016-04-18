@@ -16,7 +16,7 @@ class hosted_content_shortcode
 		$standard_attributes = array(
 			'source' => 'none',
 			'id' => '0',
-			'section' => '0',
+			'section' => 'arbitrary',
 		);
 		$attributes = shortcode_atts($standard_attributes, $attributes);
 

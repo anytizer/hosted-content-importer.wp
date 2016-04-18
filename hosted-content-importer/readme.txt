@@ -39,6 +39,21 @@ Additionally, it will convert to HTML using <a href="https://github.com/erusev/p
 **section**: Additional parameter to identify the particular section (piece) of the content.
 
 
+= Example: Reading remote .md file =
+
+`[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
+
+
+= Example: Reading a local File =
+
+`[third source="file" id="/tmp/readme.txt" section=""]`
+
+
+= Example: Database =
+
+`[third source="database" id="0" section="recent"]`
+
+
 == Installation ==
 
 = Method #1 =
