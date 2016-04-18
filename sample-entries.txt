@@ -1,8 +1,8 @@
 Reading remote .md file
 [third source="markdown" id="https://goo.gl/UpclKH" section=""]
 
-Database
-[third source="database" id="0" section="recent"]
-
 Local File
 [third source="file" id="/tmp/readme.txt" section=""]
+
+Database
+[third source="database" id="0" section="recent"]

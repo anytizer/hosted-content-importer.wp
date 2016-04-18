@@ -1,4 +1,7 @@
 <?php
+/**
+ * Implementation left for developers
+ */
 class processor_wikipedia extends hosted_content_interface
 {
 	/**

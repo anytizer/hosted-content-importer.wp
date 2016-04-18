@@ -1,4 +1,7 @@
 <?php
+/**
+ * Implementation left for developers
+ */
 class processor_url extends hosted_content_interface
 {
 	/**

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Implementation left for developers
+ */
 class processor_database extends hosted_content_interface
 {
 	/**
@@ -26,7 +29,7 @@ class processor_database extends hosted_content_interface
 				$html = '<ul>' . implode('', $li) . '</ul>';
 				break;
 			default:
-				$html = "Database fetcher not handled for this section: #{$section_id}";
+				$html = "Fetching section [{$section_id}] is not implemented.";
 		}
 
 		return $html;

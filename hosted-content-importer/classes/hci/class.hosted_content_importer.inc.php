@@ -36,7 +36,6 @@ class hosted_content_importer
 		}
 		
 		$processor = new $processor_name();
-		
 		$content = $processor->fetch($content_id, $section_id);
 
 		return $content;
