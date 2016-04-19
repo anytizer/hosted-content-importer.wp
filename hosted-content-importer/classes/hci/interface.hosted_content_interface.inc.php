@@ -20,14 +20,19 @@ abstract class hosted_content_interface
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		
 		/**
-		 * eg. Wikipedia requirements
+		 *  No cache please!
 		 */
-		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WP Plugin');
-
+		curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+		
 		/**
 		 * To allow shortened URLs
 		 */
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+		/**
+		 * eg. Wikipedia requirements
+		 */
+		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WP Plugin');
 
 		$content_extracted = curl_exec($ch);
 		curl_close($ch);

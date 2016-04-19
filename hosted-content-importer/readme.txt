@@ -2,7 +2,7 @@
 
 Contributors: pbimal
 Donate link: http://bimal.org.np/
-Tags: content, embed, external, hci, hosted, markdown, remote, third
+Tags: content, embed, external, hci, hosted, import, markdown, remote, third
 Requires at least: 4.5
 Tested up to: 4.5
 Stable tag: 1.0.0
@@ -10,7 +10,7 @@ License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 
-Embeds a remotely hosted content. Maintainers can edit a portion of your blog externally, without having any access to your website.
+Embeds a remotely hosted content. Maintainers can edit a tiny portion of your blog externally, without having ANY access to your website.
 
 
 == Description ==
@@ -71,7 +71,7 @@ Some implementations are left for developers because of the nature. This plugin 
 
  * Go to your WP Admin > Plugins > Add New page.
  * Search for "hosted content importer".
- * Click install. 
+ * Click install. Click activate.
 
 
 == Frequently Asked Questions ==
@@ -93,6 +93,25 @@ The plugin brings your content using the defined Source with ID and Section. The
 = Does it work for everyone? =
 
 Yes, but not necessarily. The usage is very tricky. You can remotely host your .md files and embed them in your blogs. In some cases, you may consider editing this plugin and adding your own methods.
+
+
+= Are all the content sources processors implemented fully? =
+
+By the nature of the product, no. However, You can consider `source="markdown"` and `source="file"` as a complete. Any other implementation may require you to modify your plugin to suit it for yourself.
+
+
+= Is it safe to embed third party contents? =
+
+As a matter of rule, do not embed something that you do not trust at all. Implementation should be designed NOT to reveal API access details or anything else. Limit the access only to the standard parameters only. Other private details should be defined within the content processor class files. It does NOT execute PHP scripts from remote contents. But HTML yes - which means, it can consume external image, css, javascripts, media files, etc.
+
+If you are maintainer of a portion of the content of any website, act responsibly; NOT to commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
+
+Behavioural policy: Be good, do good.
+
+
+= How to safeguard my remote contents? =
+
+The answer is beyond the scope of this plugin. But, always consume content from trusted sources only. Security depends on how you use remote contents. If the remote content is distorted, it may reflect back in your website. Do not allow weak security on your remotely edited contents. Sources like Dropbox, GitHub may be considered safe as they require password to upload the contents.
 
 
 == Screenshots ==

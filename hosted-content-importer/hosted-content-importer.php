@@ -29,14 +29,15 @@ require_once(HCI_PLUGIN_DIR . '/classes/hci/interface.hosted_content_interface.i
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_importer.inc.php');
 
 /**
- * List of processors
+ * List of content processors.
+ * Disabled accessing incomplete processors.
  */
 require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_database.inc.php');
 require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_file.inc.php');
 require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_markdown.inc.php');
-require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_none.inc.php');
-require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_url.inc.php');
-require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_wikipedia.inc.php');
+#require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_none.inc.php');
+#require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_url.inc.php');
+#require_once(HCI_PLUGIN_DIR . '/classes/processors/class.processor_wikipedia.inc.php');
 
 
 /**
