@@ -127,6 +127,7 @@ Please view the original development at: https://goo.gl/89KgSC for details, furt
 
 
 = 1.0.0 =
+* Do not cache contents in cURL.
 * Cases explained for developers: when to use which content source.
 * Initial release.
 
