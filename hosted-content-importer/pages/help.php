@@ -14,6 +14,8 @@ ORDER BY p.post_date DESC
 ";
 $posts = $wpdb->get_results($pages_query, OBJECT);
 ?>
+
+<div class="wrap">
 <h2>Posts and Pages using [third] tag</h2>
 <?php if ($posts): ?>
 	<p>The below pages contain [third] tags.</p>
@@ -28,3 +30,4 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 <?php else : ?>
 	<p>[third] tags are not in use. Safe as normal.</p>
 <?php endif; ?>
+</div>

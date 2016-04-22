@@ -30,14 +30,44 @@ class hosted_content_importer
 		$source = preg_replace('/[^a-z0-9]/', '', strtolower($source));
 		$processor_name = "processor_{$source}";
 		
-		if(!class_exists($processor_name))
+		/**
+		* Check for caches
+		*/
+		$hash = md5("{$source}|{$content_id}|{$section_id}");
+		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}/{$hash}.cache";
+		$cache_hours = 0; # 0-23
+		$cache_minutes = 2; # 0 - 59
+		$cache_seconds = 0; # 0 - 59
+		$cache_duration = $cache_hours * 60 * 60 + $cache_minutes * 60 + $cache_seconds; # Hour Minute Seconds
+		$cache_time = time() - $cache_duration;
+		
+		if(!is_file($cache_file) || filemtime($cache_file) < $cache_time)
 		{
-			trigger_error("Class {$processor_name} not found.", E_USER_NOTICE);
+			# Bring the contents
+			# Write the file
+			if(!class_exists($processor_name))
+			{
+				trigger_error("Class {$processor_name} not found.", E_USER_NOTICE);
+			}
+			
+			$processor = new $processor_name();
+			$content = $processor->fetch($content_id, $section_id);
+			
+			# Should overwrite filemtime() value
+			file_put_contents($cache_file, $content);
+		}
+		else
+		{
+			# Read the cache
+			$content = file_get_contents($cache_file);
 		}
 		
-		$processor = new $processor_name();
-		$content = $processor->fetch($content_id, $section_id);
-		
+		/**
+		$now = time();
+		$filemtime = filemtime($cache_file);
+		$diff = $now - $filemtime;
+		return "Now: {$now} - filemtime: {$filemtime} = {$diff} | Needed = {$cache_duration}" . $content;
+		*/
 		return $content;
 	}
 }

@@ -5,7 +5,7 @@
  * Description: Dynamically fetches programmed contents from third party source
  * Author: Bimal Poudel
  * Author URI: http://bimal.org.np/
- * Development URI: https://github.com/bimalpoudel/hosted-content-importer
+ * Development URI: https://github.com/bimalpoudel/hosted-content-importer/
  * License: GPLv2 or later
  * Version: 1.0.0
  */
@@ -61,6 +61,7 @@ add_action( 'admin_menu', 'hci_third_tags_menu');
 function hci_third_tags_menu(){
 	$icon = 'dashicons-format-aside';
 	$myself = basename(dirname(__FILE__)).'/'.basename(__FILE__);
-	add_menu_page('[third] Tags', '[third] Tags', 'manage_options', $myself, 'hci_third_tags_page', $icon, 80 );
+	#add_menu_page('[third] Tags', '[third] Tags', 'manage_options', $myself, 'hci_third_tags_page', $icon, 80 );
+	add_submenu_page('edit.php', 'Posts with [third] Tags', 'Posts [third] Tags', 'manage_options', $myself, 'hci_third_tags_page');
 	#wp_enqueue_style('hci-third-tags', plugins_url( 'pages/css/style.css', __FILE__));
 }

@@ -1,5 +1,13 @@
 # @todo
 
+ * When source="" is missing; use none.
+ * caches/ needs to have processor folder.
+
+ * Include HTTP Referer using Blog Info
+ * Cache the output for 2 reasons; plan to have cache="true|false" 
+    - It may not be good to communicate over servers for each page serving
+    - Contents are generally static
+
  * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
  * Merge the class files for optimization purpose.
  * Write article around it
@@ -16,6 +24,8 @@
  * Check if HCI constants are pre-defined and configured:
    - HCI_WIKIPEDIA_API_URL
    - HCI_CUSTOM_API_URL
+ * Shortcode tag [third] may collide with some other plugins (not sure)
+ * A report on which pages and posts utilised [third] shortcode tags
 
 
 # Important changes
