@@ -1,2 +1,9 @@
-.svn
 .idea
+.svn
+/hosted-content-importer/caches/api/*.cache
+/hosted-content-importer/caches/database/*.cache
+/hosted-content-importer/caches/file/*.cache
+/hosted-content-importer/caches/markdown/*.cache
+/hosted-content-importer/caches/none/*.cache
+/hosted-content-importer/caches/url/*.cache
+/hosted-content-importer/caches/wikipedia/*.cache

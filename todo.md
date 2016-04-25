@@ -2,6 +2,7 @@
 
  * When source="" is missing; use none.
  * caches/ needs to have processor folder.
+ * Relocate the cache path to make plugin skinny.
 
  * Include HTTP Referer using Blog Info
  * Cache the output for 2 reasons; plan to have cache="true|false" 

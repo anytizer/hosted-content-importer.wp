@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: Hosted Content Importer
+ * Plugin Name: Hosted Content Importer (HCI)
  * Plugin URI: https://wordpress.org/plugins/hosted-content-importer/
  * Description: Dynamically fetches programmed contents from third party source
  * Author: Bimal Poudel

@@ -1,4 +1,4 @@
-=== Hosted Content Importer ===
+=== Hosted Content Importer (HCI) ===
 
 Contributors: pbimal
 Donate link: http://bimal.org.np/
@@ -127,6 +127,7 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
 
 = 2.0.0 =
+* Product name has HCI word in it.
 * WP Admin > Pages > Pages with [third] Tags as menu option.
 * Implemented caches to store them locally.
 * Relocated assets.
