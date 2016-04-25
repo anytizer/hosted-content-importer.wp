@@ -14,7 +14,7 @@ abstract class hosted_content_interface
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HEADER, false);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); # Do not wait long
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -31,13 +31,37 @@ abstract class hosted_content_interface
 
 		/**
 		 * eg. Wikipedia requirements
+		 * @see https://www.mediawiki.org/wiki/API:Main_page
+		 * @see https://www.mediawiki.org/wiki/API:Etiquette
+		 * @see https://meta.wikimedia.org/wiki/User-Agent_policy
 		 */
 		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WP Plugin');
+		
+		/**
+		 * Mention who is asking
+		 * @example http://localhost:80/test/?data=value
+		 */
+		$http_referer = $this->http_referer();
+		curl_setopt($ch, CURLOPT_REFERER, $http_referer);
 
 		$content_extracted = curl_exec($ch);
 		curl_close($ch);
 
 		return $content_extracted;
+	}
+	
+	/**
+	 * Build a full URL of the current frontend page
+	 */
+	protected function http_referer()
+	{
+		$scheme = !empty($_SERVER['REQUEST_SCHEME'])?$_SERVER['REQUEST_SCHEME']:'http';
+		$port = !empty($_SERVER['SERVER_PORT'])?$_SERVER['SERVER_PORT']:80;
+		$uri = !empty($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
+		$server = !empty($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:'localhost';
+		$referer = "{$scheme}://{$server}:{$port}{$uri}";
+		
+		return $referer;
 	}
 
 	/**

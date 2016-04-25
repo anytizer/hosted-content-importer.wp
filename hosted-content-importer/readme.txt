@@ -2,7 +2,7 @@
 
 Contributors: pbimal
 Donate link: http://bimal.org.np/
-Tags: content, embed, external, hci, hosted, import, markdown, remote, third
+Tags: cached, content, embed, external, hci, hosted, import, markdown, remote, third
 Requires at least: 4.5
 Tested up to: 4.5
 Stable tag: 1.0.0
@@ -10,14 +10,14 @@ License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 
-Embeds a remotely hosted content. Maintainers can edit a tiny portion of your blog externally, without having ANY access to your website.
+Embeds a remotely hosted content. Maintainers can edit a tiny piece of your blog text externally, without having ANY access to your website.
 
 
 == Description ==
 
-Brings third party hosted contents within WordPress blog texts. It logically empowers you to allow other users to externally edit a particular section of your blogs, without giving them any access to your WordPress system.
+It imports third party hosted contents within WordPress blog texts. You define from which url/resource to fetch the content. The source may be editable by anyone else whom you trust. Thus, it logically empowers you to allow other users to externally edit a particular section of your blogs. And, you do not have to give them any access to your website.
 
-After installation, it allows you to use shortcode tag [third] with few parameters.
+After installation, use shortcode tag `[third]` with few parameters as:
 
 Example:
 
@@ -35,6 +35,7 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
  - database (implemented, and left for developers) - [Join development](https://goo.gl/89KgSC)
  - wikipedia (work in progress) - [Join development](https://goo.gl/89KgSC)
  - url/api (work in progress) - [Join development](https://goo.gl/89KgSC)
+ - The list is not limited, if you expand it.
 
 **id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
 
@@ -106,12 +107,12 @@ As a matter of rule, do not embed something that you do not trust at all. Implem
 
 If you are maintainer of a portion of the content of any website, act responsibly; NOT to commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
 
-Behavioural policy: Be good, do good.
+Behavioural policy: Be good, do good. Always import contents from trusted source only.
 
 
 = How to safeguard my remote contents? =
 
-The answer is beyond the scope of this plugin. But, always consume content from trusted sources only. Security depends on how you use remote contents. If the remote content is distorted, it may reflect back in your website. Do not allow weak security on your remotely edited contents. Sources like Dropbox, GitHub may be considered safe as they require password to upload the contents.
+The answer is beyond the scope of this plugin. But, always consume content from trusted sources only. Security depends on how you use remote contents. If the remote content is distorted, it may reflect back in your website. Do not allow weak security on your remotely edited contents. Sources like Dropbox, GitHub, FTP may be considered safe as they require password to upload the contents.
 
 
 == Screenshots ==
@@ -123,15 +124,19 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 == Changelog ==
 
-Please view the original development at: https://goo.gl/89KgSC for details, further plans and todos.
+Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
 
+= 2.0.0 =
+* WP Admin > Pages > Pages with [third] Tags as menu option.
+* Implemented caches to store them locally.
+* Relocated assets.
 
 = 1.0.0 =
-* Do not cache contents in cURL.
-* Cases explained for developers: when to use which content source.
+* Forced not to cache in cURL.
+* Use cases explained for developers: when to use which content source processor.
 * Initial release.
 
 
 == Upgrade Notice ==
 
-When this plugin is disabled, your blogs will show your [third] shortcode as it is, which may reveal your associated parameters.
+When this plugin is disabled, your blogs will show your `[third]` shortcode as it is, which may reveal your associated parameters.
