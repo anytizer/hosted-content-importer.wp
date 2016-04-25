@@ -7,7 +7,7 @@
  * Author URI: http://bimal.org.np/
  * Development URI: https://github.com/bimalpoudel/hosted-content-importer/
  * License: GPLv2 or later
- * Version: 1.0.0
+ * Version: 2.0.0
  */
 
 define('HCI_PLUGIN_DIR', dirname(__FILE__));

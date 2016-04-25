@@ -5,7 +5,7 @@ Donate link: http://bimal.org.np/
 Tags: cached, content, embed, external, hci, hosted, import, markdown, remote, third
 Requires at least: 4.5
 Tested up to: 4.5
-Stable tag: 1.0.0
+Stable tag: 2.0.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -61,18 +61,27 @@ Some implementations are left for developers because of the nature. This plugin 
 
 == Installation ==
 
+
 = Method #1 =
+
+ * Go to your WP Admin > Plugins > Add New page.
+ * Search for "Hosted Content Importer".
+ * Click install. Click activate.
+
+
+= Method #2 =
 
  * Download this plugin as a .zip file.
  * Go to WP Admin > Plugins > Add new > Upload Plugin.
  * Upload the .zip file and activate the plugin.
 
 
-= Method #2 =
+= Method #3 =
 
- * Go to your WP Admin > Plugins > Add New page.
- * Search for "hosted content importer".
- * Click install. Click activate.
+ * Download the file hosted-content-importer.zip.
+ * Unzip the file on your computer.
+ * Upload folder correct-me (you just unziped) to /wp-content/plugins/ directory.
+ * Activate the plugin through the WP Admin > Plugins menu.
 
 
 == Frequently Asked Questions ==
