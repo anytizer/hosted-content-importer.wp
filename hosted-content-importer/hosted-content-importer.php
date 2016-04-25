@@ -2,7 +2,7 @@
 /*
  * Plugin Name: Hosted Content Importer (HCI)
  * Plugin URI: https://wordpress.org/plugins/hosted-content-importer/
- * Description: Dynamically fetches programmed contents from third party source
+ * Description: Embeds third party contents. Usage: <code>[third source="markdown" id="URL" section=""]</code>
  * Author: Bimal Poudel
  * Author URI: http://bimal.org.np/
  * Development URI: https://github.com/bimalpoudel/hosted-content-importer/

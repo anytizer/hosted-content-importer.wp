@@ -3,11 +3,11 @@
  * When source="" is missing; use none.
  * caches/ needs to have processor folder.
  * Relocate the cache path to make plugin skinny.
-
- * Include HTTP Referer using Blog Info
+ * Include HTTP Referer using Blog Info (Calculated)
  * Cache the output for 2 reasons; plan to have cache="true|false" 
     - It may not be good to communicate over servers for each page serving
     - Contents are generally static
+    - Configurable cache duration
 
  * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
  * Merge the class files for optimization purpose.
