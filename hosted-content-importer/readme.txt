@@ -19,8 +19,6 @@ It imports third party hosted contents within WordPress blog texts. You define f
 
 After installation, use shortcode tag `[third]` with few parameters as:
 
-Example:
-
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
 It will then embed remote markdown content inside your blog.
@@ -30,9 +28,9 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 
 **source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
- - markdown: implemented
- - file: implemented
- - database (implemented, and left for developers) - [Join development](https://goo.gl/89KgSC)
+ - markdown: &#x2714; implemented
+ - file: &#x2714; implemented
+ - database (partially implemented, and left for developers) - [Join development](https://goo.gl/89KgSC)
  - wikipedia (work in progress) - [Join development](https://goo.gl/89KgSC)
  - url/api (work in progress) - [Join development](https://goo.gl/89KgSC)
  - The list is not limited, if you expand it.
@@ -105,9 +103,14 @@ The plugin brings your content using the defined Source with ID and Section. The
 Yes, but not necessarily. The usage is very tricky. You can remotely host your .md files and embed them in your blogs. In some cases, you may consider editing this plugin and adding your own methods.
 
 
+= What happens if the third party content source is down? =
+
+We never thought of that downtime. In new release, a cache is enabled.
+
+
 = Are all the content sources processors implemented fully? =
 
-By the nature of the product, no. However, You can consider `source="markdown"` and `source="file"` as a complete. Any other implementation may require you to modify your plugin to suit it for yourself.
+By the nature of the product, no. However, You can consider `source="markdown"` and `source="file"` as a completed codes. Any other implementation may require you to modify your plugin to suit it for yourself.
 
 
 = Is it safe to embed third party contents? =
@@ -116,7 +119,7 @@ As a matter of rule, do not embed something that you do not trust at all. Implem
 
 If you are maintainer of a portion of the content of any website, act responsibly; NOT to commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
 
-Behavioural policy: Be good, do good. Always import contents from trusted source only.
+**Behavioural policy**: Be good, do good. Always import contents from trusted sources only.
 
 
 = How to safeguard my remote contents? =
@@ -135,10 +138,13 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
 
+= 2.0.1 =
+* Minor optimization and code cleaning.
+
 = 2.0.0 =
 * Product name has HCI word in it.
-* WP Admin > Pages > Pages with [third] Tags as menu option.
-* Implemented caches to store them locally.
+* WP Admin > Pages > `[third]`: Reports on which posts/pages used this shortcode.
+* Implemented caches to store once-fetched contents locally.
 * Relocated assets.
 
 = 1.0.0 =
@@ -149,4 +155,6 @@ Please view the original development at: https://goo.gl/89KgSC for details, furt
 
 == Upgrade Notice ==
 
-When this plugin is disabled, your blogs will show your `[third]` shortcode as it is, which may reveal your associated parameters.
+When this plugin is used and disabled, your blogs will show your `[third]` shortcode as it is, which may reveal your associated parameters. The precautionary design does not allow username/password and API keys in the shortcode tags.
+
+If you want to discontinue using this plugin; first, find out which pages have used this shortcode. WP Admin > Pages > 

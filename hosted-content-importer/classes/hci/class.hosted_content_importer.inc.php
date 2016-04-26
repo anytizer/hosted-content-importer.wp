@@ -1,7 +1,4 @@
 <?php
-/**
- * @todo Variables contain mixed type of input data
- */
 class hosted_content_importer
 {
 	/**
@@ -20,54 +17,82 @@ class hosted_content_importer
 
 	/**
 	 * @param string $source
-	 * @param mixed $content_id
+	 * @param mixed $content_id ID or Full URL
 	 * @param mixed $section_id
+	 * @param boolean $cache_requested
 	 *
 	 * @return string
 	 */
-	public function process($source = '', $content_id = null, $section_id = null)
+	public function process($source = '', $content_id = null, $section_id = null, $cache_requested = false)
 	{
+		print_r(func_get_args());
+		
 		$source = preg_replace('/[^a-z0-9]/', '', strtolower($source));
 		$processor_name = "processor_{$source}";
+		if(!class_exists($processor_name))
+		{
+			trigger_error("Processor class {$processor_name} not found.", E_USER_NOTICE);
+		}
 		
 		/**
 		* Check for caches
 		*/
-		$hash = md5("{$source}|{$content_id}|{$section_id}");
-		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}/{$hash}.cache";
-		$cache_hours = 0; # 0-23
-		$cache_minutes = 2; # 0 - 59
+		$hashed_name = md5("{$source}|{$content_id}|{$section_id}");
+		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}/{$hashed_name}.cache";
+		
+		/**
+		 * @todo Configure the total durations at user level: Hour + Minute + Seconds
+		 */
+		$cache_hours   = 5; # 0 - 23
+		$cache_minutes = 0; # 0 - 59
 		$cache_seconds = 0; # 0 - 59
-		$cache_duration = $cache_hours * 60 * 60 + $cache_minutes * 60 + $cache_seconds; # Hour Minute Seconds
+		$cache_duration = $cache_hours * 60 * 60 + $cache_minutes * 60 + $cache_seconds;
 		$cache_time = time() - $cache_duration;
 		
-		if(!is_file($cache_file) || filemtime($cache_file) < $cache_time)
+		/**
+		 * @todo Follow cache control from parameters
+		 * If cache file does not exist
+		 * If the cache file is too old
+		 */
+		 
+		$cacheable = true;
+		if(!is_file($cache_file))
 		{
-			# Bring the contents
-			# Write the file
-			if(!class_exists($processor_name))
+			$cacheable = false;
+		}
+		else
+		{
+			if($cache_requested==true)
 			{
-				trigger_error("Class {$processor_name} not found.", E_USER_NOTICE);
+				/**
+				 * Even if cacheable and cache exists, but old, bring fresh
+				 */
+				if(filemtime($cache_file) < $cache_time)
+				{
+					$cacheable = false;
+				}
 			}
-			
+			else
+			{
+				$cacheable = false;
+			}
+		}
+		 
+		if($cacheable != true)
+		{
+			# Bring the fresh contents
 			$processor = new $processor_name();
 			$content = $processor->fetch($content_id, $section_id);
 			
-			# Should overwrite filemtime() value
+			# And write the cache file, overwrites filemtime() value
 			file_put_contents($cache_file, $content);
 		}
 		else
 		{
-			# Read the cache
+			# Read the cached contents
 			$content = file_get_contents($cache_file);
 		}
-		
-		/**
-		$now = time();
-		$filemtime = filemtime($cache_file);
-		$diff = $now - $filemtime;
-		return "Now: {$now} - filemtime: {$filemtime} = {$diff} | Needed = {$cache_duration}" . $content;
-		*/
+
 		return $content;
 	}
 }

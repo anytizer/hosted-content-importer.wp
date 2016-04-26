@@ -1,5 +1,6 @@
 # @todo
 
+ * If remote fectching failed, reuse the expired cache once.
  * When source="" is missing; use none.
  * caches/ needs to have processor folder.
  * Relocate the cache path to make plugin skinny.

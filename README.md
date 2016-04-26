@@ -1,6 +1,6 @@
 # HCI: Hosted Content Importer
 
-Include a third-party content within WordPress blog texts.
+Includes a third-party content within WordPress blog texts.
 
 This plugin is a for a solution to a specific problem.
 WordPress developers should expand the **hosted_content_importer::*hci_SOURCE*()** interface to make it work for their application.
@@ -9,8 +9,9 @@ WordPress developers should expand the **hosted_content_importer::*hci_SOURCE*()
 ## Experimental Work
 
  * This work maynot suit your purpose, by its nature.
- * But it is an experimental and proof-of-concept work.
+ * It is an experimental and proof-of-concept work.
  * Please do NOT use it in your production environment.
+ * Enable caches.
 
 
 ## Usage examples
@@ -39,3 +40,10 @@ WordPress developers should expand the **hosted_content_importer::*hci_SOURCE*()
 ## Dependency
 
  * Uses [Parsedown](http://parsedown.org) to mark down the HTML output.
+
+
+## Deployment
+
+ * This work is published publicly at WordPress as a plugin | [Download](https://wordpress.org/plugins/hosted-content-importer/)
+ * [View SVN Repository](https://plugins.svn.wordpress.org/hosted-content-importer/)
+ * Active development takes in [GitHub](https://github.com/bimalpoudel/hosted-content-importer) only

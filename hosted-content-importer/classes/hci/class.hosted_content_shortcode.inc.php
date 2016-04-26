@@ -6,25 +6,30 @@ class hosted_content_shortcode
 {
 	public function __construct()
 	{
-		add_shortcode('third', array($this, 'shortcode'));
-		add_action('wp_enqueue_scripts', array($this, 'register_hci_scripts'));
+		add_shortcode('hci', array($this, '_handle_shortcode'));
+		add_shortcode('third', array($this, '_handle_shortcode'));
+		
+		add_action('wp_enqueue_scripts', array($this, '_register_hci_scripts'));
 	}
 
-	public function shortcode($attributes = array())
+	public function _handle_shortcode($attributes = array())
 	{
 		$attributes = array_map('esc_attr', $attributes);
 		$standard_attributes = array(
 			'source' => 'none',
-			'id' => '0',
+			'id' => '0', # Integer, URL
 			'section' => 'arbitrary',
+			'cache' => 'true',
 		);
 		$attributes = shortcode_atts($standard_attributes, $attributes);
+		$attributes['cache'] = (strtolower($attributes['cache'])=='true'); # boolean true | false
 
 		$hci = new hosted_content_importer();
 		$remote_content = $hci->process(
 			$attributes['source'], 
-			$attributes['id'], 
-			$attributes['section']
+			$attributes['id'],
+			$attributes['section'],
+			$attributes['cache']
 		);
 
 		/**
@@ -41,8 +46,8 @@ class hosted_content_shortcode
 
 		return $content;
 	}
-
-	public function register_hci_scripts()
+	
+	public function _register_hci_scripts()
 	{
 		wp_register_style('hci', plugins_url('css/hci.css', realpath(dirname(__FILE__).'/../')));
 		wp_enqueue_style('hci');

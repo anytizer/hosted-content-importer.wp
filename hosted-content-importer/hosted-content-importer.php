@@ -63,6 +63,6 @@ function hci_third_tags_menu(){
 	$icon = 'dashicons-format-aside';
 	$myself = basename(dirname(__FILE__)).'/'.basename(__FILE__);
 	#add_menu_page('[third] Tags', '[third] Tags', 'manage_options', $myself, 'hci_third_tags_page', $icon, 80 );
-	add_submenu_page('edit.php', 'Posts with [third] Tags', 'Posts [third] Tags', 'manage_options', $myself, 'hci_third_tags_page');
+	add_submenu_page('edit.php', 'Posts with [third] Tags', '[third] Tags', 'manage_options', $myself, 'hci_third_tags_page');
 	#wp_enqueue_style('hci-third-tags', plugins_url( 'pages/css/style.css', __FILE__));
 }
