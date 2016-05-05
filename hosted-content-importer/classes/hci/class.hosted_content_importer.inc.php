@@ -1,6 +1,20 @@
 <?php
 class hosted_content_importer
 {
+	public function __construct()
+	{
+		spl_autoload_register(array($this, '_autoload_processors'));
+	}
+
+	private function _autoload_processors($class_name='')
+	{
+		$processor = require_once(HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php");
+		if(is_file($processor))
+		{
+			require_once($processor);
+		}
+	}
+
 	/**
 	 * @todo Make use of callable functions to handle more HCI snippets
 	 *

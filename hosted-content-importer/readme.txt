@@ -2,7 +2,7 @@
 
 Contributors: pbimal
 Donate link: http://bimal.org.np/
-Tags: cached, content, embed, external, hci, hosted, import, markdown, remote, third
+Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
 Requires at least: 4.5
 Tested up to: 4.5
 Stable tag: 2.0.0
@@ -24,12 +24,13 @@ After installation, use shortcode tag `[third]` with few parameters as:
 It will then embed remote markdown content inside your blog.
 Additionally, it will convert the text into HTML using <a href="https://github.com/erusev/parsedown">Parsedown</a>.
 
-= Parameters explained =
+= Parameters =
 
 **source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
  - markdown: &#x2714; implemented
  - file: &#x2714; implemented
+ - gist: &#x2714; implemented
  - database (partially implemented, and left for developers) - [Join development](https://goo.gl/89KgSC)
  - wikipedia (work in progress) - [Join development](https://goo.gl/89KgSC)
  - url/api (work in progress) - [Join development](https://goo.gl/89KgSC)
@@ -43,6 +44,11 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 = Example: Reading from a remote .md file =
 
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
+
+
+= Example: Embeding a gist from GitHub =
+
+`[third source="gist" id="000000000000" section="filename.php"]`
 
 
 = Example: Reading from a local file =
@@ -78,7 +84,7 @@ Some implementations are left for developers because of the nature. This plugin 
 
  * Download the file hosted-content-importer.zip.
  * Unzip the file on your computer.
- * Upload folder correct-me (you just unziped) to /wp-content/plugins/ directory.
+ * Upload folder hosted-content-importer (you just unziped) to /wp-content/plugins/ directory.
  * Activate the plugin through the WP Admin > Plugins menu.
 
 
@@ -139,6 +145,7 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
 
 = 2.0.1 =
+* Embedding gists: a new gist processor introduced.
 * Minor optimization and code cleaning.
 
 = 2.0.0 =
