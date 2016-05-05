@@ -39,8 +39,6 @@ class hosted_content_importer
 	 */
 	public function process($source = '', $content_id = null, $section_id = null, $cache_requested = false)
 	{
-		print_r(func_get_args());
-		
 		$source = preg_replace('/[^a-z0-9]/', '', strtolower($source));
 		$processor_name = "processor_{$source}";
 		if(!class_exists($processor_name))

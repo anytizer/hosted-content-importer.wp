@@ -145,6 +145,7 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
 
 = 2.0.1 =
+* SPL Autoloading the content processors.
 * Embedding gists: a new gist processor introduced.
 * Minor optimization and code cleaning.
 

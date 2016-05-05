@@ -1,8 +1,17 @@
-# @todo
+## @todo
 
- * If remote fectching failed, reuse the expired cache once.
- * When source="" is missing; use none.
- * caches/ needs to have processor folder.
+## Gist Processor
+
+ * Cache the full JS Output
+
+
+## Others
+
+ * Instead of Join Development, give link to Fork the project
+ * Create a link in admin area to purge caches
+ * If remote fectching failed:
+    - reuse the expired cache once
+    - do not write over the cache with empty contents
  * Relocate the cache path to make plugin skinny.
  * Include HTTP Referer using Blog Info (Calculated)
  * Cache the output for 2 reasons; plan to have cache="true|false" 
@@ -11,18 +20,17 @@
     - Configurable cache duration
 
  * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
- * Merge the class files for optimization purpose.
- * Write article around it
+ * Merge the class files for optimization purpose
+ * Write an article around it
  * Make it installable via composer
- * Support multiple sources of contents and their fetchers.
- * Support tailored parameters per fetcher.
- * Make each fetcher as an independent class file.
- * Free the HTML output (`<div>`) from being wrapped inside `<p>` tags.
+ * Support multiple sources of contents and their fetchers
+ * Support tailored parameters per fetcher
+ * Make each fetcher as an independent class file
+ * Free the HTML output (`<div>`) from being wrapped inside `<p>` tags
  * Auto calculate and use: Slug, Post ID, Post Title
  * Import contents from Wikipedia section
- * Import contents from local (mysql) database
+ * Import contents from local (mysql) database (Examples needed)
  * Import contents from URL Calls, API Calls
- * Import contents from local files
  * Check if HCI constants are pre-defined and configured:
    - HCI_WIKIPEDIA_API_URL
    - HCI_CUSTOM_API_URL
@@ -30,7 +38,7 @@
  * A report on which pages and posts utilised [third] shortcode tags
 
 
-# Important changes
+## Important changes
 
  * Allows shortened URLs
  * Standardized the parameters across multiple sources
