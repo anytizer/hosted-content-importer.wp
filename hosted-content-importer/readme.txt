@@ -4,13 +4,13 @@ Contributors: pbimal
 Donate link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
 Requires at least: 4.5
-Tested up to: 4.5
+Tested up to: 4.5.2
 Stable tag: 2.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 
-Embeds a remotely hosted content. Maintainers can edit a tiny piece of your blog text externally, without having ANY access to your website.
+Embeds a remotely hosted content. Contributors can edit a tiny piece of your blog text externally, without having ANY access to your website.
 
 
 == Description ==
@@ -32,9 +32,9 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
  - file: &#x2714; implemented
  - gist: &#x2714; implemented
  - jotform: &#x2714; implemented
- - database (partially implemented, and left for developers) - [Join/Fork](https://goo.gl/89KgSC)
- - wikipedia (work in progress) - [Join/Fork](https://goo.gl/89KgSC)
- - url/api (work in progress) - [Join/Fork](https://goo.gl/89KgSC)
+ - database (partially implemented, and left for developers) - [Join/Fork Development](https://goo.gl/89KgSC)
+ - wikipedia (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
+ - url/api (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
  - The list is not limited, if you expand it.
 
 **id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
@@ -42,26 +42,41 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 **section**: Additional parameter to identify the particular section (piece) of the content.
 
 
-= Example: Reading from a remote .md file =
+= Example: Parsing a remote .md file =
 
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
+Learn to write [your .md file](http://parsedown.org/demo).
 
-= Example: Embeding a gist from GitHub =
+
+= Example: Embeding a gist code from GitHub =
 
 `[third source="gist" id="000000000000" section="filename.php"]`
 
+Create [your gists at GitHub](https://gist.github.com/).
 
-= Example: Reading from a local file =
+
+= Example: Embeding a JotForm =
+
+`[third source="jotform" id="000000000000" section=""]`
+
+Create your own form at [JotForm website](https://jotform.com/)
+
+
+= Example: Reading a server's local file =
 
 `[third source="file" id="/tmp/readme.txt" section=""]`
+
+For security reasons, it hast to be a static file. For example, if you read the .php file, it will NOT process it, rather read its conents only.
 
 
 = Example: Accessing database =
 
 `[third source="database" id="0" section="recent"]`
 
-Some implementations are left for developers because of the nature. This plugin should act as proof of concept in such cases. Please feel free to modify it.
+Some implementations are left for developers because of the nature. This plugin acts as proof of concept reference. Please feel free to modify/expand it.
+
+You may often consider writing your own Content Processor
 
 
 == Installation ==
@@ -172,3 +187,17 @@ Please view the original development at: https://goo.gl/89KgSC for details, furt
 When this plugin is used and disabled, your blogs will show your `[third]` shortcode as it is, which may reveal your associated parameters. The precautionary design does not allow username/password and API keys in the shortcode tags.
 
 If you want to discontinue using this plugin; first, find out which pages have used this shortcode. WP Admin > Pages > 
+
+
+== My Own ==
+
+If you want to develop your own Content Processor, it is much easier.
+Just create a tiny class file inside hosted-content-importer/classes/processors as like one of the existing one.
+Then, it is instantly available for using as `[third source="YOURNAME" section=""]` tag.
+
+= Minimum requirements =
+
+1. File name: `class.processor_YOURNAME.inc.php`
+2. Method: `public function fetch($form_id = null, $section = null)`. Process your content and return HTML string.
+
+Just that drop-in.
