@@ -15,14 +15,14 @@
           "url": "https://github.com/bimalpoudel/hosted-content-importer/archive/master.zip"
         },
         "require" : {
-          "composer/installers": "v1.0.6"
+          "composer/installers": "*"
         }
       }
     }
   ],
   "require": {
     "php": ">=5.3.0",
-    "bimalpoudel/hosted-content-importer": "0.0.0"
+    "bimalpoudel/hosted-content-importer": "*"
   },
     "config": {
 	"secure-http": false
