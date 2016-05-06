@@ -2,7 +2,8 @@
 
 ## Gist Processor
 
- * Cache the full JS Output
+ * Cache the full JS Output if possible
+ * Remove unfinished classes
 
 
 ## Others
@@ -12,8 +13,6 @@
  * If remote fectching failed:
     - reuse the expired cache once
     - do not write over the cache with empty contents
- * Relocate the cache path to make plugin skinny.
- * Include HTTP Referer using Blog Info (Calculated)
  * Cache the output for 2 reasons; plan to have cache="true|false" 
     - It may not be good to communicate over servers for each page serving
     - Contents are generally static
@@ -23,14 +22,10 @@
  * Merge the class files for optimization purpose
  * Write an article around it
  * Make it installable via composer
- * Support multiple sources of contents and their fetchers
- * Support tailored parameters per fetcher
- * Make each fetcher as an independent class file
  * Free the HTML output (`<div>`) from being wrapped inside `<p>` tags
- * Auto calculate and use: Slug, Post ID, Post Title
- * Import contents from Wikipedia section
  * Import contents from local (mysql) database (Examples needed)
  * Import contents from URL Calls, API Calls
+ * Import contents from Wikipedia section
  * Check if HCI constants are pre-defined and configured:
    - HCI_WIKIPEDIA_API_URL
    - HCI_CUSTOM_API_URL

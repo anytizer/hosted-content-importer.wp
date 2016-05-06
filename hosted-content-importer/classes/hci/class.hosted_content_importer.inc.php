@@ -50,7 +50,7 @@ class hosted_content_importer
 		* Check for caches
 		*/
 		$hashed_name = md5("{$source}|{$content_id}|{$section_id}");
-		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}/{$hashed_name}.cache";
+		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}-{$hashed_name}.cache";
 		
 		/**
 		 * @todo Configure the total durations at user level: Hour + Minute + Seconds
