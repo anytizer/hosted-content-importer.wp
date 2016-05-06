@@ -34,21 +34,3 @@ require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_importer.inc.ph
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_shortcode.inc.php');
 new hosted_content_shortcode;
 
-
-
-/**
- * Report on which pages have [third] shortcode tags
- */
-function hci_third_tags_page()
-{
-	require_once(dirname(__FILE__).'/pages/help.php');
-}
-
-add_action( 'admin_menu', 'hci_third_tags_menu');
-function hci_third_tags_menu(){
-	$icon = 'dashicons-format-aside';
-	$myself = basename(dirname(__FILE__)).'/'.basename(__FILE__);
-	#add_menu_page('[third] Tags', '[third] Tags', 'manage_options', $myself, 'hci_third_tags_page', $icon, 80 );
-	add_submenu_page('edit.php', 'Posts with [third] Tags', '[third] Tags', 'manage_options', $myself, 'hci_third_tags_page');
-	#wp_enqueue_style('hci-third-tags', plugins_url( 'pages/css/style.css', __FILE__));
-}

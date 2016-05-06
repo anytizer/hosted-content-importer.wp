@@ -5,7 +5,7 @@ Donate link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
 Requires at least: 4.5
 Tested up to: 4.5
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,9 +31,10 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
  - markdown: &#x2714; implemented
  - file: &#x2714; implemented
  - gist: &#x2714; implemented
- - database (partially implemented, and left for developers) - [Join development](https://goo.gl/89KgSC)
- - wikipedia (work in progress) - [Join development](https://goo.gl/89KgSC)
- - url/api (work in progress) - [Join development](https://goo.gl/89KgSC)
+ - jotform: &#x2714; implemented
+ - database (partially implemented, and left for developers) - [Join/Fork](https://goo.gl/89KgSC)
+ - wikipedia (work in progress) - [Join/Fork](https://goo.gl/89KgSC)
+ - url/api (work in progress) - [Join/Fork](https://goo.gl/89KgSC)
  - The list is not limited, if you expand it.
 
 **id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
@@ -92,11 +93,15 @@ Some implementations are left for developers because of the nature. This plugin 
 
 = How can I use it? =
 
-Write a WordPress shortcode with a full URL to your .md file on remote server.
+Within your blog post or page, write a insert the similar snippet below:
 
 Example:
 
 `[third source="markdown" id="FULLURL/README.md" section=""]`
+
+Your URL (ID) should be a full URL to your .md file on remote server.
+
+There are several other ways to include remote contents. Each unique content is processed by its own [processor](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
 
 
 = How does it work =
@@ -145,6 +150,7 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
 
 = 2.0.1 =
+* JotForm added.
 * SPL Autoloading the content processors.
 * Embedding gists: a new gist processor introduced.
 * Minor optimization and code cleaning.

@@ -14,7 +14,7 @@ abstract class hosted_content_interface
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HEADER, false);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); # Do not wait long
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); # Do not wait for long
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
