@@ -18,18 +18,16 @@
 
 table.hci-table td, table.hci-table th {
     padding: 5px;
-	margin: 0;
+    margin: 0;
 }
 
-.hci-remote-content td, .hci-remote-content th
-{
+.hci-remote-content td, .hci-remote-content th {
     padding: 5px;
-	margin: 0;
-	border-bottom: 1px solid #EEE;
+    margin: 0;
+    border-bottom: 1px solid #EEE;
 }
 
-.hci-remote-content th
-{
-	/** Decorate with nice background color */
-	background-color: #EEB;
+.hci-remote-content th {
+    /** Decorate with nice background color */
+    background-color: #EEB;
 }

@@ -3,13 +3,13 @@
 abstract class hosted_content_interface
 {
 	private $method = null;
-	
+
 	abstract public function fetch($content_id = null, $section_id = null);
 
 	/**
 	 * Fetch contents from third party server
 	 */
-	protected function fetch_url($url='')
+	protected function fetch_url($url = '')
 	{
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -18,12 +18,12 @@ abstract class hosted_content_interface
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		
+
 		/**
 		 *  No cache please!
 		 */
 		curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
-		
+
 		/**
 		 * To allow shortened URLs
 		 */
@@ -36,7 +36,7 @@ abstract class hosted_content_interface
 		 * @see https://meta.wikimedia.org/wiki/User-Agent_policy
 		 */
 		curl_setopt($ch, CURLOPT_USERAGENT, 'Hosted Content Importer - WP Plugin');
-		
+
 		/**
 		 * Mention who is asking
 		 * @example http://localhost:80/test/?data=value
@@ -49,18 +49,18 @@ abstract class hosted_content_interface
 
 		return $content_extracted;
 	}
-	
+
 	/**
 	 * Build a full URL of the current frontend page
 	 */
 	protected function http_referer()
 	{
-		$scheme = !empty($_SERVER['REQUEST_SCHEME'])?$_SERVER['REQUEST_SCHEME']:'http';
-		$port = !empty($_SERVER['SERVER_PORT'])?$_SERVER['SERVER_PORT']:80;
-		$uri = !empty($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:'/';
-		$server = !empty($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:'localhost';
+		$scheme = !empty($_SERVER['REQUEST_SCHEME']) ? $_SERVER['REQUEST_SCHEME'] : 'http';
+		$port = !empty($_SERVER['SERVER_PORT']) ? $_SERVER['SERVER_PORT'] : 80;
+		$uri = !empty($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
+		$server = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost';
 		$referer = "{$scheme}://{$server}:{$port}{$uri}";
-		
+
 		return $referer;
 	}
 
@@ -74,9 +74,11 @@ abstract class hosted_content_interface
 	protected function html_table($data = array(), $heads = array())
 	{
 		$rows = array();
-		foreach ($data as $row) {
+		foreach($data as $row)
+		{
 			$cells = array();
-			foreach ($row as $cell) {
+			foreach($row as $cell)
+			{
 				$cells[] = "<td>{$cell}</td>";
 			}
 			$rows[] = "<tr>" . implode('', $cells) . "</tr>";

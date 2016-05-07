@@ -1,8 +1,18 @@
 .data {
-	border-collapse:collapse;
+    border-collapse: collapse;
 }
 
-.data td, .data th { padding: 5px; }
-.data td { border-bottom: 1px sold #666666; }
+.data td, .data th {
+    padding: 5px;
+}
 
-thead tr { background-color: #999999; color:#FFFFFF; font-weight: bold; text-align: left; }
+.data td {
+    border-bottom: 1px sold #666666;
+}
+
+thead tr {
+    background-color: #999999;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: left;
+}

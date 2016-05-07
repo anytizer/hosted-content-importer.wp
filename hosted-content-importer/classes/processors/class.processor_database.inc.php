@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implementation left for developers
  * Cases: You may implement it yourself with your own logic
@@ -18,12 +19,14 @@ class processor_database extends hosted_content_interface
 		global $wpdb;
 
 		$html = 'Reading contents from local DATABASE.';
-		switch ($section_id) {
+		switch($section_id)
+		{
 			case 'latest':
 			case 'recent':
 				$rows = $wpdb->get_results("SELECT post_title, guid FROM {$wpdb->prefix}posts WHERE post_type='post' AND post_status='publish' ORDER BY ID DESC LIMIT 20;");
 				$li = array();
-				foreach ($rows as $row) {
+				foreach($rows as $row)
+				{
 					$li[] = "<li><a href='{$row->guid}'>{$row->post_title}</a></li>";
 				}
 

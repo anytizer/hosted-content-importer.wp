@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Reads and parses a remote .md markdown file.
  *

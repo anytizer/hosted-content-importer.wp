@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Reads a local file on the system.
  * Cases: a file may be:
@@ -21,13 +22,13 @@ class processor_file extends hosted_content_interface
 		/**
 		 * Do NOT use include/require methods for safety reasons; serve the file as is.
 		 */
-		
+
 		$content = '';
 		if(is_file($file_name))
 		{
 			$content = file_get_contents($file_name);
 		}
-		
+
 		return $content;
 	}
 }

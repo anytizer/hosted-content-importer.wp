@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implementation left for developers
  * Cases: To draw one small section of a huge article on Wikipedia like servers.
@@ -15,14 +16,8 @@ class processor_wikipedia extends hosted_content_interface
 	 */
 	public function fetch($content_id = null, $section_id = null)
 	{
-		$parameters = array(
-			'format' => 'json',
-			'action' => 'query', # parse | query
-			'prop' => 'extracts',
-			'exintro' => '',
-			'explaintext' => '',
-			'titles' => $content_id,
-		);
+		$parameters = array('format' => 'json', 'action' => 'query', # parse | query
+			'prop' => 'extracts', 'exintro' => '', 'explaintext' => '', 'titles' => $content_id,);
 		$wikipedia_url = constant('HCI_WIKIPEDIA_API_URL') . '?' . http_build_query($parameters);
 
 		return "View Source: <a href='{$wikipedia_url}'>{$wikipedia_url}</a>";

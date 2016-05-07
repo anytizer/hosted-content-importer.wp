@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Replication of Gist GitHub Shortcode by Claudio Sanches
  * Original Plugin: https://wordpress.org/plugins/gist-github-shortcode/
@@ -11,12 +12,8 @@ class processor_gist extends hosted_content_interface
 {
 	public function fetch($gist_id = null, $file_name = null)
 	{
-		$gist = sprintf(
-			'<script src="https://gist.github.com/%s.js%s"></script>',
-			esc_attr( $gist_id ),
-			$file_name ? '?file=' . esc_attr( $file_name ) : ''
-		);
-		
+		$gist = sprintf('<script src="https://gist.github.com/%s.js%s"></script>', esc_attr($gist_id), $file_name ? '?file=' . esc_attr($file_name) : '');
+
 		return $gist;
 	}
 }

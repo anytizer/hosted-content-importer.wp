@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implementation left for developers
  * A dummy processor - that does nothing at all.

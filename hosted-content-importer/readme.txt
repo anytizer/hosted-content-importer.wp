@@ -199,15 +199,15 @@ If you want to discontinue using this plugin; first, find out which posts and pa
 == Custom Processors ==
 
 If you want to develop your own Content Processor, it is much easier.
-Just create a tiny class file inside hosted-content-importer/classes/processors as like one of the existing one.
-
-Then, it is instantly available for using as `[third source="YOURNAME" section=""]` tag.
+Just create a tiny class file inside **classes/processors** as like one of the existing one.
 
 = Minimum requirements =
 
 1. File name: `class.processor_YOURNAME.inc.php`
 2. Method: `public function fetch($form_id = null, $section = null)`.
-  a. Process your content.
-  b. Return HTML string.
+  * Process your content.
+  * Return HTML string.
+  * For references, see `class.processor_none.inc.php`
+3. Use as: `[third source="YOURNAME" section=""]`
 
 Just that much easy drop-in replacement.

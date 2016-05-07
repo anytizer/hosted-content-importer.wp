@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implementation left for developers
  * Cases: API based content pulling where server may require login/access.
@@ -15,10 +16,7 @@ class processor_url extends hosted_content_interface
 	 */
 	public function fetch($content_id = null, $section_id = null)
 	{
-		$parameters = array(
-			'id' => $content_id,
-			'section' => $section_id,
-		);
+		$parameters = array('id' => $content_id, 'section' => $section_id,);
 		/**
 		 * @todo Remove hard coded custom URLs
 		 */

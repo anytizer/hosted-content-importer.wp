@@ -27,7 +27,7 @@ define('HCI_PLUGIN_DIR', dirname(__FILE__));
  */
 if(!class_exists('Parsedown'))
 {
-	require_once(HCI_PLUGIN_DIR . '/classes/parsedown/class.parsedown.inc.php' );
+	require_once(HCI_PLUGIN_DIR . '/classes/parsedown/class.parsedown.inc.php');
 }
 
 /**

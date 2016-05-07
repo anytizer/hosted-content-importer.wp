@@ -1,18 +1,10 @@
 <?php
+
 class hosted_content_importer
 {
 	public function __construct()
 	{
 		spl_autoload_register(array($this, '_autoload_processors'));
-	}
-
-	private function _autoload_processors($class_name='')
-	{
-		$processor = require_once(HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php");
-		if(is_file($processor))
-		{
-			require_once($processor);
-		}
 	}
 
 	/**
@@ -45,15 +37,15 @@ class hosted_content_importer
 		{
 			trigger_error("Processor class {$processor_name} not found.", E_USER_NOTICE);
 		}
-		
+
 		/**
-		* Check for caches
-		*/
+		 * Check for caches
+		 */
 		$hashed_name = md5("{$source}|{$content_id}|{$section_id}");
-		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}-{$hashed_name}.cache";
+		$cache_file = HCI_PLUGIN_DIR . "/caches/{$source}-{$hashed_name}.cache";
 
 		$cache_time = time() - HCI_CACHE_DURATION;
-		
+
 		/**
 		 * @todo Follow cache control from parameters
 		 * If cache file does not exist
@@ -66,7 +58,7 @@ class hosted_content_importer
 		}
 		else
 		{
-			if($cache_requested==true)
+			if($cache_requested == true)
 			{
 				/**
 				 * Even if cacheable and cache exists, but old, bring fresh
@@ -81,13 +73,13 @@ class hosted_content_importer
 				$cacheable = false;
 			}
 		}
-		 
+
 		if($cacheable != true)
 		{
 			# Bring the fresh contents
 			$processor = new $processor_name();
 			$content = $processor->fetch($content_id, $section_id);
-			
+
 			# And write the cache file, overwrites filemtime() value
 			file_put_contents($cache_file, $content);
 		}
@@ -98,5 +90,14 @@ class hosted_content_importer
 		}
 
 		return $content;
+	}
+
+	private function _autoload_processors($class_name = '')
+	{
+		$processor = require_once(HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php");
+		if(is_file($processor))
+		{
+			require_once($processor);
+		}
 	}
 }
