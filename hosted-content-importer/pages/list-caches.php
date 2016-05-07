@@ -52,8 +52,15 @@ if(isset($_GET['purge']) && $_GET['purge']=='cache')
 {
 	if(count($files))
 	{
-		array_map('unlink', $files);
-		echo "<p>Cache files removed.</p>";
+		if(wp_verify_nonce( $_GET['nonce'], 'HCI'))
+		{
+			array_map('unlink', $files);
+			echo "<p>Cache files removed.</p>";
+		}
+		else
+		{
+			echo "<p>Error validating delete request.</p>";
+		}
 	}
 }
 else
@@ -65,7 +72,8 @@ else
 		 */
 		$GET = array(
 			'page' => !empty($_GET['page'])?$_GET['page']:'',
-			'purge' => 'cache'
+			'purge' => 'cache',
+			'nonce' => wp_create_nonce('HCI'),
 		);
 		$get = http_build_query($GET);
 		echo "<p><a href='edit.php?{$get}'>Delete all of these caches</a></p>";

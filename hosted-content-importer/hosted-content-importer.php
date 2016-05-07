@@ -10,7 +10,14 @@
  * Version: 2.0.1
  */
 
+/**
+ * Cached file validity duration
+ */
 define('HCI_CACHE_DURATION', 2 * 60 * 60 + 0 * 60 + 0);
+
+/**
+ * Do NOT edit
+ */
 define('HCI_PLUGIN_DIR', dirname(__FILE__));
 
 /**
@@ -30,8 +37,8 @@ require_once(HCI_PLUGIN_DIR . '/classes/hci/interface.hosted_content_interface.i
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_importer.inc.php');
 
 /**
- * Install WordPress Shortcodes
+ * Install WordPress Shortcodes Handler
+ * Install report pages (menus)
  */
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_shortcode.inc.php');
 new hosted_content_shortcode;
-

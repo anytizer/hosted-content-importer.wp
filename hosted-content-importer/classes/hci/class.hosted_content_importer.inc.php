@@ -51,18 +51,7 @@ class hosted_content_importer
 		*/
 		$hashed_name = md5("{$source}|{$content_id}|{$section_id}");
 		$cache_file = HCI_PLUGIN_DIR."/caches/{$source}-{$hashed_name}.cache";
-		
-		/**
-		 * @todo Configure the total durations at user level: Hour + Minute + Seconds
-		 * Move this ection to user configurable area
-		 */
-		/**
-		$cache_hours   = 2; # 0 - 23
-		$cache_minutes = 0; # 0 - 59
-		$cache_seconds = 0; # 0 - 59
-		$cache_duration = $cache_hours * 60 * 60 + $cache_minutes * 60 + $cache_seconds;
-		$cache_time = time() - $cache_duration;
-		*/
+
 		$cache_time = time() - HCI_CACHE_DURATION;
 		
 		/**
@@ -70,7 +59,6 @@ class hosted_content_importer
 		 * If cache file does not exist
 		 * If the cache file is too old
 		 */
-		 
 		$cacheable = true;
 		if(!is_file($cache_file))
 		{

@@ -70,7 +70,14 @@ class hosted_content_shortcode
 		
 		require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hci_ymdhis.inc.php');
 		
+		/**
+		 * Reports on which posts or page use [third] tags
+		 */
 		require_once(HCI_PLUGIN_DIR.'/pages/report-tags.php');
+		
+		/**
+		 * Reports on cached files
+		 */
 		require_once(HCI_PLUGIN_DIR.'/pages/list-caches.php');
 	}
 
@@ -80,7 +87,6 @@ class hosted_content_shortcode
 	public function hci_third_tags_menu(){
 		$icon = 'dashicons-format-aside';
 		$myself = basename(dirname(__FILE__)).'/'.basename(__FILE__);
-		#add_menu_page('[third] Tags', '[third] Tags', 'manage_options', $myself, array($this, 'hci_third_tags_page'), $icon, 80 );
 		add_submenu_page('edit.php', 'Posts/Pages with [third] Tags', 'With [third] Tags', 'manage_options', $myself, array($this, 'hci_third_tags_page'));
 	}
 }
