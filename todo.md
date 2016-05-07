@@ -1,14 +1,11 @@
 ## @todo
 
-## Gist Processor
-
- * Cache the full JS Output if possible
  * Remove unfinished classes
-
+ * On a too big amout of files, pages or posts, it may be slower.
 
 ## Others
 
- * Instead of Join Development, give link to Fork the project
+ * Give URLs from a central configuration
  * Create a link in admin area to purge caches
  * If remote fectching failed:
     - reuse the expired cache once
@@ -19,7 +16,6 @@
     - Configurable cache duration
 
  * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
- * Merge the class files for optimization purpose
  * Write an article around it
  * Make it installable via composer
  * Free the HTML output (`<div>`) from being wrapped inside `<p>` tags

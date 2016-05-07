@@ -54,12 +54,16 @@ class hosted_content_importer
 		
 		/**
 		 * @todo Configure the total durations at user level: Hour + Minute + Seconds
+		 * Move this ection to user configurable area
 		 */
-		$cache_hours   = 5; # 0 - 23
+		/**
+		$cache_hours   = 2; # 0 - 23
 		$cache_minutes = 0; # 0 - 59
 		$cache_seconds = 0; # 0 - 59
 		$cache_duration = $cache_hours * 60 * 60 + $cache_minutes * 60 + $cache_seconds;
 		$cache_time = time() - $cache_duration;
+		*/
+		$cache_time = time() - HCI_CACHE_DURATION;
 		
 		/**
 		 * @todo Follow cache control from parameters

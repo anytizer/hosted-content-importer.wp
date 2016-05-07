@@ -27,7 +27,10 @@ class hosted_content_shortcode
 			'cache' => 'true',
 		);
 		$attributes = shortcode_atts($standard_attributes, $attributes);
-		$attributes['cache'] = (strtolower($attributes['cache'])=='true'); # boolean true | false
+		
+		# We need a boolean value: true | false
+		$attributes['cache'] = strtolower($attributes['cache']);
+		$attributes['cache'] = ($attributes['cache']==='true' || $attributes['cache']===true);
 
 		$hci = new hosted_content_importer();
 		$remote_content = $hci->process(
@@ -59,18 +62,25 @@ class hosted_content_shortcode
 	}
 
 	/**
-	 * Report on which pages have [third] shortcode tags
+	 * Reports on which posts and pages used [third] shortcode tags
 	 */
 	public function hci_third_tags_page()
 	{
-		require_once(HCI_PLUGIN_DIR.'/pages/help.php');
+		wp_enqueue_style('hci-third-tags', plugins_url( 'pages/css/style.css', HCI_PLUGIN_DIR.'/'.basename(HCI_PLUGIN_DIR)));
+		
+		require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hci_ymdhis.inc.php');
+		
+		require_once(HCI_PLUGIN_DIR.'/pages/report-tags.php');
+		require_once(HCI_PLUGIN_DIR.'/pages/list-caches.php');
 	}
 
+	/**
+	 * Publishes menu at Pages > With [third] Tags
+	 */
 	public function hci_third_tags_menu(){
 		$icon = 'dashicons-format-aside';
 		$myself = basename(dirname(__FILE__)).'/'.basename(__FILE__);
 		#add_menu_page('[third] Tags', '[third] Tags', 'manage_options', $myself, array($this, 'hci_third_tags_page'), $icon, 80 );
 		add_submenu_page('edit.php', 'Posts/Pages with [third] Tags', 'With [third] Tags', 'manage_options', $myself, array($this, 'hci_third_tags_page'));
-		#wp_enqueue_style('hci-third-tags', plugins_url( 'pages/css/style.css', __FILE__));
 	}
 }

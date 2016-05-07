@@ -10,6 +10,7 @@
  * Version: 2.0.1
  */
 
+define('HCI_CACHE_DURATION', 2 * 60 * 60 + 0 * 60 + 0);
 define('HCI_PLUGIN_DIR', dirname(__FILE__));
 
 /**

@@ -5,6 +5,12 @@ Includes a third-party content within WordPress blog texts.
 This plugin is a for a solution to a specific problem.
 WordPress developers should expand the **$processor->fetch()** interface to make it work for their application.
 
+Built On:
+
+ * WordPress: Version 4.5.2
+ * MariaDB Version 10.1.13
+ * PHP: Version 7.0.5
+
 
 ## Experimental Work
 

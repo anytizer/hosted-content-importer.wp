@@ -76,7 +76,7 @@ For security reasons, it hast to be a static file. For example, if you read the 
 
 Some implementations are left for developers because of the nature. This plugin acts as proof of concept reference. Please feel free to modify/expand it.
 
-You may often consider writing your own Content Processor
+You may often consider writing your own Content Processor.
 
 
 == Installation ==
@@ -116,12 +116,12 @@ Example:
 
 Your URL (ID) should be a full URL to your .md file on remote server.
 
-There are several other ways to include remote contents. Each unique content is processed by its own [processor](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
+There are several other ways to include remote contents. Each unique content is processed by its own processor. [View Source Codes](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
 
 
 = How does it work =
 
-The plugin brings your content using the defined Source with ID and Section. The parameters is a stable list of names proposed for *future development* in order to include more sources like WikiPedia, File, API, URL and Database.
+The plugin brings your contents using the defined Source's ID and Section. The parameters (source, id, section) are a stable list of names proposed to long term support the *future development*. When we add new Content Processes, they are less likely to change.
 
 
 = Does it work for everyone? =
@@ -143,9 +143,11 @@ By the nature of the product, no. However, You can consider `source="markdown"` 
 
 As a matter of rule, do not embed something that you do not trust at all. Implementation should be designed NOT to reveal API access details or anything else. Limit the access only to the standard parameters only. Other private details should be defined within the content processor class files. It does NOT execute PHP scripts from remote contents. But HTML yes - which means, it can consume external image, css, javascripts, media files, etc.
 
-If you are maintainer of a portion of the content of any website, act responsibly; NOT to commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
+If you are maintainer of a portion of the content of any other websites, act responsibly; do NOT commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
 
-**Behavioural policy**: Be good, do good. Always import contents from trusted sources only.
+Be good, do good. **Always** import contents from trusted sources only.
+
+Also, you can create and host your own Micro Content Services. [See an Example](https://goo.gl/UOzOGI).
 
 
 = How to safeguard my remote contents? =
@@ -162,19 +164,17 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 == Changelog ==
 
-Please view the original development at: https://goo.gl/89KgSC for details, further plans, and todos.
+Please view the original development at: https://goo.gl/89KgSC for details and further plans.
 
 = 2.0.1 =
 * JotForm added.
 * SPL Autoloading the content processors.
 * Embedding gists: a new gist processor introduced.
-* Minor optimization and code cleaning.
 
 = 2.0.0 =
 * Product name has HCI word in it.
-* WP Admin > Pages > `[third]`: Reports on which posts/pages used this shortcode.
+* WP Admin > Posts > With `[third]` Tags: Reports on which posts/pages used this shortcode.
 * Implemented caches to store once-fetched contents locally.
-* Relocated assets.
 
 = 1.0.0 =
 * Forced not to cache in cURL.
@@ -189,15 +189,18 @@ When this plugin is used and disabled, your blogs will show your `[third]` short
 If you want to discontinue using this plugin; first, find out which pages have used this shortcode. WP Admin > Pages > 
 
 
-== My Own ==
+== #Custom ==
 
 If you want to develop your own Content Processor, it is much easier.
 Just create a tiny class file inside hosted-content-importer/classes/processors as like one of the existing one.
+
 Then, it is instantly available for using as `[third source="YOURNAME" section=""]` tag.
 
 = Minimum requirements =
 
 1. File name: `class.processor_YOURNAME.inc.php`
-2. Method: `public function fetch($form_id = null, $section = null)`. Process your content and return HTML string.
+2. Method: `public function fetch($form_id = null, $section = null)`.
+  a. Process your content.
+  b. Return HTML string.
 
 Just that drop-in.
