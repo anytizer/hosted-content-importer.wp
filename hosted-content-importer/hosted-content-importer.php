@@ -7,7 +7,7 @@
  * Author URI: http://bimal.org.np/
  * Development URI: https://github.com/bimalpoudel/hosted-content-importer/
  * License: GPLv2 or later
- * Version: 2.0.1
+ * Version: 2.0.2
  */
 
 /**
