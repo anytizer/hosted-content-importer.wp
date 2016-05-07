@@ -1,12 +1,14 @@
 ## @todo
 
  * Remove unfinished classes
- * On a too big amout of files, pages or posts, it may be slower.
+ * On a too big amount of files, pages or posts, it may slow down.
+ * Supply testing scripts with various reasons
+ * Auto code formatting has merged array key/values in one single line.
+ * Download Parsedown on demand on first installation.
 
 ## Others
 
  * Give URLs from a central configuration
- * Create a link in admin area to purge caches
  * If remote fectching failed:
     - reuse the expired cache once
     - do not write over the cache with empty contents
@@ -25,13 +27,14 @@
  * Check if HCI constants are pre-defined and configured:
    - HCI_WIKIPEDIA_API_URL
    - HCI_CUSTOM_API_URL
- * Shortcode tag [third] may collide with some other plugins (not sure)
- * A report on which pages and posts utilised [third] shortcode tags
+ * Shortcode tag [third] may collide with some other third party plugins (not sure)
 
 
 ## Important changes
 
- * Allows shortened URLs
+ * Multiple content processors added
+ * Reports page created
+ * cURL allows shortened URLs
  * Standardized the parameters across multiple sources
    - source
    - id

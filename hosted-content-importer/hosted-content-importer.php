@@ -21,13 +21,12 @@ define('HCI_CACHE_DURATION', 2 * 60 * 60 + 0 * 60 + 0);
 define('HCI_PLUGIN_DIR', dirname(__FILE__));
 
 /**
- * Class file Parsedown.php renamed. Rest, 100% original.
  * http://parsedown.org/
  * https://github.com/erusev/parsedown
  */
 if(!class_exists('Parsedown'))
 {
-	require_once(HCI_PLUGIN_DIR . '/classes/parsedown/class.parsedown.inc.php');
+	require_once(HCI_PLUGIN_DIR . '/classes/parsedown/Parsedown.php');
 }
 
 /**

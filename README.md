@@ -2,14 +2,19 @@
 
 Includes a third-party content within WordPress blog texts.
 
-This plugin is a for a solution to a specific problem.
-WordPress developers should expand the **$processor->fetch()** interface to make it work for their application.
+This plugin is a for a solution to a specific problem. WordPress developers should expand the **$processor->fetch()** interface to make it work for their application.
 
-Built On:
+**Built On/Using**
 
  * WordPress: Version 4.5.2
  * MariaDB Version 10.1.13
  * PHP: Version 7.0.5
+
+Others
+
+ * [Gist](https://gist.github.com/) - for embeding gist snippets
+ * [JotForm](https://jotform.com/) - for embeding web forms
+ * [Parsedown](https://github.com/erusev/parsedown) - for rendering .md files
 
 
 ## Experimental Work
@@ -19,6 +24,8 @@ Built On:
 
 
 ## Usage examples
+
+ * `[third source="PROCESSOR" id="ID/URL" section="" cache="true|false"]`
 
 
 ### Implemented

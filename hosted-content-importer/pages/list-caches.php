@@ -81,5 +81,5 @@ if(!count($files))
 		}
 	}
 	?>
-
+<p>Cache files with 0 Bytes will produce white screen.</p>
 </div>
