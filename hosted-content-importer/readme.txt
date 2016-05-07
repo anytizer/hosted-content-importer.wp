@@ -5,7 +5,7 @@ Donate link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
 Requires at least: 4.5
 Tested up to: 4.5.2
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -161,10 +161,15 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 2. Output inside your blog.
 
+3. Reports on `[third]` tags usages and cached files.
+
 
 == Changelog ==
 
 Please view the original development at: https://goo.gl/89KgSC for details and further plans.
+
+= 2.0.2 =
+* View reports on cached files and delete them.
 
 = 2.0.1 =
 * JotForm added.
@@ -203,4 +208,4 @@ Then, it is instantly available for using as `[third source="YOURNAME" section="
   a. Process your content.
   b. Return HTML string.
 
-Just that drop-in.
+Just that much easy drop-in replacement.
