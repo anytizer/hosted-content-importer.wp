@@ -46,7 +46,7 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
 
-Learn to write [your .md file](http://parsedown.org/demo).
+Learn to write your [.md file](http://parsedown.org/demo).
 
 
 = Example: Embeding a gist code from GitHub =
@@ -60,14 +60,14 @@ Create [your gists at GitHub](https://gist.github.com/).
 
 `[third source="jotform" id="000000000000" section=""]`
 
-Create your own form at [JotForm website](https://jotform.com/)
+Create your own form at [JotForm website](https://jotform.com/).
 
 
 = Example: Reading a server's local file =
 
 `[third source="file" id="/tmp/readme.txt" section=""]`
 
-For security reasons, it hast to be a static file. For example, if you read the .php file, it will NOT process it, rather read its conents only.
+It hast to be a static file for security reasons. For example, if you read the .php file, it will NOT process it, rather read its contents only. Your can contain valid HTML data, css and javascripts.
 
 
 = Example: Accessing database =
@@ -76,7 +76,7 @@ For security reasons, it hast to be a static file. For example, if you read the 
 
 Some implementations are left for developers because of the nature. This plugin acts as proof of concept reference. Please feel free to modify/expand it.
 
-You may often consider writing your own Content Processor.
+You may often consider writing your own Content Processor. Refer to Custom Content Section.
 
 
 == Installation ==
@@ -119,7 +119,7 @@ Your URL (ID) should be a full URL to your .md file on remote server.
 There are several other ways to include remote contents. Each unique content is processed by its own processor. [View Source Codes](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
 
 
-= How does it work =
+= How does it work? =
 
 The plugin brings your contents using the defined Source's ID and Section. The parameters (source, id, section) are a stable list of names proposed to long term support the *future development*. When we add new Content Processes, they are less likely to change.
 
@@ -145,14 +145,14 @@ As a matter of rule, do not embed something that you do not trust at all. Implem
 
 If you are maintainer of a portion of the content of any other websites, act responsibly; do NOT commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
 
-Be good, do good. **Always** import contents from trusted sources only.
+Be good, do good. **Always** import contents onlly from the sources that you trust.
 
 Also, you can create and host your own Micro Content Services. [See an Example](https://goo.gl/UOzOGI).
 
 
 = How to safeguard my remote contents? =
 
-The answer is beyond the scope of this plugin. But, always consume content from trusted sources only. Security depends on how you use remote contents. If the remote content is distorted, it may reflect back in your website. Do not allow weak security on your remotely edited contents. Sources like Dropbox, GitHub, FTP may be considered safe as they require password to upload the contents.
+The answer is beyond the scope of this plugin. But, always consume content from trusted sources only. Security depends on how you use remote contents. If the remote content is distorted, it may reflect back in your website. Do not allow weak security on your remotely edited contents. Files uploaded via Dropbox, GitHub, FTP/SSH, SVN/GIT may be considered safe as they require password to upload the contents.
 
 
 == Screenshots ==
@@ -191,10 +191,12 @@ Please view the original development at: https://goo.gl/89KgSC for details and f
 
 When this plugin is used and disabled, your blogs will show your `[third]` shortcode as it is, which may reveal your associated parameters. The precautionary design does not allow username/password and API keys in the shortcode tags.
 
-If you want to discontinue using this plugin; first, find out which pages have used this shortcode. WP Admin > Pages > 
+= Safety Precaution =
+
+If you want to discontinue using this plugin; first, find out which posts and pages have used this shortcode. WP Admin > Pages > With [third] Tags.
 
 
-== #Custom ==
+== Custom Processors ==
 
 If you want to develop your own Content Processor, it is much easier.
 Just create a tiny class file inside hosted-content-importer/classes/processors as like one of the existing one.
