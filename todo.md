@@ -5,6 +5,8 @@
  * Supply testing scripts with various reasons
  * Auto code formatting has merged array key/values in one single line.
  * Download Parsedown on demand on first installation.
+ * If undefined parameters are passed, pass them as separate array.
+	eg. YouTube: Height, Width
 
 ## Others
 

@@ -3,7 +3,7 @@
 Contributors: pbimal
 Donate link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
-Requires at least: 4.5
+Requires at least: 4.5.0
 Tested up to: 4.5.2
 Stable tag: 2.0.2
 License: GPLv3 or later
@@ -75,6 +75,13 @@ It hast to be a static file for security reasons. For example, if you read the .
 `[third source="database" id="0" section="recent"]`
 
 Some implementations are left for developers because of the nature. This plugin acts as proof of concept reference. Please feel free to modify/expand it.
+
+
+= Example: Embeding a YouTube Video =
+
+`[third source="youtube" id="v00000000000" section=""]`
+
+Choose your video from [YouTube](https://www.youtube.com/).
 
 You may often consider writing your own Content Processor. Refer to Custom Content Section.
 
@@ -169,6 +176,7 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 Please view the original development at: https://goo.gl/89KgSC for details and further plans.
 
 = 2.0.2 =
+* YouTube added.
 * View reports on cached files and delete them.
 
 = 2.0.1 =
