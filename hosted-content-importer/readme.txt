@@ -83,7 +83,7 @@ Some implementations are left for developers because of the nature. This plugin 
 
 Choose your video from [YouTube](https://www.youtube.com/).
 
-You may often consider writing your own Content Processor. Refer to Custom Content Section.
+You may often consider writing your own Content Processor. Refer to Custom Content Processor section in Other Notes.
 
 
 == Installation ==
@@ -204,10 +204,10 @@ When this plugin is used and disabled, your blogs will show your `[third]` short
 If you want to discontinue using this plugin; first, find out which posts and pages have used this shortcode. WP Admin > Pages > With [third] Tags.
 
 
-== Custom Processors ==
+== Custom Content Processors ==
 
-If you want to develop your own Content Processor, it is much easier.
-Just create a tiny class file inside **classes/processors** as like one of the existing one.
+If you want to develop your own Content Processor, it is much easier now.
+Just create a tiny class file inside **classes/processors** as like one of the existing one. Simple examples are YouTube, JotForm and Gist processors. 
 
 = Minimum requirements =
 
