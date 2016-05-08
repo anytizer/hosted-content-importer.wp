@@ -11,7 +11,7 @@
 class processor_gist extends hosted_content_interface
 {
 	protected $development_completed = true;
-	
+
 	public function fetch($gist_id = null, $file_name = null)
 	{
 		$gist = sprintf('<script src="https://gist.github.com/%s.js%s"></script>', esc_attr($gist_id), $file_name ? '?file=' . esc_attr($file_name) : '');

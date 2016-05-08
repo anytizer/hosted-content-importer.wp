@@ -8,7 +8,7 @@
 class processor_none extends hosted_content_interface
 {
 	protected $development_completed = true;
-	
+
 	/**
 	 * Response when content importer is not implemented.
 	 *

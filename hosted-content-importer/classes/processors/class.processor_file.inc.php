@@ -10,7 +10,7 @@
 class processor_file extends hosted_content_interface
 {
 	protected $development_completed = true;
-	
+
 	/**
 	 * Import content from local file (eg. PHP include())
 	 *

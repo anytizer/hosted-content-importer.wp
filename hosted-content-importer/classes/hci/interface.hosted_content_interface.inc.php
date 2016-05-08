@@ -2,18 +2,20 @@
 
 abstract class hosted_content_interface
 {
-	private $method = null;
-	
 	/**
 	 * Determines the status of the processor
 	 */
 	protected $development_completed = null;
 
 	abstract public function fetch($content_id = null, $section_id = null);
-	
+
+	/**
+	 * Determines if the project implementation is finished
+	 * @return bool
+	 */
 	public function completed()
 	{
-		return $this->development_completed===true;
+		return $this->development_completed === true;
 	}
 
 	/**
@@ -62,6 +64,8 @@ abstract class hosted_content_interface
 
 	/**
 	 * Build a full URL of the current frontend page
+	 * 
+	 * @return string Current URL
 	 */
 	protected function http_referer()
 	{
@@ -79,7 +83,7 @@ abstract class hosted_content_interface
 	 *
 	 * @param array $data
 	 *
-	 * @return string
+	 * @return string HTML Table Output
 	 */
 	protected function html_table($data = array(), $heads = array())
 	{

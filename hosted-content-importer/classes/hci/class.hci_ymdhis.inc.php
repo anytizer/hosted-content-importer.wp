@@ -2,6 +2,12 @@
 
 class hci_ymdhis
 {
+	/**
+	 * Finds age (from seconds) in HM:MM format
+	 * @param int $seconds
+	 *
+	 * @return string
+	 */
 	function age($seconds = 0)
 	{
 		$hours = $seconds / (60 * 60);

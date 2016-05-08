@@ -7,7 +7,7 @@
 class processor_database extends hosted_content_interface
 {
 	protected $development_completed = true;
-	
+
 	/**
 	 * Fetch content from the database, (possibly) reusing WordPress's existing connection
 	 *

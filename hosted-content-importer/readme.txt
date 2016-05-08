@@ -32,6 +32,7 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
  - file: &#x2714; implemented
  - gist: &#x2714; implemented
  - jotform: &#x2714; implemented
+ - youtube: &#x2714; implemented
  - database (partially implemented, and left for developers) - [Join/Fork Development](https://goo.gl/89KgSC)
  - wikipedia (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
  - url/api (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
