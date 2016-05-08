@@ -90,6 +90,8 @@ Some implementations are left for developers because of the nature. This plugin 
 
 `[third source="qr" id="url" section="internal"]`
 
+The above example is a full code. If you embed it anywhere, it lets your users copy that page's URL into their mobile.
+
 
 = Example: Embeding a YouTube Video =
 
@@ -188,6 +190,12 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 == Changelog ==
 
 Please view the original development at: https://goo.gl/89KgSC for details and further plans.
+
+= 2.0.3 =
+* QR Code Added.
+* Google Analytics snippet added.
+* Build script created.
+* Admin report page with content processors available.
 
 = 2.0.2 =
 * YouTube added.
