@@ -6,6 +6,8 @@
  */
 class processor_url extends hosted_content_interface
 {
+	protected $development_completed = false;
+	
 	/**
 	 * @todo Import content from a URL (remote file)
 	 *

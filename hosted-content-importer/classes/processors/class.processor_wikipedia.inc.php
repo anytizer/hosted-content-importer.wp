@@ -6,6 +6,8 @@
  */
 class processor_wikipedia extends hosted_content_interface
 {
+	protected $development_completed = false;
+
 	/**
 	 * @todo Read the Wikipedia sections in JSON format and parse | Unfinished work
 	 *

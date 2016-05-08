@@ -11,9 +11,9 @@
  */
 
 /**
- * Cached file validity duration
+ * Cached file validity duration: seconds(Hour+Minutes+Seconds)
  */
-define('HCI_CACHE_DURATION', 2 * 60 * 60 + 0 * 60 + 0);
+define('HCI_CACHE_DURATION', 0 * 60 * 60 + 0 * 60 + 0);
 
 /**
  * Do NOT edit

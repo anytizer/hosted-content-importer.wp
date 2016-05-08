@@ -7,6 +7,10 @@
  * Download Parsedown on demand on first installation.
  * If undefined parameters are passed, pass them as separate array.
 	eg. YouTube: Height, Width
+ * Some caches may remain permanently as is.
+ * Show reports in tabbed pages
+	- https://jqueryui.com/tabs/#default
+ * When cache file is used, mention it as HTML Comments.
 
 ## Others
 

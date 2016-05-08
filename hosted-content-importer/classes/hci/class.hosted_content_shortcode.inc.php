@@ -58,6 +58,8 @@ class hosted_content_shortcode
 
 		require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hci_ymdhis.inc.php');
 
+		#require_once(HCI_PLUGIN_DIR . '/pages/tabs.php');
+
 		/**
 		 * Reports on which posts or page use [third] tags
 		 */
@@ -67,6 +69,11 @@ class hosted_content_shortcode
 		 * Reports on cached files
 		 */
 		require_once(HCI_PLUGIN_DIR . '/pages/list-caches.php');
+		
+		/**
+		 * List of available Conent Processors
+		 */
+		require_once(HCI_PLUGIN_DIR . '/pages/list-processors.php');
 	}
 
 	/**

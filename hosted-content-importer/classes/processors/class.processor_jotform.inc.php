@@ -10,6 +10,8 @@
  */
 class processor_jotform extends hosted_content_interface
 {
+	protected $development_completed = true;
+	
 	public function fetch($form_id = null, $section = null)
 	{
 		$jotform = sprintf('<script src="//www.jotform.com/jsform/%s" type="text/javascript"></script>', esc_attr($form_id));

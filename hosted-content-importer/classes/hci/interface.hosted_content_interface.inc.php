@@ -3,8 +3,18 @@
 abstract class hosted_content_interface
 {
 	private $method = null;
+	
+	/**
+	 * Determines the status of the processor
+	 */
+	protected $development_completed = null;
 
 	abstract public function fetch($content_id = null, $section_id = null);
+	
+	public function completed()
+	{
+		return $this->development_completed===true;
+	}
 
 	/**
 	 * Fetch contents from third party server

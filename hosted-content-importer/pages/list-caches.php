@@ -34,7 +34,7 @@ if(!count($files))
 				$created_on_date = date('Y-m-d H:i:s', $created_on);
 				$row = "
 <tr>
-<td align='right'>{$counter}</td>
+<td align='right'>{$counter}.</td>
 <td>{$basename}</td>
 <td align='right'>{$size}</td>
 <td>{$created_on_date}</td>
@@ -81,5 +81,5 @@ if(!count($files))
 		}
 	}
 	?>
-<p>Cache files with 0 Bytes will produce white screen.</p>
+	<p>Cache files with 0 Bytes will produce white screen.</p>
 </div>

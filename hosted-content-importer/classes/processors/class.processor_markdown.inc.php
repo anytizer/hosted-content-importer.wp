@@ -8,6 +8,8 @@
  */
 class processor_markdown extends hosted_content_interface
 {
+	protected $development_completed = true;
+	
 	/**
 	 * HTML conversion with Parsedown - reads the .md file and process
 	 * @url http://parsedown.org/ | https://github.com/erusev/parsedown
