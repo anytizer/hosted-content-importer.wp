@@ -5,7 +5,7 @@ Donate link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
 Requires at least: 4.5.0
 Tested up to: 4.5.2
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -28,11 +28,14 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 
 **source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
- - markdown: &#x2714; implemented
- - file: &#x2714; implemented
- - gist: &#x2714; implemented
- - jotform: &#x2714; implemented
- - youtube: &#x2714; implemented
+ - analytics: &#x2714; implemented (Google Analytics)
+ - file: &#x2714; implemented (Read from local file)
+ - gist: &#x2714; implemented (Embed Gist Snippes)
+ - jotform: &#x2714; implemented (Embed Web Forms)
+ - markdown: &#x2714; implemented (Parse remote markdown files)
+ - qr: &#x2714; implemented (1. Custom QR Code, 2. QR for current page's URL)
+ - youtube: &#x2714; implemented (Embed YouTube Video)
+
  - database (partially implemented, and left for developers) - [Join/Fork Development](https://goo.gl/89KgSC)
  - wikipedia (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
  - url/api (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
@@ -76,6 +79,16 @@ It hast to be a static file for security reasons. For example, if you read the .
 `[third source="database" id="0" section="recent"]`
 
 Some implementations are left for developers because of the nature. This plugin acts as proof of concept reference. Please feel free to modify/expand it.
+
+
+= Example: Custom QR Code =
+
+`[third source="qr" id="Your Data" section=""]`
+
+
+= Example: QR Code for Current Page =
+
+`[third source="qr" id="url" section="internal"]`
 
 
 = Example: Embeding a YouTube Video =

@@ -1,7 +1,8 @@
 ## @todo
 
+ * Document QR Code usage, properly
  * Remove unfinished classes
- * On a too big amount of files, pages or posts, it may slow down.
+ * On a too big amount of files, pages or posts, it may slow down (admin report pages)
  * Supply testing scripts with various reasons
  * Auto code formatting has merged array key/values in one single line.
  * Download Parsedown on demand on first installation.
