@@ -19,7 +19,7 @@ class processor_markdown extends hosted_content_interface
 	 *
 	 * @return string
 	 */
-	public function fetch($content_id = null, $section_id = null)
+	public function fetch($content_id = null, $section_id = null, $others=array())
 	{
 		$text = $this->fetch_url($content_id);
 

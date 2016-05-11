@@ -11,7 +11,7 @@ class processor_analytics extends hosted_content_interface
 {
 	protected $development_completed = true;
 
-	public function fetch($tracking_code = 'UA-XXXXXXXX-X', $section = null)
+	public function fetch($tracking_code = 'UA-XXXXXXXX-X', $section = null, $others=array())
 	{
 		$tracking_code = esc_attr($tracking_code);
 		$analytics = "

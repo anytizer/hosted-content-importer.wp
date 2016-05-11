@@ -17,7 +17,7 @@ class processor_wikipedia extends hosted_content_interface
 	 *
 	 * @return string
 	 */
-	public function fetch($content_id = null, $section_id = null)
+	public function fetch($content_id = null, $section_id = null, $others=array())
 	{
 		$parameters = array('format' => 'json', 'action' => 'query', # parse | query
 		                    'prop' => 'extracts', 'exintro' => '', 'explaintext' => '', 'titles' => $content_id,);

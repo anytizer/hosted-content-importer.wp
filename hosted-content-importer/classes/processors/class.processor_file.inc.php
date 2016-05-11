@@ -19,7 +19,7 @@ class processor_file extends hosted_content_interface
 	 *
 	 * @return string
 	 */
-	public function fetch($file_name = '/tmp/readme.txt', $section_id = 0)
+	public function fetch($file_name = '/tmp/readme.txt', $section_id = 0, $others=array())
 	{
 		/**
 		 * Do NOT use include/require methods for safety reasons; serve the file as is.

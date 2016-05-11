@@ -17,7 +17,7 @@ class processor_none extends hosted_content_interface
 	 *
 	 * @return string
 	 */
-	public function fetch($content_id = null, $section_id = null)
+	public function fetch($content_id = null, $section_id = null, $others=array())
 	{
 		return "Content importer not implemented: fetch('{$content_id}', '{$section_id}');";
 	}
