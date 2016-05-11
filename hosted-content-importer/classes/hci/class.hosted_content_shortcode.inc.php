@@ -3,7 +3,7 @@
 /**
  * Setup the shortcodes
  */
-class hosted_content_shortcode
+final class hosted_content_shortcode
 {
 	public function __construct()
 	{
@@ -15,7 +15,16 @@ class hosted_content_shortcode
 		/**
 		 * Reports pages and Menu
 		 */
+		$plugin_host_file=basename(HCI_PLUGIN_DIR).'/'.basename(HCI_PLUGIN_DIR).'.php';
 		add_action('admin_menu', array($this, '_hci_third_tags_menu'));
+		add_filter("plugin_action_links_{$plugin_host_file}", array($this, '_add_reports_links'));
+		
+		/**
+		 * Quick Tags in HTML Text Editor Mode
+		 */
+		add_action('admin_print_footer_scripts', array($this, '_add_quick_tags'));
+		add_action('init', array($this, '_js_buttons_init'));
+		//add_action( 'hci_js_editor', array( $this, '_js_dialog' ) );
 	}
 
 	/**
@@ -26,8 +35,17 @@ class hosted_content_shortcode
 	public function _handle_third_shortcode($attributes = array())
 	{
 		$attributes = array_map('esc_attr', $attributes);
-		$standard_attributes = array('source' => 'none', 'id' => '0', # Integer, URL
-		                             'section' => 'arbitrary', 'cache' => 'true');
+		$standard_attributes = array(
+			'source' => 'none',
+			'id' => '0', # Integer, URL, File Name
+			'section' => 'arbitrary',
+			'cache' => 'true',
+			
+			'age' => 5*60*60, # @todo Cache Age
+			'permanent' => 'false', # @todo permanent cache
+			'height' => '560', # @todo eg. YouTube, QR
+			'width' => '315', # @todo eg. YouTube, QR
+		);
 		$attributes = shortcode_atts($standard_attributes, $attributes);
 
 		# We need a boolean value: true | false
@@ -35,7 +53,9 @@ class hosted_content_shortcode
 		$attributes['cache'] = ($attributes['cache'] === 'true' || $attributes['cache'] === true);
 
 		$hci = new hosted_content_importer();
-		$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section'], $attributes['cache']);
+		#$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section'], $attributes['cache']);
+		$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section'], $attributes['cache'], $attributes);
+		#$remote_content = $hci->process($attributes);
 
 		/**
 		 * @todo The output is likely to be wrapped in <p>...</p> tags.
@@ -48,9 +68,23 @@ class hosted_content_shortcode
 
 		return $content;
 	}
+	
+	/**
+	 * @see https://codex.wordpress.org/Quicktags_API
+	 */
+	public function _add_quick_tags()
+	{
+		if (wp_script_is('quicktags')){
+		?>
+		<script type="text/javascript">
+		QTags.addButton('third-hci', '[third]', '\r\n[third source="markdown" id="" section=""]\r\n', null, null, 'HCI [third] Tag', 999, null);
+		</script>
+		<?php
+		}
+	}
 
 	/**
-	 * CSS
+	 * CSS for front end
 	 */
 	public function _register_hci_scripts()
 	{
@@ -86,6 +120,18 @@ class hosted_content_shortcode
 	}
 
 	/**
+	 * Adds reports menu in plugin source
+	 */
+	function _add_reports_links($links)
+	{
+		$actions = array();
+		$actions[] = "<a id='hci-reports' href='edit.php?page=hci/class.hosted_content_shortcode.inc.php'>Reports</a>";
+
+		$links = array_merge($actions, $links);
+		return $links;
+	}
+
+	/**
 	 * Publishes menu at Pages > With [third] Tags
 	 */
 	public function _hci_third_tags_menu()
@@ -93,5 +139,36 @@ class hosted_content_shortcode
 		$icon = 'dashicons-format-aside';
 		$myself = basename(dirname(__FILE__)) . '/' . basename(__FILE__);
 		add_submenu_page('edit.php', 'Posts/Pages with [third] Tags', 'With [third] Tags', 'manage_options', $myself, array($this, '_hci_third_tags_page'));
+	}
+
+	/**
+	 * Add custom buttons in TinyMCE.
+	 */
+	function _register_js_buttons( $buttons ) {
+		array_push( $buttons, 'separator', 'third' );
+		return $buttons;
+	}
+
+	/**
+	 * Register button scripts.
+	 */
+	function _add_external_plugins( $plugin_array ) {
+		$plugin_array['third'] = plugins_url('tinymce/third.js' , dirname(dirname(__FILE__)));
+		return $plugin_array;
+	}
+
+	/**
+	 * Register buttons in init.
+	 */
+	function _js_buttons_init() {
+		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+			return;
+		}
+
+		if ( true == get_user_option( 'rich_editing') )
+		{
+			add_filter( 'mce_buttons', array( $this, '_register_js_buttons' ) );
+			add_filter( 'mce_external_plugins', array( $this, '_add_external_plugins' ) );
+		}
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-class hosted_content_importer
+final class hosted_content_importer
 {
 	public function __construct()
 	{
@@ -27,9 +27,12 @@ class hosted_content_importer
 	 * @param mixed $section_id
 	 * @param boolean $cache_requested
 	 *
+	 * @todo Process Whole Parameters
+	 * @param array $others Others|Full parameters requested
+	 *
 	 * @return string
 	 */
-	public function process($source = '', $content_id = null, $section_id = null, $cache_requested = false)
+	public function process($source = '', $content_id = null, $section_id = null, $cache_requested = false, $others=array())
 	{
 		$source = preg_replace('/[^a-z0-9]/', '', strtolower($source));
 		$processor_name = "processor_{$source}";
@@ -78,7 +81,7 @@ class hosted_content_importer
 		{
 			# Bring the fresh contents
 			$processor = new $processor_name();
-			$content = $processor->fetch($content_id, $section_id);
+			$content = $processor->fetch($content_id, $section_id, $others);
 
 			# And write the cache file, overwrites filemtime() value
 			file_put_contents($cache_file, $content);

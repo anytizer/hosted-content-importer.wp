@@ -1,19 +1,19 @@
 <?php
 
-class hci_ymdhis
+final class hci_ymdhis
 {
 	/**
-	 * Finds age (from seconds) in HM:MM format
+	 * Converts age (in seconds) into HM:MM format
 	 * @param int $seconds
 	 *
 	 * @return string
 	 */
-	function age($seconds = 0)
+	public function age($seconds = 0)
 	{
 		$hours = $seconds / (60 * 60);
-		$hours_int = str_pad(floor($hours), 2, '0', STR_PAD_LEFT);
-		$minutes_int = str_pad(ceil(($hours - $hours_int) * 60), 2, '0', STR_PAD_LEFT);
+		$hours_int = floor($hours);
+		$minutes_int = ceil(($hours - $hours_int) * 60);
 
-		return $hours_int . ':' . $minutes_int;
+		return str_pad($hours_int, 2, '0', STR_PAD_LEFT) . ':' . str_pad($minutes_int, 2, '0', STR_PAD_LEFT);
 	}
 }

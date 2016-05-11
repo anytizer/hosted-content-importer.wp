@@ -7,7 +7,7 @@ abstract class hosted_content_interface
 	 */
 	protected $development_completed = null;
 
-	abstract public function fetch($content_id = null, $section_id = null);
+	abstract public function fetch($content_id = null, $section_id = null, $others=array());
 
 	/**
 	 * Determines if the project implementation is finished
