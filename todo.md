@@ -1,5 +1,6 @@
 ## @todo
 
+ * Put link to Reports (in plugin listing)
  * In a table, record which cache file was used in which post?
  * Document QR Code usage, properly
  * Remove unfinished classes
@@ -12,6 +13,8 @@
  * Show reports in tabbed pages
 	- https://jqueryui.com/tabs/#default
  * When cache file is used, mention it as HTML Comments.
+ * When plugin is uninstalled, remove the cache files.
+
 
 ## Others
 

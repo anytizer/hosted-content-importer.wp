@@ -28,22 +28,27 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 
 **source**: Where to seek the data (eg. Content Hosting Server). Examples:
 
- - analytics: &#x2714; implemented (Google Analytics)
- - file: &#x2714; implemented (Read from local file)
- - gist: &#x2714; implemented (Embed Gist Snippes)
- - jotform: &#x2714; implemented (Embed Web Forms)
- - markdown: &#x2714; implemented (Parse remote markdown files)
- - qr: &#x2714; implemented (1. Custom QR Code, 2. QR for current page's URL)
- - youtube: &#x2714; implemented (Embed YouTube Video)
+ - __analytics__: &#x2714; implemented (Google Analytics)
+ - __file__: &#x2714; implemented (Read from local file)
+ - __gist__: &#x2714; implemented (Embed Gist Snippes)
+ - __jotform__: &#x2714; implemented (Embed Web Forms)
+ - __markdown__: &#x2714; implemented (Parse remote markdown files)
+ - __qr__: &#x2714; implemented (1. Custom QR Code, 2. QR for current page's URL)
+ - __youtube__: &#x2714; implemented (Embed YouTube Video)
+ - __database__: Partially implemented, and left for developers
+ - __url__, __api__: Work in progress
+ - __wikipedia__ Work in progress, Strategy: Content JSON to Data Section
 
- - database (partially implemented, and left for developers) - [Join/Fork Development](https://goo.gl/89KgSC)
- - wikipedia (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
- - url/api (work in progress) - [Join/Fork Development](https://goo.gl/89KgSC)
- - The list is not limited, if you expand it.
+The list is not limited, you expand it. [Join/Fork Development](https://goo.gl/89KgSC)
 
-**id**: Content ID (unique identifier) of the data you want. Often, full URL as well.
+**id**: Content ID (unique identifier) of the data you want. Often:
 
-**section**: Additional parameter to identify the particular section (piece) of the content.
+ - Full URLs
+ - Database IDs
+ - Resource IDs provided by Service Providers eg. YouTube Video ID, JotForm Form ID, ...
+ - Full Path of a Local File
+
+**section**: Additional parameter to identify the specific section of the content.
 
 
 = Example: Parsing a remote .md file =
@@ -83,7 +88,7 @@ Some implementations are left for developers because of the nature. This plugin 
 
 = Example: Custom QR Code =
 
-`[third source="qr" id="Your Data" section=""]`
+`[third source="qr" id="YOUR DATA" section=""]`
 
 
 = Example: QR Code for Current Page =
@@ -125,6 +130,8 @@ You may often consider writing your own Content Processor. Refer to Custom Conte
  * Unzip the file on your computer.
  * Upload folder hosted-content-importer (you just unziped) to /wp-content/plugins/ directory.
  * Activate the plugin through the WP Admin > Plugins menu.
+
+Click on [how to install a WordPress Plugin](http://goo.gl/Ims8pt) for more details.
 
 
 == Frequently Asked Questions ==
@@ -192,6 +199,7 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 Please view the original development at: https://goo.gl/89KgSC for details and further plans.
 
 = 2.0.3 =
+* Banners used.
 * QR Code Added.
 * Google Analytics snippet added.
 * Build script created.
@@ -240,11 +248,13 @@ Just create a tiny class file inside **classes/processors** as like one of the e
   * For references, see `class.processor_none.inc.php`
 3. Use as: `[third source="YOURNAME" section=""]`
 
+Click for [real examples](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
+
 Just that much easy drop-in replacement.
 
 
-== Banner File ==
+== Banner Image ==
 
-Used from:
-	- http://unsplash.com/
-	- Cable Cars: Representing contents from various sources comming to your website.
+Used from [unsplash.com](https://unsplash.com)
+
+ * [Cable Cars and Rope](https://unsplash.com/photos/ea9Zg7HkFXQ): Represents contents comming from various sources.
