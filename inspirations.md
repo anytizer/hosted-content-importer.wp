@@ -6,6 +6,7 @@ Gist GitHub Shortcode by Claudio Sanches.
  * http://claudiosmweb.com/
  * https://wordpress.org/plugins/gist-github-shortcode/
  * https://github.com/claudiosmweb/gist-github-shortcode
+ * https://wordpress.org/plugins/embed-form
 
 Adds GitHub Gists in your posts via shortcode.
 

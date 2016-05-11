@@ -241,3 +241,10 @@ Just create a tiny class file inside **classes/processors** as like one of the e
 3. Use as: `[third source="YOURNAME" section=""]`
 
 Just that much easy drop-in replacement.
+
+
+== Banner File ==
+
+Used from:
+	- http://unsplash.com/
+	- Cable Cars: Representing contents from various sources comming to your website.

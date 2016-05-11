@@ -28,8 +28,8 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 			<thead>
 			<tr>
 				<th>S.N.</th>
-				<th>Posed On</th>
-				<th>Post Type</th>
+				<th>Posted On</th>
+				<th>Type</th>
 				<th>Title</th>
 				<th>View</th>
 				<th>Edit</th>

@@ -4,4 +4,5 @@ Install [Hosted Content Importer](https://wordpress.org/plugins/hosted-content-i
 
  * `[third source="qr" id="url" section="internal"]`
 
-The plugin will create a QR Code corresponding to your current URL. Visitors can visit the same page now in their mobiles.
+The plugin will create a QR Code corresponding to your current URL.
+Visitors can visit the same page now in their mobiles.
