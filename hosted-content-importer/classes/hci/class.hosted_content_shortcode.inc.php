@@ -36,15 +36,17 @@ final class hosted_content_shortcode
 	{
 		$attributes = array_map('esc_attr', $attributes);
 		$standard_attributes = array(
+			# Standard Parameters
 			'source' => 'none',
 			'id' => '0', # Integer, URL, File Name
 			'section' => 'arbitrary',
 			'cache' => 'true',
 			
-			'age' => 5*60*60, # @todo Cache Age
+			# Others, plus anyting that user typed in
+			'age' => HCI_CACHE_DURATION, # 5*60*60, # @todo Custom cache age
 			'permanent' => 'false', # @todo permanent cache
-			'height' => '560', # @todo eg. YouTube, QR
-			'width' => '315', # @todo eg. YouTube, QR
+			'width' => '560', # @todo eg. YouTube, QR
+			'height' => '315', # @todo eg. YouTube, QR
 		);
 		$attributes = shortcode_atts($standard_attributes, $attributes);
 
@@ -52,10 +54,13 @@ final class hosted_content_shortcode
 		$attributes['cache'] = strtolower($attributes['cache']);
 		$attributes['cache'] = ($attributes['cache'] === 'true' || $attributes['cache'] === true);
 
+		$others = $attributes;
+		unset($others['source']);
+		unset($others['id']);
+		unset($others['section']);
+		unset($others['cache']);
 		$hci = new hosted_content_importer();
-		#$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section'], $attributes['cache']);
 		$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section'], $attributes['cache'], $attributes);
-		#$remote_content = $hci->process($attributes);
 
 		/**
 		 * @todo The output is likely to be wrapped in <p>...</p> tags.
@@ -77,7 +82,9 @@ final class hosted_content_shortcode
 		if (wp_script_is('quicktags')){
 		?>
 		<script type="text/javascript">
-		QTags.addButton('third-hci', '[third]', '\r\n[third source="markdown" id="" section=""]\r\n', null, null, 'HCI [third] Tag', 999, null);
+		QTags.addButton('third-hci-template', '[third]', '\r\n[third source="markdown" id="" section=""]\r\n', null, null, 'HCI [third] Tag', 9990, null);
+		QTags.addButton('third-hci-qr', '[QR]', '\r\n[third source="qr" id="url" section="internal"]\r\n', null, null, 'HCI [QR] Tag', 9991, null);
+		QTags.addButton('third-hci-yt', '[YT]', '\r\n[third source="youtube" id="v00000000" section=""]\r\n', null, null, 'HCI [YouTube] Tag', 9992, null);
 		</script>
 		<?php
 		}

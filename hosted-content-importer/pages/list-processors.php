@@ -3,10 +3,16 @@
 $files = glob(HCI_PLUGIN_DIR . '/classes/processors/class.*.inc.php');
 
 if(!count($files))
+{
+	/**
+	 * No need to load this page any more
+	 */
 	return;
+}
 ?>
 <div class="wrap">
 	<h2>Available - Content Processors</h2>
+	<p><a href="https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors" target="github">More about Content Proecssors</a></p>
 	<table class='data'>
 		<thead>
 		<tr>
@@ -49,6 +55,6 @@ if(!count($files))
 		</tbody>
 	</table>
 	<h2>Extra Configurations</h2>
-	<p>Current Page's QR Code: [third source="qr" id="url" section="internal"]</p>
-	<!--<p><?php echo do_shortcode('[third source="qr" id="url" section="internal"]'); ?></p>-->
+	<p>Current Page's QR Code: <code>[third source="qr" id="url" section="internal"]</code>. Scan the below code for an example.</p>
+	<p><?php echo do_shortcode('[third source="qr" id="url" section="internal"]'); ?></p>
 </div>

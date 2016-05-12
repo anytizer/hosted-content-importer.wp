@@ -44,7 +44,7 @@ final class hosted_content_importer
 		/**
 		 * Check for caches
 		 */
-		$hashed_name = md5("{$source}|{$content_id}|{$section_id}");
+		$hashed_name = md5("{$source}|{$content_id}|{$section_id}".implode("#", $others));
 		$cache_file = HCI_PLUGIN_DIR . "/caches/{$source}-{$hashed_name}.cache";
 
 		$cache_time = time() - (int)constant('HCI_CACHE_DURATION');

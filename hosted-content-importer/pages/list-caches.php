@@ -3,10 +3,15 @@ $ymdhis = new hci_ymdhis();
 $files = glob(HCI_PLUGIN_DIR . '/caches/*.cache');
 
 if(!count($files))
+{
+	/**
+	 * No need to load this page any more
+	 */
 	return;
+}
 ?>
 <div class="wrap">
-	<h2>Cached files, [max age = <?php echo $ymdhis->age(HCI_CACHE_DURATION); ?>]</h2>
+	<h2>Cached files [max age = <?php echo $ymdhis->age(HCI_CACHE_DURATION); ?>]</h2>
 	<table class='data'>
 		<thead>
 		<tr>

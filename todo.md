@@ -1,16 +1,16 @@
 ## @todo
 
- * Put link to Reports (in plugin listing)
+ * Put link to Reports (in plugin listing).
  * In a table, record which cache file was used in which post?
- * Document QR Code usage, properly
- * Remove unfinished classes
- * On a too big amount of files, pages or posts, it may slow down (admin report pages)
- * Supply testing scripts with various reasons
+ * Document QR Code usage, properly.
+ * Remove unfinished classes.
+ * On a too big amount of files, pages or posts, it may slow down (admin report pages).
+ * Supply testing scripts with various reasons.
  * Auto code formatting has merged array key/values in one single line.
  * Download Parsedown on demand on first installation.
  * If undefined parameters are passed, pass them as separate array.
 	eg. YouTube: Height, Width
- * Show reports in tabbed pages
+ * Show reports in tabbed pages.
 	- https://jqueryui.com/tabs/#default
  * When cache file is used, mention it as HTML Comments.
  * When plugin is uninstalled, remove the cache files.

@@ -6,7 +6,7 @@ SELECT
 	p.ID,
 	p.post_type,
 	p.post_title, 
-	p.guid,
+--	p.guid,
 	p.post_date
 FROM {$wpdb->posts} p
 WHERE
@@ -30,8 +30,7 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 				<th>S.N.</th>
 				<th>Posted On</th>
 				<th>Type</th>
-				<th>Title</th>
-				<th>View</th>
+				<th>Title / View</th>
 				<th>Edit</th>
 			</tr>
 			</thead>
@@ -45,15 +44,14 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 					<td align="right"><?php echo ++$counter; ?>.</td>
 					<td><?php echo $post->post_date; ?></td>
 					<td><?php echo $post->post_type; ?></td>
-					<td><?php echo "<a href='{$post->guid}'>{$post->post_title}</a>"; ?></td>
-					<td><a href="<?php echo $permalink; ?>">View</a></td>
+					<td><a href="<?php echo $permalink; ?>"><?php echo $post->post_title; ?></a></td>
 					<td><a href="post.php?post=<?php echo $post->ID; ?>&action=edit">Edit</a></td>
 				</tr>
 			<?php endforeach; ?>
 			</tbody>
 		</table>
 		<p>You may consider cleaning your posts listed above; before uninstalling <a
-				href="https://wordpress.org/plugins/hosted-content-importer/">this plugin</a>.
+				href="https://wordpress.org/plugins/hosted-content-importer/">this plugin</a> | <a href="https://github.com/bimalpoudel/hosted-content-importer/" target="github">More</a>
 		</p>
 	<?php else : ?>
 		<p>[third] tags are not in use. Safe as normal.</p>
