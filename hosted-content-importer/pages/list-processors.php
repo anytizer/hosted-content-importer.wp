@@ -1,5 +1,5 @@
 <?php
-# List of available Conent Processors
+# List of available Content Processors
 $files = glob(HCI_PLUGIN_DIR . '/classes/processors/class.*.inc.php');
 
 if(!count($files))

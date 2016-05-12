@@ -13,9 +13,6 @@ class processor_youtube extends hosted_content_interface
 	{
 		$html = '<iframe width="%s" height="%s" src="https://www.youtube.com/embed/%s" frameborder="0" allowfullscreen></iframe>';
 
-		/**
-		 * @todo Configure additional parameters
-		 */
 		$width = !empty($others['width'])?(int)$others['width']:560;
 		$height = !empty($others['height'])?(int)$others['height']:315;
 		

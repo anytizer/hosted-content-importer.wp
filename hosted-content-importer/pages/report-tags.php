@@ -6,7 +6,6 @@ SELECT
 	p.ID,
 	p.post_type,
 	p.post_title, 
---	p.guid,
 	p.post_date
 FROM {$wpdb->posts} p
 WHERE

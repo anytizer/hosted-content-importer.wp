@@ -4,8 +4,6 @@
  * Replication of Gist GitHub Shortcode by Claudio Sanches
  * Original Plugin: https://wordpress.org/plugins/gist-github-shortcode/
  *
- * @todo Seems, this file is automatically deleted by hosting server.
- *
  * Usage Example: [third source="gist" id="000000000" section="file.php"]
  */
 class processor_gist extends hosted_content_interface

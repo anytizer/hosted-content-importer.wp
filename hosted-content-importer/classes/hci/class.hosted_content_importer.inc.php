@@ -28,11 +28,12 @@ final class hosted_content_importer
 	 * @param boolean $cache_requested
 	 *
 	 * @todo Process Whole Parameters
+	 *
 	 * @param array $others Others|Full parameters requested
 	 *
 	 * @return string
 	 */
-	public function process($source = '', $content_id = null, $section_id = null, $cache_requested = false, $others=array())
+	public function process($source = '', $content_id = null, $section_id = null, $cache_requested = false, $others = array())
 	{
 		$source = preg_replace('/[^a-z0-9]/', '', strtolower($source));
 		$processor_name = "processor_{$source}";
@@ -44,7 +45,7 @@ final class hosted_content_importer
 		/**
 		 * Check for caches
 		 */
-		$hashed_name = md5("{$source}|{$content_id}|{$section_id}".implode("#", $others));
+		$hashed_name = md5("{$source}|{$content_id}|{$section_id}" . implode("#", $others));
 		$cache_file = HCI_PLUGIN_DIR . "/caches/{$source}-{$hashed_name}.cache";
 
 		$cache_time = time() - (int)constant('HCI_CACHE_DURATION');
