@@ -128,6 +128,10 @@ final class hosted_content_shortcode
 
 	/**
 	 * Adds reports menu in plugin source
+	 *
+	 * @param $links
+	 *
+	 * @return array
 	 */
 	function _add_reports_links($links)
 	{
@@ -143,13 +147,16 @@ final class hosted_content_shortcode
 	 */
 	public function _hci_third_tags_menu()
 	{
-		$icon = 'dashicons-format-aside';
 		$myself = basename(dirname(__FILE__)) . '/' . basename(__FILE__);
 		add_submenu_page('edit.php', 'Posts/Pages with [third] Tags', 'With [third] Tags', 'manage_options', $myself, array($this, '_hci_third_tags_page'));
 	}
 
 	/**
 	 * Add custom buttons in TinyMCE.
+	 *
+	 * @param $buttons
+	 *
+	 * @return mixed
 	 */
 	function _register_js_buttons( $buttons ) {
 		array_push( $buttons, 'separator', 'third' );
@@ -158,6 +165,10 @@ final class hosted_content_shortcode
 
 	/**
 	 * Register button scripts.
+	 *
+	 * @param $plugin_array
+	 *
+	 * @return mixed
 	 */
 	function _add_external_plugins( $plugin_array ) {
 		$plugin_array['third'] = plugins_url('tinymce/third.js' , dirname(dirname(__FILE__)));

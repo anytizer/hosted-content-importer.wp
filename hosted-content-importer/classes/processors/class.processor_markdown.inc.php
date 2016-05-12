@@ -14,8 +14,9 @@ class processor_markdown extends hosted_content_interface
 	 * HTML conversion with Parsedown - reads the .md file and process
 	 * @url http://parsedown.org/ | https://github.com/erusev/parsedown
 	 *
-	 * @param mixed $content_id
-	 * @param mixed $section_id
+	 * @param string $content_id
+	 * @param string $section_id
+	 * @param array $others
 	 *
 	 * @return string
 	 */

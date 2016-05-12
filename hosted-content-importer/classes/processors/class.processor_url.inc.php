@@ -11,8 +11,9 @@ class processor_url extends hosted_content_interface
 	/**
 	 * @todo Import content from a URL (remote file)
 	 *
-	 * @param mixed $content_id
-	 * @param mixed $section_id
+	 * @param null $content_id
+	 * @param null $section_id
+	 * @param array $others
 	 *
 	 * @return string
 	 */

@@ -14,8 +14,9 @@ class processor_file extends hosted_content_interface
 	/**
 	 * Import content from local file (eg. PHP include())
 	 *
-	 * @param mixed $file_name
-	 * @param mixed $section_id
+	 * @param string $file_name
+	 * @param int $section_id
+	 * @param array $others
 	 *
 	 * @return string
 	 */

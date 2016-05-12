@@ -12,8 +12,9 @@ class processor_none extends hosted_content_interface
 	/**
 	 * Response when content importer is not implemented.
 	 *
-	 * @param mixed $content_id
-	 * @param mixed $section_id
+	 * @param null $content_id
+	 * @param null $section_id
+	 * @param array $others
 	 *
 	 * @return string
 	 */

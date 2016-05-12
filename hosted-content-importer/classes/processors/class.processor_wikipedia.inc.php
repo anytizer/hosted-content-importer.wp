@@ -12,10 +12,11 @@ class processor_wikipedia extends hosted_content_interface
 	/**
 	 * @todo Read the Wikipedia sections in JSON format and parse | Unfinished work
 	 *
-	 * @param mixed $content_id
-	 * @param mixed $section_id
+	 * @param null $content_id
+	 * @param null $section_id
+	 * @param array $others
 	 *
-	 * @return string
+	 * @return mixed|string
 	 */
 	public function fetch($content_id = null, $section_id = null, $others=array())
 	{

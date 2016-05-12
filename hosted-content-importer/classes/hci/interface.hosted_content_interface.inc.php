@@ -20,6 +20,10 @@ abstract class hosted_content_interface
 
 	/**
 	 * Fetch contents from third party server
+	 *
+	 * @param string $url
+	 *
+	 * @return string
 	 */
 	protected function fetch_url($url = '')
 	{
@@ -85,7 +89,7 @@ abstract class hosted_content_interface
 	 *
 	 * @return string HTML Table Output
 	 */
-	protected function html_table($data = array(), $heads = array())
+	protected function html_table($data = array())
 	{
 		$rows = array();
 		foreach($data as $row)

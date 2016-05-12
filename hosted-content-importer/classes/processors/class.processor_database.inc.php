@@ -11,8 +11,9 @@ class processor_database extends hosted_content_interface
 	/**
 	 * Fetch content from the database, (possibly) reusing WordPress's existing connection
 	 *
-	 * @param mixed $content_id
-	 * @param mixed $section_id
+	 * @param string $content_id
+	 * @param string $section_id
+	 * @param array $others
 	 *
 	 * @return string
 	 */
@@ -20,7 +21,6 @@ class processor_database extends hosted_content_interface
 	{
 		global $wpdb;
 
-		$html = 'Reading contents from local DATABASE.';
 		switch($section_id)
 		{
 			case 'latest':
