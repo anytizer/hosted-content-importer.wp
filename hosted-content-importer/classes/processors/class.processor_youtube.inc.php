@@ -7,6 +7,7 @@
  */
 class processor_youtube extends hosted_content_interface
 {
+	protected $as_is = true;
 	protected $development_completed = true;
 
 	public function fetch($video_id = null, $section_id = null, $others=array())

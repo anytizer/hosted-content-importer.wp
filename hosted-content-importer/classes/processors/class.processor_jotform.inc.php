@@ -10,6 +10,7 @@
  */
 class processor_jotform extends hosted_content_interface
 {
+	protected $as_is = true;
 	protected $development_completed = true;
 
 	public function fetch($form_id = null, $section = null, $others=array())

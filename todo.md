@@ -1,5 +1,7 @@
 ## @todo
 
+ * Analytics output should go into wp_footer(): add_action('wp_footer, 'analytics');
+	- https://generatewp.com/easy-custom-mobile-chrome-address-bar-colors-wordpress/
  * Put link to Reports (in plugin listing).
  * In a table, record which cache file was used in which post?
  * Document QR Code usage, properly.

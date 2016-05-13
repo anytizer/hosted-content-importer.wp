@@ -8,6 +8,7 @@
  */
 class processor_markdown extends hosted_content_interface
 {
+	protected $as_is = false;
 	protected $development_completed = true;
 
 	/**

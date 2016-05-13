@@ -59,19 +59,24 @@ final class hosted_content_shortcode
 		unset($others['id']);
 		unset($others['section']);
 		unset($others['cache']);
+		
 		$hci = new hosted_content_importer();
 		$remote_content = $hci->process($attributes['source'], $attributes['id'], $attributes['section'], $attributes['cache'], $attributes);
 
 		/**
 		 * @todo The output is likely to be wrapped in <p>...</p> tags.
+		 * Some contents may require special wrapping
 		 */
-		$content = sprintf('
+		if(!$hci->as_is())
+		{
+			$remote_content = sprintf('
 <div class="hci-third">
 	<div class="hci-meta">HCI Data Source: %s, Import: %s, Section: %s</div>
 	<div class="hci-remote-content">%s</div>
 </div>', $attributes['source'], $attributes['id'], $attributes['section'], $remote_content);
-
-		return $content;
+		}
+		
+		return $remote_content;
 	}
 	
 	/**

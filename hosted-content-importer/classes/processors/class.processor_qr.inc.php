@@ -12,6 +12,7 @@
  */
 class processor_qr extends hosted_content_interface
 {
+	protected $as_is = true;
 	protected $development_completed = true;
 
 	public function fetch($data = 'http://www.example.com/', $section = null, $others=array())

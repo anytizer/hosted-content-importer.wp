@@ -8,6 +8,7 @@
  */
 class processor_gist extends hosted_content_interface
 {
+	protected $as_is = true;
 	protected $development_completed = true;
 
 	public function fetch($gist_id = null, $file_name = null, $others=array())

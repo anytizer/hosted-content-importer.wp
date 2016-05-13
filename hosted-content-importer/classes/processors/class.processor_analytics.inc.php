@@ -9,6 +9,7 @@
  */
 class processor_analytics extends hosted_content_interface
 {
+	protected $as_is = true;
 	protected $development_completed = true;
 
 	public function fetch($tracking_code = 'UA-XXXXXXXX-X', $section = null, $others=array())

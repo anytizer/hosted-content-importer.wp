@@ -7,6 +7,7 @@
  */
 class processor_none extends hosted_content_interface
 {
+	protected $as_is = false;
 	protected $development_completed = true;
 
 	/**

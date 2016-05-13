@@ -2,9 +2,19 @@
 
 final class hosted_content_importer
 {
+	/**
+	 * Send plain text as received, without HTML Wrapping
+	 */
+	private $as_is = false;
+
 	public function __construct()
 	{
 		spl_autoload_register(array($this, '_autoload_processors'));
+	}
+	
+	public function as_is()
+	{
+		return $this->as_is;
 	}
 
 	/**
@@ -78,10 +88,12 @@ final class hosted_content_importer
 			}
 		}
 
+		$processor = new $processor_name();
+		$this->as_is = $processor->as_is();
+
 		if($cacheable != true)
 		{
 			# Bring the fresh contents
-			$processor = new $processor_name();
 			$content = $processor->fetch($content_id, $section_id, $others);
 
 			# And write the cache file, overwrites filemtime() value

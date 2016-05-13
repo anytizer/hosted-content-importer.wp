@@ -3,12 +3,22 @@
 abstract class hosted_content_interface
 {
 	/**
+	 * Send the content as is, without HTML Wrapping
+	 */
+	protected $as_is = false;
+
+	/**
 	 * Determines the status of the processor
 	 */
 	protected $development_completed = null;
 
 	abstract public function fetch($content_id = null, $section_id = null, $others=array());
 
+	public function as_is()
+	{
+		return $this->as_is === true;
+	}
+	
 	/**
 	 * Determines if the project implementation is finished
 	 * @return bool
