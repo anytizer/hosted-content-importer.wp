@@ -1,9 +1,15 @@
 ## @todo
 
+ * Warnings:
+	source="file" could be risky on a compromised server
+
+ * DynaTable: JSON to HTML Table may be handy
+
  * Analytics output should go into wp_footer(): add_action('wp_footer, 'analytics');
 	- https://generatewp.com/easy-custom-mobile-chrome-address-bar-colors-wordpress/
  * Put link to Reports (in plugin listing).
  * In a table, record which cache file was used in which post?
+ * Produce a corresponding log file to trace caches into posts.
  * Document QR Code usage, properly.
  * Remove unfinished classes.
  * On a too big amount of files, pages or posts, it may slow down (admin report pages).

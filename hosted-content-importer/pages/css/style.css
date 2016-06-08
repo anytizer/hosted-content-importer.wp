@@ -7,12 +7,12 @@
 }
 
 .data td {
-    border-bottom: 1px solid #666666;
+    border-bottom: 1px solid #DDD;
 }
 
 thead tr {
-    background-color: #999999;
-    color: #FFFFFF;
+    background-color: #999;
+    color: #FFF;
     font-weight: bold;
     text-align: left;
 }

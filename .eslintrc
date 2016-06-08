@@ -12,9 +12,9 @@ env:
 # http://eslint.org/docs/rules/
 rules:
   # Possible Errors
-  comma-dangle: [2, never]
-  no-cond-assign: 2
-  no-console: 0
+  comma-dangle: [2, only-multiline]
+  no-cond-assign: [2, always]
+  no-console: 2
   no-constant-condition: 2
   no-control-regex: 2
   no-debugger: 2
@@ -100,7 +100,7 @@ rules:
   yoda: 0
 
   # Strict
-  strict: 0
+  strict: 2
 
   # Variables
   init-declarations: 0

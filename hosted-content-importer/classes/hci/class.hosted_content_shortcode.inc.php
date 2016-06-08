@@ -34,6 +34,11 @@ final class hosted_content_shortcode
 	 */
 	public function _handle_third_shortcode($attributes = array())
 	{
+		/**
+		 * To tolerate bare usage, without parameters
+		 */
+		if(!is_array($attributes)) $attributes = array();
+
 		$attributes = array_map('esc_attr', $attributes);
 		$standard_attributes = array(
 			# Standard Parameters
@@ -65,7 +70,7 @@ final class hosted_content_shortcode
 
 		/**
 		 * @todo The output is likely to be wrapped in <p>...</p> tags.
-		 * Some contents may require special wrapping
+		 * Some contents may require special DIV wrapping for decoration purpose
 		 */
 		if(!$hci->as_is())
 		{
@@ -129,6 +134,8 @@ final class hosted_content_shortcode
 		 * List of available Content Processors
 		 */
 		require_once(HCI_PLUGIN_DIR . '/pages/list-processors.php');
+		
+		require_once(HCI_PLUGIN_DIR . '/pages/report-shortcodes.php');
 	}
 
 	/**

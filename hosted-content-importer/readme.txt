@@ -33,11 +33,13 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
  - __gist__: &#x2714; implemented (Embed Gist Snippes)
  - __jotform__: &#x2714; implemented (Embed Web Forms)
  - __markdown__: &#x2714; implemented (Parse remote markdown files)
- - __qr__: &#x2714; implemented (1. Custom QR Code, 2. QR for current page's URL)
- - __youtube__: &#x2714; implemented (Embed YouTube Video)
+ - __qr__: &#x2714; implemented
+    1. For Custom Data,
+	2. For current page's URL
+ - __youtube__: &#x2714; implemented (Embeds a YouTube Video)
  - __database__: Partially implemented, and left for developers
  - __url__, __api__: Work in progress
- - __wikipedia__ Work in progress, Strategy: Content JSON to Data Section
+ - __wikipedia__: Work in progress, Strategy: Content JSON to Data Section
 
 The list is not limited, you expand it. [Join/Fork Development](https://goo.gl/89KgSC)
 
@@ -69,7 +71,7 @@ Create [your gists at GitHub](https://gist.github.com/).
 
 `[third source="jotform" id="000000000000" section=""]`
 
-Create your own form at [JotForm website](https://jotform.com/).
+Create your own web form at [JotForm website](https://jotform.com/).
 
 
 = Example: Reading a server's local file =
@@ -79,11 +81,11 @@ Create your own form at [JotForm website](https://jotform.com/).
 It hast to be a static file for security reasons. For example, if you read the .php file, it will NOT process it, rather read its contents only. Your can contain valid HTML data, css and javascripts.
 
 
-= Example: Accessing database =
+= Example: Accessing database - Expand it yourself =
 
 `[third source="database" id="0" section="recent"]`
 
-Some implementations are left for developers because of the nature. This plugin acts as proof of concept reference. Please feel free to modify/expand it.
+Detailed implementations are left for the developers because of the nature. It is a **proof of concept** work. Please feel free to modify/expand it.
 
 
 = Example: Custom QR Code =
@@ -91,7 +93,7 @@ Some implementations are left for developers because of the nature. This plugin 
 `[third source="qr" id="YOUR DATA" section=""]`
 
 
-= Example: QR Code for Current Page =
+= Example: QR Code for Current Page (Full URL) =
 
 `[third source="qr" id="url" section="internal"]`
 
@@ -104,7 +106,11 @@ The above example is a full code. If you embed it anywhere, it lets your users c
 
 Choose your video from [YouTube](https://www.youtube.com/).
 
-You may often consider writing your own Content Processor. Refer to Custom Content Processor section in Other Notes.
+
+= Personalized Content Processors =
+
+You may often consider writing your own Content Processor.
+Refer to Custom Content Processor section in `[Other Notes]` tab.
 
 
 == Installation ==
@@ -144,9 +150,9 @@ Example:
 
 `[third source="markdown" id="FULLURL/README.md" section=""]`
 
-Your URL (ID) should be a full URL to your .md file on remote server.
+Your URL (ID) should be a full URL to your .md file on the remote server.
 
-There are several other ways to include remote contents. Each unique content is processed by its own processor. [View Source Codes](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
+There are several other ways to include remote contents. Each unique content is processed by its own processor. [View Source Codes](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors) for each processors.
 
 
 = How does it work? =
