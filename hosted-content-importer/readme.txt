@@ -197,7 +197,11 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 2. Output inside your blog.
 
-3. Reports on `[third]` tags usages and cached files.
+3. TinyMCE plugin icon in Visual Editor Mode.
+
+4. Tags inserters in Text Editor Mode.
+
+5. Reports on `[third]` tags usages and cached files.
 
 
 == Changelog ==
@@ -208,6 +212,7 @@ Please view the original development at: https://goo.gl/89KgSC for details and f
 * TinyMCE Plugin and text mode editor plgins added.
 * As-Is request for not wrapping the HTML Output within HCI divs.
 * Experimental: Dumped handlers or registered shortcodes.
+* Screenshots added.
 * Formatting and Documentation improved.
 
 = 2.0.3 =
