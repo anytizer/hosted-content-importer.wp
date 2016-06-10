@@ -207,6 +207,7 @@ Please view the original development at: https://goo.gl/89KgSC for details and f
 = 3.0.1 =
 * TinyMCE Plugin and text mode editor plgins added.
 * As-Is request for not wrapping the HTML Output within HCI divs.
+* Experimental: Dumped handlers or registered shortcodes.
 * Formatting and Documentation improved.
 
 = 2.0.3 =
