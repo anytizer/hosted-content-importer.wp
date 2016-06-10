@@ -96,7 +96,11 @@ final class hosted_content_importer
 			# Bring the fresh contents
 			$content = $processor->fetch($content_id, $section_id, $others);
 
-			# And write the cache file, overwrites filemtime() value
+			# Write the cache file, overwriting filemtime() value
+			if(is_file($cache_file))
+			{
+				unlink($cache_file);
+			}
 			file_put_contents($cache_file, $content);
 		}
 		else

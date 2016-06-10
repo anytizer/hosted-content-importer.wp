@@ -15,7 +15,7 @@ if(!count($files))
 	<table class='data'>
 		<thead>
 		<tr>
-			<td>S.N.</td>
+			<td>#</td>
 			<td>Cached File Name</td>
 			<td>File Size (Bytes)</td>
 			<td>Modified On</td>

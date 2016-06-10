@@ -41,4 +41,4 @@ require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_importer.inc.ph
  * Install menus
  */
 require_once(HCI_PLUGIN_DIR . '/classes/hci/class.hosted_content_shortcode.inc.php');
-new hosted_content_shortcode;
+new hosted_content_shortcode();

@@ -16,7 +16,7 @@ if(!count($files))
 	<table class='data'>
 		<thead>
 		<tr>
-			<td>S.N.</td>
+			<td>#</td>
 			<td>Processor</td>
 			<td>Status</td>
 			<td>Usage</td>

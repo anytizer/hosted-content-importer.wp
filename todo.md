@@ -3,8 +3,9 @@
  * Warnings:
 	source="file" could be risky on a compromised server
 
- * DynaTable: JSON to HTML Table may be handy
-
+ * DynaTable: JSON to HTML Table may be handy.
+ * On deactivate, clear the cached files.
+ * While writing a cache file, refresh the filemtime.
  * Analytics output should go into wp_footer(): add_action('wp_footer, 'analytics');
 	- https://generatewp.com/easy-custom-mobile-chrome-address-bar-colors-wordpress/
  * Put link to Reports (in plugin listing).

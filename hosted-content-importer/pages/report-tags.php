@@ -26,7 +26,7 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 		<table class='data'>
 			<thead>
 			<tr>
-				<th>S.N.</th>
+				<th>#</th>
 				<th>Posted On</th>
 				<th>Type</th>
 				<th>Title / View</th>
