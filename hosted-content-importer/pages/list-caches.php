@@ -15,11 +15,11 @@ if(!count($files))
 	<table class='data'>
 		<thead>
 		<tr>
-			<td>#</td>
-			<td>Cached File Name</td>
-			<td>File Size (Bytes)</td>
-			<td>Modified On</td>
-			<td>Age (HH:MM)</td>
+			<th>#</th>
+			<th>Cached File Name</th>
+			<th>File Size (Bytes)</th>
+			<th>Modified On</th>
+			<th>Age (HH:MM)</th>
 		</tr>
 		</thead>
 		<tbody>

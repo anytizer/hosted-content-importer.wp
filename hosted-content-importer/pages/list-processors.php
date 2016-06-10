@@ -16,10 +16,10 @@ if(!count($files))
 	<table class='data'>
 		<thead>
 		<tr>
-			<td>#</td>
-			<td>Processor</td>
-			<td>Status</td>
-			<td>Usage</td>
+			<th>#</th>
+			<th>Processor</th>
+			<th>Status</th>
+			<th>Usage</th>
 		</tr>
 		</thead>
 		<tbody>
