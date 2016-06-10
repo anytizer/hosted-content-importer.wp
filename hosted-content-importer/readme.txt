@@ -204,6 +204,11 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 Please view the original development at: https://goo.gl/89KgSC for details and further plans.
 
+= 3.0.1 =
+* TinyMCE Plugin and text mode editor plgins added.
+* As-Is request for not wrapping the HTML Output within HCI divs.
+* Formatting and Documentation improved.
+
 = 2.0.3 =
 * Banners used.
 * QR Code Added.
