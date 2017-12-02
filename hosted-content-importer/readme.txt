@@ -1,10 +1,10 @@
 === Hosted Content Importer (HCI) ===
 
 Contributors: pbimal
-Donate link: http://bimal.org.np/
+Donate Link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
-Requires at least: 4.5.0
-Tested up to: 4.5.2
+Requires at least: 4.0.0
+Tested up to: 4.9.1
 Stable tag: 3.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

@@ -1,4 +1,5 @@
-## @todo
+# @todo
+ * Cached folders to become NOT browsable
 
  * Warnings:
 	source="file" could be risky on a compromised server
