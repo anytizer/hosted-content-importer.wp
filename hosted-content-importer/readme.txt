@@ -4,7 +4,7 @@ Contributors: pbimal
 Donate Link: http://bimal.org.np/
 Tags: cached, content, embed, external, gist, hci, hosted, import, markdown, remote, shortcode, third
 Requires at least: 4.0.0
-Tested up to: 4.9.1
+Tested up to: 4.9.5
 Stable tag: 3.0.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -78,7 +78,7 @@ Create your own web form at [JotForm website](https://jotform.com/).
 
 `[third source="file" id="/tmp/readme.txt" section=""]`
 
-It hast to be a static file for security reasons. For example, if you read the .php file, it will NOT process it, rather read its contents only. Your can contain valid HTML data, css and javascripts.
+It has to be a static file for security reasons. For example, if you read the .php file, it will NOT process it, rather read its contents only. Your can contain valid HTML data, css and javascripts.
 
 
 = Example: Accessing database - Expand it yourself =
