@@ -15,11 +15,17 @@ Embeds a remotely hosted content. Contributors can edit a tiny piece of your blo
 
 == Description ==
 
-It imports third party hosted contents within WordPress blog texts. You define from which url/resource to fetch the content. The source may be editable by anyone else whom you trust. Thus, it logically empowers you to allow other users to externally edit a particular section of your blogs. And, you do not have to give them any access to your website.
+It imports third party hosted contents within WordPress blog. You can define from which url/resource to fetch the content. The original source may be editable by anyone else whom you trust. Thus, it logically empowers you to allow other users to externally edit a particular section of your blogs. And, you do not have to give them any access credentials of your website.
 
 After installation, use shortcode tag `[third]` with few parameters as:
 
 `[third source="markdown" id="https://goo.gl/UpclKH" section=""]`
+
+ * `source` is a content processor type.
+ * `id` is a URL or ID given by the third parties.
+ * `section` is an optional parameter to access deeper content.
+ * `cache` is a boolean directive whether to reuse the cached content.
+
 
 It will then embed remote markdown content inside your blog.
 Additionally, it will convert the text into HTML using <a href="https://github.com/erusev/parsedown">Parsedown</a>.

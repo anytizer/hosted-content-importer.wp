@@ -31,12 +31,18 @@ Others
  * `[third source="PROCESSOR" id="ID/URL" section="" cache="true|false"]`
 
 
-### parameters
+### Parameters
 
- - **source** is a content fetcher and processor type.
- - **id** is a URL or ID given by the third parties.
- - **section** is an optional parameter to access deeper content.
- - **cache** is a boolean directive whether to reuse the cached content.
+ * **source**: is a content fetcher and processor type that knowns from where to seek the data (eg. Content Hosting Server). Examples:
+   - markdown
+   - wikipedia
+   - database
+   - url/api
+   - file
+   - ...
+ * **id** is a URL or unique identifier given by the third parties.
+ * **section** is an optional parameter to identify the particular deep section of the content.
+ * **cache** is a boolean directive whether to reuse the cached content.
 
 
 ### Implemented sources
@@ -48,6 +54,7 @@ Others
  * [third source="jotform" id="0000000000" section=""]
  * [third source="markdown" id="https://.../readme.md" section=""]
  * [third source="youtube" id="v0000000000" section=""]
+ * [third source="qr" id="" section=""]
 
 
 ### Work|Concepts in Progress
@@ -58,18 +65,6 @@ The list below is a concept only and is not implemented.
  * [third source="url" id="0" section="0"]
  * [third source="wikipedia" id="PHP" section="Security"]
  * [third source="wikipedia" id="At_sign" section="Programming"]
-
-
-### Parameters
-
- * **Source**: Where to seek the data (eg. Content Hosting Server). Examples:
-    - markdown
-    - wikipedia
-    - database
-    - url/api
-    - file
- * **ID**: Content ID (unique identifier) of the data you want. Often, full URL as well.
- * **Section**: Additional parameter to identify the particular section (piece) of the content.
 
 
 ## Dependency
