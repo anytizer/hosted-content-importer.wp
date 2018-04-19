@@ -208,6 +208,10 @@ The answer is beyond the scope of this plugin. But, always consume content from 
 
 Please view the original development at: https://goo.gl/89KgSC for details and further plans.
 
+= 3.0.2 =
+* Parsedown upgraded.
+* Typos corrections.
+
 = 3.0.1 =
 * TinyMCE Plugin and text mode editor plgins added.
 * As-Is request for not wrapping the HTML Output within HCI divs.

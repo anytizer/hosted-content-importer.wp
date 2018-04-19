@@ -6,13 +6,12 @@
  * Author: Bimal Poudel
  * Author URI: http://bimal.org.np/
  * Development URI: https://github.com/anytizer/hosted-content-importer.wp/
- * License: GPLv2 or later
+ * License: MIT
  * Version: 3.0.2
  */
 
 /**
  * Cached file validity duration: seconds(Hour+Minutes+Seconds)
- * @todo Used cached.php
  */
 define("HCI_CACHE_DURATION", 5 * 60 * 60 + 0 * 60 + 0);
 
@@ -37,9 +36,9 @@ require_once HCI_PLUGIN_DIR . "/classes/hci/interface.hosted_content_interface.i
 require_once HCI_PLUGIN_DIR . "/classes/hci/class.hosted_content_importer.inc.php";
 
 /**
- * Install WordPress Shortcodes Handler
- * Install report page
- * Install menus
+ * Installs WordPress Shortcodes Handler
+ * Installs report page
+ * Installs menus
  */
 require_once HCI_PLUGIN_DIR . "/classes/hci/class.hosted_content_shortcode.inc.php";
 new hosted_content_shortcode();

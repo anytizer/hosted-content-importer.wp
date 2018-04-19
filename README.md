@@ -1,15 +1,16 @@
 # Hosted Content Importer (HCI)
 
-Includes a third-party content within WordPress blog texts.
+Includes a third-party content within WordPress blogs.
 
-This plugin is a for a solution to a specific problem. WordPress developers should expand the **$processor->fetch()** interface to make it work for their application.
+This plugin is a for a solution to a specific problem.
+WordPress developers should expand the **$processor->fetch()** interface to make it work for their application.
 
 **Built On, using**
 
- * WordPress: Version 4.5.2
- * MariaDB Version 10.1.13
- * PHP: Version 7.0.5
- * Apache: Version: 2.4.18
+ * WordPress: Version 4.5.9
+ * MariaDB Version 10.1.31-MariaDB
+ * PHP: Version 7.2.4
+ * Apache: Version: 2.4.33
 
 
 Others
@@ -30,7 +31,15 @@ Others
  * `[third source="PROCESSOR" id="ID/URL" section="" cache="true|false"]`
 
 
-### Implemented
+### parameters
+
+ - **source** is a content fetcher and processor type.
+ - **id** is a URL or ID given by the third parties.
+ - **section** is an optional parameter to access deeper content.
+ - **cache** is a boolean directive whether to reuse the cached content.
+
+
+### Implemented sources
 
  * [third source="analytics" id="UA-00000000-0" section=""]
  * [third source="database" id="0" section="0"] - partially developed, left for developers
@@ -42,6 +51,8 @@ Others
 
 
 ### Work|Concepts in Progress
+
+The list below is a concept only and is not implemented.
 
  * [third source="api" id="0" section="0"]
  * [third source="url" id="0" section="0"]

@@ -1,5 +1,7 @@
 # @todo
+
  * Cached folders to become NOT browsable
+ * Use cached.php
 
  * Warnings:
 	source="file" could be risky on a compromised server
