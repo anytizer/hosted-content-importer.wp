@@ -7,10 +7,10 @@ WordPress developers should expand the **$processor->fetch()** interface to make
 
 **Built On, using**
 
- * WordPress: Version 4.5.9
- * MariaDB Version 10.1.31-MariaDB
- * PHP: Version 7.2.4
- * Apache: Version: 2.4.33
+ * WordPress: Version 4.9.8
+ * MariaDB Version 10.1.35-MariaDB
+ * PHP: Version 7.2.9
+ * Apache: Version: 2.4.34
 
 
 Others
@@ -22,8 +22,7 @@ Others
 
 ## Experimental Work
 
- * It is an experimental and proof-of-concept work.
- * This work may not suit your purpose, by its nature.
+It is an experimental and proof-of-concept work. It may not suit your purpose, by its nature.
 
 
 ## Usage examples
@@ -54,7 +53,7 @@ Others
  * [third source="jotform" id="0000000000" section=""]
  * [third source="markdown" id="https://.../readme.md" section=""]
  * [third source="youtube" id="v0000000000" section=""]
- * [third source="qr" id="" section=""]
+ * [third source="qr" id="" section="internal"]
 
 
 ### Work|Concepts in Progress
