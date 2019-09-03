@@ -9,7 +9,7 @@ WordPress developers should expand the **$processor->fetch()** interface to make
 
  * WordPress: Version 4.9.8
  * MariaDB Version 10.1.35-MariaDB
- * PHP: Version 7.2.9
+ * PHP: Version 7.3.5
  * Apache: Version: 2.4.34
 
 
@@ -34,9 +34,9 @@ It is an experimental and proof-of-concept work. It may not suit your purpose, b
 
  * **source**: is a content fetcher and processor type that knowns from where to seek the data (eg. Content Hosting Server). Examples:
    - markdown
-   - wikipedia
-   - database
-   - url/api
+   - wikipedia (todo)
+   - database (todo)
+   - url/api (todo)
    - file
    - ...
  * **id** is a URL or unique identifier given by the third parties.
@@ -48,7 +48,7 @@ It is an experimental and proof-of-concept work. It may not suit your purpose, b
 
  * [third source="analytics" id="UA-00000000-0" section=""]
  * [third source="database" id="0" section="0"] - partially developed, left for developers
- * [third source="file" id="/tmp/static.txt" section=""]
+ * [third source="file" id="/tmp/static.txt" section=""] - Do NOT use on shared servers
  * [third source="gist" id="0000000000" section="file.php"]
  * [third source="jotform" id="0000000000" section=""]
  * [third source="markdown" id="https://.../readme.md" section=""]
