@@ -1,3 +1,6 @@
+/**
+ * Inserts an icon to use [third] tag
+ */
 (function() {
 	tinymce.create('tinymce.plugins.HCIThirdShortcode', {
 		init: function(editor, url) {

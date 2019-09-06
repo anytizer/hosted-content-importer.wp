@@ -15,8 +15,8 @@ WordPress developers should expand the **$processor->fetch()** interface to make
 
 Others
 
- * [Gist](https://gist.github.com/) - for embeding gist snippets
- * [JotForm](https://jotform.com/) - for embeding web forms
+ * [Gist](https://gist.github.com/) - for embedding gist snippets
+ * [JotForm](https://jotform.com/) - for embedding web forms
  * [Parsedown](https://github.com/erusev/parsedown) - for rendering .md files
 
 

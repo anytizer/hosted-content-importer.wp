@@ -42,10 +42,10 @@ if(!count($files))
 
 				$row = "
 <tr>
-<td align='right'>{$counter}.</td>
-<td>{$processor}</td>
-<td>{$status}</td>
-<td>[third source=\"{$processor}\" id=\"\" section=\"\"]</td>
+    <td align='right'>{$counter}.</td>
+    <td>{$processor}</td>
+    <td>{$status}</td>
+    <td>[third source=\"{$processor}\" id=\"\" section=\"\"]</td>
 </tr>
 	";
 

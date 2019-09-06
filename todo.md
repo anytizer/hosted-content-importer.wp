@@ -1,6 +1,8 @@
 # @todo
 
- * Cached folders to become NOT browsable
+add ext-curl to composer.json.
+
+ * Cached folders to become NOT browsेable
  * Use cached.php
 
  * Warnings:
@@ -19,7 +21,7 @@
  * On a too big amount of files, pages or posts, it may slow down (admin report pages).
  * Supply testing scripts with various reasons.
  * Auto code formatting has merged array key/values in one single line.
- * Download Parsedown on demand on first installation.
+ * Download Parsedown on demand on first installation. Do not include by default.
  * If undefined parameters are passed, pass them as separate array.
 	eg. YouTube: Height, Width
  * Show reports in tabbed pages.
@@ -31,7 +33,7 @@
 ## Others
 
  * Give URLs from a central configuration
- * If remote fectching failed:
+ * If remote fetching failed:
     - reuse the expired cache once
     - do not write over the cache with empty contents
  * Cache the output for 2 reasons; plan to have cache="true|false" 

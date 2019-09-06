@@ -39,11 +39,11 @@ if(!count($files))
 				$created_on_date = date('Y-m-d H:i:s', $created_on);
 				$row = "
 <tr>
-<td align='right'>{$counter}.</td>
-<td>{$basename}</td>
-<td align='right'>{$size}</td>
-<td>{$created_on_date}</td>
-<td align='right'>{$age_readable}</td>
+    <td align='right'>{$counter}.</td>
+    <td>{$basename}</td>
+    <td align='right'>{$size}</td>
+    <td>{$created_on_date}</td>
+    <td align='right'>{$age_readable}</td>
 </tr>
 	";
 

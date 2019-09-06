@@ -47,7 +47,7 @@ final class hosted_content_shortcode
 			'section' => 'arbitrary',
 			'cache' => 'true',
 			
-			# Others, plus anyting that user typed in
+			# Others, plus anything that user typed in
 			'age' => HCI_CACHE_DURATION, # 5*60*60, # @todo Custom cache age
 			'permanent' => 'false', # @todo permanent cache
 			'width' => '560', # @todo eg. YouTube, QR

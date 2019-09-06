@@ -9,8 +9,11 @@ final class hosted_content_importer
 
 	public function __construct()
 	{
-		spl_autoload_register(array($this, '_autoload_processors'));
-	}
+        try {
+            spl_autoload_register(array($this, '_autoload_processors'));
+        } catch (Exception $e) {
+        }
+    }
 	
 	public function as_is()
 	{
@@ -119,7 +122,7 @@ final class hosted_content_importer
             $processor = require_once(HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php");
             if(is_file($processor))
             {
-                require_once($processor);
+                require_once $processor;
             }
         }
 	}

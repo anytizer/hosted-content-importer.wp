@@ -2,7 +2,7 @@
 
 /**
  * Google Analytics
- * Seems to be odd to process with shorcode, but works to track specific pages
+ * Seems to be odd to process with shortcode, but works to track specific pages
  * Normally expected to be at the end of theme's footer only.
  *
  * Usage Example: [third source="analytics" id="UA-XXXXXXXX-X" section=""]

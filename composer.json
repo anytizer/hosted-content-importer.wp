@@ -7,12 +7,12 @@
     {
       "type": "package",
       "package": {
-        "name": "bimalpoudel/hosted-content-importer",
+        "name": "anytizer/hosted-content-importer",
         "version": "0.0.0",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/bimalpoudel/hosted-content-importer/archive/master.zip"
+          "url": "https://github.com/anytizer/hosted-content-importer/archive/master.zip"
         },
         "require" : {
           "composer/installers": "*"
@@ -22,7 +22,8 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "bimalpoudel/hosted-content-importer": "*"
+    "anytizer/hosted-content-importer": "*",
+    "ext-curl": "*"
   },
     "config": {
 	"secure-http": false

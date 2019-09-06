@@ -66,14 +66,14 @@ The list is not limited, you expand it. [Join/Fork Development](https://goo.gl/8
 Learn to write your [.md file](http://parsedown.org/demo).
 
 
-= Example: Embeding a gist code from GitHub =
+= Example: Embedding a gist code from GitHub =
 
 `[third source="gist" id="000000000000" section="filename.php"]`
 
 Create [your gists at GitHub](https://gist.github.com/).
 
 
-= Example: Embeding a JotForm =
+= Example: Embedding a JotForm =
 
 `[third source="jotform" id="000000000000" section=""]`
 
@@ -106,7 +106,7 @@ Detailed implementations are left for the developers because of the nature. It i
 The above example is a full code. If you embed it anywhere, it lets your users copy that page's URL into their mobile.
 
 
-= Example: Embeding a YouTube Video =
+= Example: Embedding a YouTube Video =
 
 `[third source="youtube" id="v00000000000" section=""]`
 
@@ -187,7 +187,7 @@ As a matter of rule, do not embed something that you do not trust at all. Implem
 
 If you are maintainer of a portion of the content of any other websites, act responsibly; do NOT commit any unsafe contents. When you edit some file that you have access to, it may affect someone else's website that you are authorised to manage contents.
 
-Be good, do good. **Always** import contents onlly from the sources that you trust.
+Be good, do good. **Always** import contents only from the sources that you trust.
 
 Also, you can create and host your own Micro Content Services. [See an Example](https://goo.gl/UOzOGI).
 
@@ -238,7 +238,7 @@ Please view the original development at: https://goo.gl/89KgSC for details and f
 
 = 2.0.1 =
 * JotForm added.
-* SPL Autoloading the content processors.
+* SPL Auto-Loading the content processors.
 * Embedding gists: a new gist processor introduced.
 
 = 2.0.0 =
@@ -284,4 +284,4 @@ Just that much easy drop-in replacement.
 
 Used from [unsplash.com](https://unsplash.com)
 
- * [Cable Cars and Rope](https://unsplash.com/photos/ea9Zg7HkFXQ): Represents contents comming from various sources.
+ * [Cable Cars and Rope](https://unsplash.com/photos/ea9Zg7HkFXQ): Represents contents coming from various sources.
