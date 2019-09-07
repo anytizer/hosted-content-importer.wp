@@ -1,0 +1,9 @@
+cases\Code
+ [x] Code wraps html
+
+cases\File
+ [x] File reads contents
+
+cases\GoogleAnalytics
+ [x] Google analytics contains tracking code
+

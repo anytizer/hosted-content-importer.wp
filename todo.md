@@ -1,5 +1,7 @@
 # @todo
 
+implement namespace to processors.
+
 add ext-curl to composer.json.
 
  * Cached folders to become NOT browsेable

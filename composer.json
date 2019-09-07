@@ -7,12 +7,12 @@
     {
       "type": "package",
       "package": {
-        "name": "anytizer/hosted-content-importer",
+        "name": "anytizer/hosted-content-importer.wp",
         "version": "0.0.0",
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "https://github.com/anytizer/hosted-content-importer/archive/master.zip"
+          "url": "https://github.com/anytizer/hosted-content-importer.wp/archive/master.zip"
         },
         "require" : {
           "composer/installers": "*"
@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "anytizer/hosted-content-importer": "*",
+    "anytizer/hosted-content-importer.wp": "*",
     "ext-curl": "*"
   },
     "config": {

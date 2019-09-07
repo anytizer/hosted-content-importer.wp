@@ -24,7 +24,7 @@ class processor_file extends hosted_content_interface
 	public function fetch($file_name = '/tmp/readme.txt', $section_id = 0, $others=array())
 	{
 		/**
-		 * Do NOT use include()/require() methods for safety reasons;
+		 * Important: Do NOT use include()/require() methods for safety reasons;
          * Serve the file as is.
          *
          * Do not use it on shared server
