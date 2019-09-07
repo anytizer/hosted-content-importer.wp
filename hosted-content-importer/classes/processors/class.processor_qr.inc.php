@@ -42,7 +42,7 @@ class processor_qr extends hosted_content_interface
 		$query = http_build_query($parameters);
 		$src = "https://chart.googleapis.com/chart?{$query}";
 		
-		$html = "<img src='{$src}' height=150 width='150' class='hci-qr' />";
+		$html = "<img src='{$src}' height=150 width='150' class='hci-qr' alt='QR Image' />";
 		return $html;
 	}
 }
