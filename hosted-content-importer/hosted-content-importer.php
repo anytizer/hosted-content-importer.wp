@@ -16,7 +16,11 @@
 define("HCI_CACHE_DURATION", 5 * 60 * 60 + 0 * 60 + 0);
 
 /**
- * Do NOT edit
+ * Do NOT edit anything below
+ */
+
+/**
+ * Plugin path
  */
 define("HCI_PLUGIN_DIR", dirname(__FILE__));
 

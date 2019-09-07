@@ -1,18 +1,15 @@
 <?php
 function _shortcodes_handler_name($handler=null)
 {
-	$_handler = '';
+	$_handler = "{$handler}()";
 	if(is_array($handler))
 	{
 		$_class = get_class($handler[0]);
 		$_method = $handler[1];
+
 		$_handler = "{$_class}::{$_method}()";
 	}
-	else
-	{
-		$_handler = "{$handler}()";
-	}
-	
+
 	return $_handler;
 }
 ?>
