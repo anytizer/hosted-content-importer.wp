@@ -117,9 +117,9 @@ final class hosted_content_importer
 
 	private function _autoload_processors($class_name = '')
 	{
-        if(file_exists(HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php"))
+	    $processor = HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php";
+        if(file_exists($processor))
         {
-            $processor = require_once(HCI_PLUGIN_DIR . "/classes/processors/class.{$class_name}.inc.php");
             if(is_file($processor))
             {
                 require_once $processor;
