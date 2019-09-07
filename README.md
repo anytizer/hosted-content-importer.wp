@@ -32,7 +32,7 @@ It is an experimental and proof-of-concept work. It may not suit your purpose, b
 
 ### Parameters
 
- * **source**: is a content fetcher and processor type that knowns from where to seek the data (eg. Content Hosting Server). Examples:
+ * **source**: is a content fetcher and processor type that knows from where to seek the data (eg. Content Hosting Server). Examples:
    - markdown
    - wikipedia (todo)
    - database (todo)
@@ -73,6 +73,7 @@ The list below is a concept only and is not implemented.
 
 ## Deployment
 
- * Published publicly as a [WordPress Plugin](https://wordpress.org/plugins/hosted-content-importer/)
- * [View SVN Repository](https://plugins.svn.wordpress.org/hosted-content-importer/)
- * Active development takes in [GitHub](https://github.com/bimalpoudel/hosted-content-importer) only
+ * Published publicly as a [WordPress Plugin: HCI](https://wordpress.org/plugins/hosted-content-importer/).
+ * [View SVN Repository](https://plugins.svn.wordpress.org/hosted-content-importer/) for WordPress.
+ * Active development takes in [GitHub](https://github.com/anytizer/hosted-content-importer.wp) only.
+ * Built using [Notepad++](https://notepad-plus-plus.org), [NetBeans](https://netbeans.org/), and [PHPStorm](https://www.jetbrains.com/?from=anytizer).

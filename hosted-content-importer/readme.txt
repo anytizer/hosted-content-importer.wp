@@ -36,7 +36,7 @@ Additionally, it will convert the text into HTML using <a href="https://github.c
 
  - __analytics__: &#x2714; implemented (Google Analytics)
  - __file__: &#x2714; implemented (Read from local file)
- - __gist__: &#x2714; implemented (Embed Gist Snippes)
+ - __gist__: &#x2714; implemented (Embed Gist Snippets)
  - __jotform__: &#x2714; implemented (Embed Web Forms)
  - __markdown__: &#x2714; implemented (Parse remote markdown files)
  - __qr__: &#x2714; implemented
@@ -140,7 +140,7 @@ Refer to Custom Content Processor section in `[Other Notes]` tab.
 
  * Download the file hosted-content-importer.zip.
  * Unzip the file on your computer.
- * Upload folder hosted-content-importer (you just unziped) to /wp-content/plugins/ directory.
+ * Upload folder hosted-content-importer (you just unzipped) to /wp-content/plugins/ directory.
  * Activate the plugin through the WP Admin > Plugins menu.
 
 Click on [how to install a WordPress Plugin](http://goo.gl/Ims8pt) for more details.
@@ -219,7 +219,7 @@ Please view the original development at: https://goo.gl/89KgSC for details and f
 * Typos corrections.
 
 = 3.0.1 =
-* TinyMCE Plugin and text mode editor plgins added.
+* TinyMCE Plugin and text mode editor plugins added.
 * As-Is request for not wrapping the HTML Output within HCI divs.
 * Experimental: Dumped handlers or registered shortcodes.
 * Screenshots added.
@@ -254,7 +254,7 @@ Please view the original development at: https://goo.gl/89KgSC for details and f
 
 == Upgrade Notice ==
 
-When this plugin is used and disabled, your blogs will show your `[third]` shortcode as it is, which may reveal your associated parameters. The precautionary design does not allow username/password and API keys in the shortcode tags.
+When this plugin is used and disabled, your blog will show your `[third]` shortcode as it is, which may reveal your associated parameters. The precautionary design does not allow username/password and API keys in the shortcode tags.
 
 = Safety Precaution =
 
