@@ -49,7 +49,7 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 			<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p>You may consider cleaning your posts listed above; before uninstalling <a href="https://wordpress.org/plugins/hosted-content-importer/">this plugin</a> | <a href="https://github.com/bimalpoudel/hosted-content-importer/" target="github">More</a>
+		<p>You may consider cleaning your posts listed above; before uninstalling <a href="https://wordpress.org/plugins/hosted-content-importer/">this plugin</a> | <a href="https://github.com/anytizer/hosted-content-importer/" target="github">More</a>
 		</p>
 	<?php else : ?>
 		<p>[third] tags are not in use. Safe as normal.</p>

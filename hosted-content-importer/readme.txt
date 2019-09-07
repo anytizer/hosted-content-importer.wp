@@ -158,7 +158,7 @@ Example:
 
 Your URL (ID) should be a full URL to your .md file on the remote server.
 
-There are several other ways to include remote contents. Each unique content is processed by its own processor. [View Source Codes](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors) for each processors.
+There are several other ways to include remote contents. Each unique content is processed by its own processor. [View Source Codes](https://github.com/anytizer/hosted-content-importer/tree/master/hosted-content-importer/classes/processors) for each processors.
 
 
 = How does it work? =
@@ -275,7 +275,7 @@ Just create a tiny class file inside **classes/processors** as like one of the e
   * For references, see `class.processor_none.inc.php`
 3. Use as: `[third source="YOURNAME" section=""]`
 
-Click for [real examples](https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
+Click for [real examples](https://github.com/anytizer/hosted-content-importer/tree/master/hosted-content-importer/classes/processors).
 
 Just that much easy drop-in replacement.
 
