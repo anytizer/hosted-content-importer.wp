@@ -12,7 +12,7 @@ if(!count($files))
 ?>
 <div class="wrap">
 	<h2>Available - Content Processors</h2>
-	<p><a href="https://github.com/bimalpoudel/hosted-content-importer/tree/master/hosted-content-importer/classes/processors" target="github">More about Content Proecssors</a></p>
+	<p><a href="https://github.com/anytizer/hosted-content-importer/tree/master/hosted-content-importer/classes/processors" target="github">More about Content Processors</a></p>
 	<table class='data'>
 		<thead>
 		<tr>
@@ -37,12 +37,12 @@ if(!count($files))
 				 * Instantiate to check if the development was marked finished.
 				 */
 				$class_name = "processor_{$processor}";
-				$dummy = new $class_name;
+				$dummy = new $class_name();
 				$status = $dummy->completed() ? 'Completed' : 'Work in Progress';
 
 				$row = "
 <tr>
-    <td align='right'>{$counter}.</td>
+    <td>{$counter}.</td>
     <td>{$processor}</td>
     <td>{$status}</td>
     <td>[third source=\"{$processor}\" id=\"\" section=\"\"]</td>

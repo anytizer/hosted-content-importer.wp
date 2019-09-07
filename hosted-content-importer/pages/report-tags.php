@@ -40,7 +40,7 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 				$permalink = get_permalink($post->ID);
 				?>
 				<tr>
-					<td align="right"><?php echo ++$counter; ?>.</td>
+					<td><?php echo ++$counter; ?>.</td>
 					<td><?php echo $post->post_date; ?></td>
 					<td><?php echo $post->post_type; ?></td>
 					<td><a href="<?php echo $permalink; ?>"><?php echo $post->post_title; ?></a></td>
@@ -49,8 +49,7 @@ $posts = $wpdb->get_results($pages_query, OBJECT);
 			<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p>You may consider cleaning your posts listed above; before uninstalling <a
-				href="https://wordpress.org/plugins/hosted-content-importer/">this plugin</a> | <a href="https://github.com/bimalpoudel/hosted-content-importer/" target="github">More</a>
+		<p>You may consider cleaning your posts listed above; before uninstalling <a href="https://wordpress.org/plugins/hosted-content-importer/">this plugin</a> | <a href="https://github.com/bimalpoudel/hosted-content-importer/" target="github">More</a>
 		</p>
 	<?php else : ?>
 		<p>[third] tags are not in use. Safe as normal.</p>
