@@ -23,7 +23,8 @@
   "require": {
     "php": ">=5.3.0",
     "anytizer/hosted-content-importer.wp": "*",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "anytizer/relay.php": "dev-master"
   },
     "config": {
 	"secure-http": false
