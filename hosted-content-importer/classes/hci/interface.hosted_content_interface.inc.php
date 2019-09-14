@@ -30,6 +30,7 @@ abstract class hosted_content_interface
 
 	/**
 	 * Fetch contents from third party server
+     * @todo Use anytizer/relay.php via composer
 	 *
 	 * @param string $url
 	 *

@@ -1,5 +1,8 @@
 # @todo
 
+Cache control in admin panel.
+https://github.com/anytizer/hosted-content-importer.wp/issues/4
+
 implement namespace to processors.
 
 add ext-curl to composer.json.
@@ -23,13 +26,13 @@ add ext-curl to composer.json.
  * On a too big amount of files, pages or posts, it may slow down (admin report pages).
  * Supply testing scripts with various reasons.
  * Auto code formatting has merged array key/values in one single line.
- * Download Parsedown on demand on first installation. Do not include by default.
+ * Download Parsedown on demand on first installation. Do not include by default. Composer based.
  * If undefined parameters are passed, pass them as separate array.
 	eg. YouTube: Height, Width
  * Show reports in tabbed pages.
 	- https://jqueryui.com/tabs/#default
  * When cache file is used, mention it as HTML Comments.
- * When plugin is uninstalled, remove the cache files.
+ * When plugin is uninstalled, remove the cache files too.
 
 
 ## Others
@@ -44,7 +47,7 @@ add ext-curl to composer.json.
     - Configurable cache duration
     - Some caches may remain permanently as is.
 
- * Replace curl with (HTTP_API](https://codex.wordpress.org/HTTP_API)
+ * Replace curl with [HTTP_API](https://developer.wordpress.org/plugins/http-api/) as requested once.
  * Write an article around it
  * Make it installable via composer
  * Free the HTML output (`<div>`) from being wrapped inside `<p>` tags

@@ -2,3 +2,5 @@
 .svn
 /hosted-content-importer/caches/*.cache
 /phpunit/.phpunit.result.cache
+/wp-content
+/vendor
