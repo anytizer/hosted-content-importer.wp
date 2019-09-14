@@ -12,7 +12,7 @@ class processor_youtube extends hosted_content_interface
 
 	public function fetch($video_id = null, $section_id = null, $others=array())
 	{
-		$html = '<iframe width="%s" height="%s" src="https://www.youtube.com/embed/%s" allowfullscreen=""></iframe>';
+		$html = '<iframe width="%s" height="%s" src="https://www.youtube.com/embed/%s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 
 		$width = !empty($others['width'])?(int)$others['width']:560;
 		$height = !empty($others['height'])?(int)$others['height']:315;
