@@ -7,7 +7,7 @@
  * Author URI: http://bimal.org.np/
  * Development URI: https://github.com/anytizer/hosted-content-importer.wp/
  * License: MIT
- * Version: 3.0.2
+ * Version: 3.0.3
  */
 
 /**
